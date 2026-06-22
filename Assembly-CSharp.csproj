@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\StateMachine.cs" />
     <Compile Include="Assets\Script\Player_IdleState.cs" />
     <Compile Include="Assets\Script\EntityState.cs" />
+    <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
