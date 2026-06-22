@@ -61,8 +61,10 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Player_MoveState.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\StateMachine.cs" />
+    <Compile Include="Assets\Script\Player_IdleState.cs" />
     <Compile Include="Assets\Script\EntityState.cs" />
   </ItemGroup>
   <ItemGroup>
