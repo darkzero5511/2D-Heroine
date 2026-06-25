@@ -10,6 +10,9 @@ public class Player_GroundState : EntityState
     {
         base.Update();
 
+        if (rb.linearVelocity.y < 0)
+            stateMachine.ChangeState(player.idleState);
+
         if (input.Player.Jump.WasPerformedThisFrame())
             stateMachine.ChangeState(player.jumpState);
     }
