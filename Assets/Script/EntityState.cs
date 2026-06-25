@@ -8,6 +8,7 @@ public abstract class EntityState
 
     protected Animator anim;
     protected Rigidbody2D rb;
+    protected PlayerInputSet input;
 
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
@@ -17,23 +18,21 @@ public abstract class EntityState
 
         anim = player.anim;
         rb = player.rb;
+        input = player.input;
     }
 
     public virtual void Enter()
     {
-        // evertime state will be chaned, enter will be called
         anim.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
     {
-        //we going to run logic of the state here
-        Debug.Log(animBoolName + " State");
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     public virtual void Exit()
     {
-        // this will be called, every time we exit state and change to a new one
         anim.SetBool(animBoolName, false);
     }
 }
