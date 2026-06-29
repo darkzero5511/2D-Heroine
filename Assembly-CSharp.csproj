@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\StateMachine.cs" />
     <Compile Include="Assets\Script\Player_IdleState.cs" />
     <Compile Include="Assets\Script\EntityState.cs" />
+    <Compile Include="Assets\Script\Player_DashState.cs" />
     <Compile Include="Assets\Script\Player_FallState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Player_GroundState.cs" />
