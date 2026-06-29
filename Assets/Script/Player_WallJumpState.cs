@@ -10,7 +10,10 @@ public class Player_WallJumpState : EntityState
     {
         base.Enter();
 
-        player.SetVelocity(player.wallJumpForce.x * (-player.faingDir), player.wallJumpForce.y);
+        if (player.moveInput.x != 0)
+            player.SetVelocity(player.wallBoundForce.x * (-player.facingDir), player.wallBoundForce.y);
+        else
+            player.SetVelocity(player.wallJumpForce.x * (-player.facingDir), player.wallJumpForce.y);
     }
 
     public override void Update()
