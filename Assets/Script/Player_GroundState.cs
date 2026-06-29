@@ -15,5 +15,8 @@ public class Player_GroundState : EntityState
 
         if (input.Player.Jump.WasPerformedThisFrame())
             stateMachine.ChangeState(player.jumpState);
+
+        if (input.Player.Attack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.basicAttackState);
     }
 }
