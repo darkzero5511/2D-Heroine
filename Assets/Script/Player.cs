@@ -30,7 +30,10 @@ public class Player : MonoBehaviour
     public float moveSpeed;
 
     public float jumpForce = 5;
+
+    [Space]
     public Vector2 wallJumpForce;
+
     public Vector2 wallBoundForce;
 
     [Range(0, 1)]
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
     public float dashDuration = .25f;
 
     public float dashSpeed = 20;
+    public float dashCooldown = 2;
 
     private bool facingRight = true;
     public int facingDir { get; private set; } = 1;

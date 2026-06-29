@@ -8,6 +8,7 @@ public class Player_DashState : EntityState
 
     private float originalGravityScale;
     private float dashDir;
+    public float lastTimeDashed;
 
     public override void Enter()
     {
@@ -43,6 +44,8 @@ public class Player_DashState : EntityState
 
         player.SetVelocity(0, 0);
         rb.gravityScale = originalGravityScale;
+
+        lastTimeDashed = Time.time;
     }
 
     private void CancelDashIfNeeded()

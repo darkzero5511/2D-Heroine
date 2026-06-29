@@ -57,6 +57,9 @@ public abstract class EntityState
         if (stateMachine.currentState == player.dashState)
             return false;
 
+        if (Time.time < player.dashState.lastTimeDashed + player.dashCooldown)
+            return false;
+
         return true;
     }
 }
