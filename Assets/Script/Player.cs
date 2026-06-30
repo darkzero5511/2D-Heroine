@@ -17,34 +17,29 @@ public class Player : MonoBehaviour
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
+    public Player_JumpAttackState jumpAttackState { get; private set; }
+    public Player_Grab grabState { get; private set; }
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
-
     public float attackVelocityDuration = .1f;
     public float comboResetTime = 1;
-
     private Coroutine queuedAttackCo;
 
     [Header("Movement Detail")]
     public float moveSpeed;
-
     public float jumpForce = 5;
 
-    [Space]
+    [Space] // Jump
     public Vector2 wallJumpForce;
-
     public Vector2 wallBoundForce;
+    public Vector2 jumpAttackForce;
 
-    [Range(0, 1)]
-    public float inAirMoveMultiplier = .7f;
+    [Range(0, 1)] public float inAirMoveMultiplier = .7f;
+    [Range(0, 1)]public float wallSlideSlowMultiplier = 0.9f;
 
-    [Range(0, 1)]
-    public float wallSlideSlowMultiplier = 0.9f;
-
-    [Space]
+    [Space] // Dash
     public float dashDuration = .25f;
-
     public float dashSpeed = 20;
     public float dashCooldown = 2;
 
@@ -54,11 +49,19 @@ public class Player : MonoBehaviour
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
-
     [SerializeField] private float wallCheckDistance;
+    [SerializeField] private float grabCheckDistance;
+
     [SerializeField] private LayerMask whatIsGround;
+
+    [SerializeField] private Transform primaryWallCheck;
+    [SerializeField] private Transform secondaryWallCheck;
+    [SerializeField] private Transform primaryGrabCheck;
+    [SerializeField] private Transform secondaryGrabCheck;
+
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
+    public bool GrabDetected { get; private set; }
 
     private void Awake()
     {
@@ -76,13 +79,14 @@ public class Player : MonoBehaviour
         wallJumpState = new Player_WallJumpState(this, stateMachine, "jumpFall");
         dashState = new Player_DashState(this, stateMachine, "dash");
         basicAttackState = new Player_BasicAttackState(this, stateMachine, "basicAttack");
+        jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
+        grabState = new Player_Grab(this, stateMachine, "grab");
     }
 
     private void OnEnable()
     {
         input.Enable();
 
-        //input.Player.Movement.started
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
     }
@@ -145,13 +149,29 @@ public class Player : MonoBehaviour
 
     private void HandleCollisionDetected()
     {
+        // Ground Detected
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance * facingDir, whatIsGround);
+
+        // Wall Detected
+        wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround)
+                    && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+
+        // Grab Detected
+        GrabDetected = Physics2D.Raycast(primaryGrabCheck.position, Vector2.right * facingDir, grabCheckDistance, whatIsGround)
+                        && !Physics2D.Raycast(secondaryGrabCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     }
 
     private void OnDrawGizmos()
     {
+        // Ground
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(wallCheckDistance * facingDir, 0));
+
+        // Wall
+        Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
+        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
+
+        // Grab
+        Gizmos.DrawLine(primaryGrabCheck.position, primaryGrabCheck.position + new Vector3(grabCheckDistance * facingDir, 0));
+        Gizmos.DrawLine(secondaryGrabCheck.position, secondaryGrabCheck.position + new Vector3(grabCheckDistance * facingDir, 0));
     }
 }

@@ -10,6 +10,9 @@ public class Player_FallState : Player_AiredState
     {
         base.Update();
 
+        if (player.GrabDetected)
+            stateMachine.ChangeState(player.grabState);
+
         if (player.groundDetected)
             stateMachine.ChangeState(player.idleState);
 

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\Player_JumpState.cs" />
     <Compile Include="Assets\Script\Player_WallJumpState.cs" />
+    <Compile Include="Assets\Script\Player_Grab.cs" />
     <Compile Include="Assets\Script\Player_WallSlideState.cs" />
     <Compile Include="Assets\Script\StateMachine.cs" />
     <Compile Include="Assets\Script\Player_IdleState.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Script\Player_DashState.cs" />
     <Compile Include="Assets\Script\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player_FallState.cs" />
+    <Compile Include="Assets\Script\Player_JumpAttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Player_GroundState.cs" />
   </ItemGroup>
