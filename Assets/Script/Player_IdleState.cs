@@ -11,11 +11,16 @@ public class Player_IdleState : Player_GroundState
         base.Enter();
 
         player.SetVelocity(0, rb.linearVelocity.y);
+
+        
     }
 
     public override void Update()
     {
         base.Update();
+
+        if (stateMachine.currentState == player.basicAttackState)
+            return;
 
         if (player.GrabDetected)
             stateMachine.ChangeState(player.grabState);

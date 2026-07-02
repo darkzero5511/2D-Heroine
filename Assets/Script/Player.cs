@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public Player_DashState dashState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
-    public Player_Grab grabState { get; private set; }
+    public Player_GrabState grabState { get; private set; }
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     public float dashSpeed = 20;
     public float dashCooldown = 2;
 
-    private bool facingRight = true;
+    private bool facingRight  = true;
     public int facingDir { get; private set; } = 1;
     public Vector2 moveInput { get; private set; }
 
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         dashState = new Player_DashState(this, stateMachine, "dash");
         basicAttackState = new Player_BasicAttackState(this, stateMachine, "basicAttack");
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
-        grabState = new Player_Grab(this, stateMachine, "grab");
+        grabState = new Player_GrabState(this, stateMachine, "grab");
     }
 
     private void OnEnable()
