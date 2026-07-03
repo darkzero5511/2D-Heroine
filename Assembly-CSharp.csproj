@@ -75,6 +75,7 @@
     <Compile Include="Assets\Script\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player_FallState.cs" />
     <Compile Include="Assets\Script\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Script\Player_DashBackwardState.cs" />
     <Compile Include="Assets\Script\Player_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Player_GrabState.cs" />

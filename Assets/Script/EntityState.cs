@@ -36,7 +36,16 @@ public abstract class EntityState
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
 
         if (input.Player.Dash.WasPressedThisFrame() && canDash())
+        {
+            if (player.moveInput.x == 0 && player.groundDetected)
+                stateMachine.ChangeState(player.dashBackwardState);
+            else
+                
             stateMachine.ChangeState(player.dashState);
+        }
+            
+
+
     }
 
     public virtual void Exit()

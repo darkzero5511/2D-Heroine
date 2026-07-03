@@ -24,7 +24,6 @@ public class Player_IdleState : Player_GroundedState
             return;
         }
 
-
         if (player.moveInput.x == player.facingDir && player.wallDetected)
             return;
 

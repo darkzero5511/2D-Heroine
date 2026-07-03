@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
+    public Player_DashBackwardState dashBackwardState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_GrabState grabState { get; private set; }
@@ -31,8 +32,6 @@ public class Player : MonoBehaviour
     public float moveSpeed;
 
     public float jumpForce = 5;
-    public float turnAroundSpeed;
-    public bool changeDir = false;
 
     [Space] // Jump
     public Vector2 wallJumpForce;
@@ -45,8 +44,12 @@ public class Player : MonoBehaviour
 
     [Space] // Dash
     public float dashDuration = .25f;
+    public float dashBackDuration = .9f;
+
 
     public float dashSpeed = 20;
+    public float dashBackSpeed = -20;
+
     public float dashCooldown = 2;
 
     private bool facingRight = true;
@@ -88,6 +91,7 @@ public class Player : MonoBehaviour
         basicAttackState = new Player_BasicAttackState(this, stateMachine, "basicAttack");
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         grabState = new Player_GrabState(this, stateMachine, "grab");
+        dashBackwardState = new Player_DashBackwardState(this, stateMachine, "dashBackward");
     }
 
     private void OnEnable()
@@ -114,6 +118,7 @@ public class Player : MonoBehaviour
         stateMachine.UpdateActiveState();
     }
 
+    //Attack
     public void EnterAttackStateWithDelay()
     {
         if (queuedAttackCo != null)
@@ -157,8 +162,6 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDir = facingDir * -1;
-
-        changeDir = true;
     }
 
     private void HandleCollisionDetected()

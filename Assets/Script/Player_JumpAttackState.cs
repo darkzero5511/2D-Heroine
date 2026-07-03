@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Player_JumpAttackState : EntityState
 {
     private bool touchedGround;
