@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grabbing5_0
+      name: ToRun1_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 2
-        width: 28
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.66, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a79af3c883a3f3e0800000000000000
-      internalID: -2021091999960361047
+      spriteID: 2e58912f4b3010550800000000000000
+      internalID: 6125181043891340770
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3e5642c4d0bd0304eb3d2c019e86f4e9
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grabbing5_0: -2021091999960361047
+      ToRun1_0: 6125181043891340770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

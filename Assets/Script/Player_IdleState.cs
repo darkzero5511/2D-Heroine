@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Player_IdleState : Player_GroundState
+public class Player_IdleState : Player_GroundedState
 {
     public Player_IdleState(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
     {
@@ -11,19 +9,21 @@ public class Player_IdleState : Player_GroundState
         base.Enter();
 
         player.SetVelocity(0, rb.linearVelocity.y);
-
-        
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (stateMachine.currentState == player.basicAttackState)
+        if (stateMachine.currentState != this)
             return;
 
         if (player.GrabDetected)
+        {
             stateMachine.ChangeState(player.grabState);
+            return;
+        }
+
 
         if (player.moveInput.x == player.facingDir && player.wallDetected)
             return;

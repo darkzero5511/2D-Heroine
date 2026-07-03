@@ -22,33 +22,40 @@ public class Player : MonoBehaviour
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
+
     public float attackVelocityDuration = .1f;
     public float comboResetTime = 1;
     private Coroutine queuedAttackCo;
 
     [Header("Movement Detail")]
     public float moveSpeed;
+
     public float jumpForce = 5;
+    public float turnAroundSpeed;
+    public bool changeDir = false;
 
     [Space] // Jump
     public Vector2 wallJumpForce;
+
     public Vector2 wallBoundForce;
     public Vector2 jumpAttackForce;
 
     [Range(0, 1)] public float inAirMoveMultiplier = .7f;
-    [Range(0, 1)]public float wallSlideSlowMultiplier = 0.9f;
+    [Range(0, 1)] public float wallSlideSlowMultiplier = 0.9f;
 
     [Space] // Dash
     public float dashDuration = .25f;
+
     public float dashSpeed = 20;
     public float dashCooldown = 2;
 
-    private bool facingRight  = true;
+    private bool facingRight = true;
     public int facingDir { get; private set; } = 1;
     public Vector2 moveInput { get; private set; }
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
+
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private float grabCheckDistance;
 
@@ -132,6 +139,11 @@ public class Player : MonoBehaviour
         HandleFlip(xVelocity);
     }
 
+    public bool IsMovingAgainstFacingDir()
+    {
+        return moveInput.x != 0 && Mathf.Sign(moveInput.x) != facingDir;
+    }
+
     private void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && facingRight == false)
@@ -145,6 +157,8 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDir = facingDir * -1;
+
+        changeDir = true;
     }
 
     private void HandleCollisionDetected()

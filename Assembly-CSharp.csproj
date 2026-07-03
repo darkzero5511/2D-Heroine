@@ -75,9 +75,9 @@
     <Compile Include="Assets\Script\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player_FallState.cs" />
     <Compile Include="Assets\Script\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Script\Player_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Player_GrabState.cs" />
-    <Compile Include="Assets\Script\Player_GroundState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />

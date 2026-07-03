@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Player_GroundState : EntityState
+public class Player_GroundedState : EntityState
 {
-    public Player_GroundState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public Player_GroundedState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 
@@ -11,13 +11,21 @@ public class Player_GroundState : EntityState
         base.Update();
 
         if (rb.linearVelocity.y < 0 && player.groundDetected == false)
+        {
             stateMachine.ChangeState(player.fallState);
+            return;
+        }
 
         if (input.Player.Jump.WasPerformedThisFrame())
+        {
             stateMachine.ChangeState(player.jumpState);
+            return;
+        }
 
         if (input.Player.Attack.WasPressedThisFrame())
+        {
             stateMachine.ChangeState(player.basicAttackState);
-
+            return;
+        }
     }
 }
