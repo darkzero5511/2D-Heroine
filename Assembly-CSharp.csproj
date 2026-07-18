@@ -61,24 +61,26 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Player_AiredState.cs" />
-    <Compile Include="Assets\Script\Player_MoveState.cs" />
-    <Compile Include="Assets\Script\Player_BasicAttackState.cs" />
+    <Compile Include="Assets\Script\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\Player_JumpState.cs" />
-    <Compile Include="Assets\Script\Player_WallJumpState.cs" />
-    <Compile Include="Assets\Script\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_MoveState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_DashState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\StateMachine.cs" />
-    <Compile Include="Assets\Script\Player_IdleState.cs" />
     <Compile Include="Assets\Script\EntityState.cs" />
-    <Compile Include="Assets\Script\Player_DashState.cs" />
-    <Compile Include="Assets\Script\Player_AnimationTriggers.cs" />
-    <Compile Include="Assets\Script\Player_FallState.cs" />
-    <Compile Include="Assets\Script\Player_JumpAttackState.cs" />
-    <Compile Include="Assets\Script\Player_DashBackwardState.cs" />
-    <Compile Include="Assets\Script\Player_GroundedState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_GrabState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_FallState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_WallJumpState.cs" />
+    <Compile Include="Assets\Script\ParallaxBackground.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_BasicAttackState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_AiredState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_DashBackwardState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
-    <Compile Include="Assets\Script\Player_GrabState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_GroundedState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_JumpState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_IdleState.cs" />
+    <Compile Include="Assets\Script\PlayerStates\Player_WallSlideState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />
@@ -1101,6 +1103,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Cinemachine.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1145,12 +1151,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
@@ -1191,6 +1205,10 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Common">
