@@ -8,6 +8,10 @@ public class Player_FallState : Player_AiredState
     {
         base.Update();
 
+        //Double Jump
+        if (input.Player.Jump.WasPerformedThisFrame() && player.doubleJump > 0)
+            stateMachine.ChangeState(player.doubleJumpState);
+
         if (player.GrabDetected)
             stateMachine.ChangeState(player.grabState);
 

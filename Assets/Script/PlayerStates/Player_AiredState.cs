@@ -13,5 +13,6 @@ public class Player_AiredState : EntityState
 
         if (input.Player.Attack.WasPressedThisFrame())
             stateMachine.ChangeState(player.jumpAttackState);
+
     }
 }

@@ -35,17 +35,19 @@ public abstract class EntityState
         stateTimer -= Time.deltaTime;
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
 
-        if (input.Player.Dash.WasPressedThisFrame() && canDash())
+        if (input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
             if (player.moveInput.x == 0 && player.groundDetected)
                 stateMachine.ChangeState(player.dashBackwardState);
             else
-                
-            stateMachine.ChangeState(player.dashState);
+
+                stateMachine.ChangeState(player.dashState);
         }
-            
 
-
+        if (player.groundDetected)
+        {
+            player.doubleJump = 1;
+        }
     }
 
     public virtual void Exit()
@@ -58,7 +60,7 @@ public abstract class EntityState
         triggerCalled = true;
     }
 
-    public bool canDash()
+    public bool CanDash()
     {
         if (player.wallDetected)
             return false;

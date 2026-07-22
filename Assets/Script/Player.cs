@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_GrabState grabState { get; private set; }
+    public Player_DoubleJumpState doubleJumpState { get; private set; }
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
@@ -32,12 +33,14 @@ public class Player : MonoBehaviour
     public float moveSpeed;
 
     public float jumpForce = 5;
+    [Range(0, 1)] public float doubleJumpMultiplier = 0.6f;
 
     [Space] // Jump
     public Vector2 wallJumpForce;
 
     public Vector2 wallBoundForce;
     public Vector2 jumpAttackForce;
+    public int doubleJump = 1;
 
     [Range(0, 1)] public float inAirMoveMultiplier = .7f;
     [Range(0, 1)] public float wallSlideSlowMultiplier = 0.9f;
@@ -92,6 +95,7 @@ public class Player : MonoBehaviour
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         grabState = new Player_GrabState(this, stateMachine, "grab");
         dashBackwardState = new Player_DashBackwardState(this, stateMachine, "dashBackward");
+        doubleJumpState = new Player_DoubleJumpState(this, stateMachine, "doubleJump");
     }
 
     private void OnEnable()
