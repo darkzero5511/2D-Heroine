@@ -45,9 +45,9 @@ public abstract class EntityState
         }
 
         if (player.groundDetected)
-        {
             player.doubleJump = 1;
-        }
+        else if (!player.groundDetected && player.wallDetected)
+            player.doubleJump = 0;
     }
 
     public virtual void Exit()

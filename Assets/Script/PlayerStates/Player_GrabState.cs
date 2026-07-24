@@ -9,10 +9,11 @@ public class Player_GrabState : EntityState
     {
     }
 
+    public float lastTimeGrab;
+
     public override void Enter()
     {
         base.Enter();
-
         grabPosition = rb.position;
 
         originalGravityScale = rb.gravityScale;
@@ -22,11 +23,19 @@ public class Player_GrabState : EntityState
     public override void Update()
     {
         base.Update();
+        if (stateTimer < 0)
+        {
+            rb.MovePosition(grabPosition);
 
-        rb.MovePosition(grabPosition);
+            if (input.Player.Jump.WasPressedThisFrame())
+                stateMachine.ChangeState(player.jumpState);
 
-        if (input.Player.Jump.WasPressedThisFrame())
-            stateMachine.ChangeState(player.jumpState);
+            if (input.Player.Movement.WasPressedThisFrame())
+            {
+                player.Flip();
+                stateMachine.ChangeState(player.fallState);
+            }
+        }
     }
 
     public override void Exit()
