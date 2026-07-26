@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_DashBackwardState : EntityState
+public class Player_DashBackwardState : PlayerState
 {
     public Player_DashBackwardState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {

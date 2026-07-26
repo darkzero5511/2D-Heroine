@@ -61,25 +61,27 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DoubleJumpState.cs" />
-    <Compile Include="Assets\Script\ParallaxLayer.cs" />
+    <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\EnityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\StateMachine.cs" />
-    <Compile Include="Assets\Script\EntityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Script\PlayerState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_WallJumpState.cs" />
-    <Compile Include="Assets\Script\ParallaxBackground.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DashBackwardState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_JumpState.cs" />
+    <Compile Include="Assets\Script\Enity.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_WallSlideState.cs" />
   </ItemGroup>

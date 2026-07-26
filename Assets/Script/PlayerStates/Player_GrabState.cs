@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player_GrabState : EntityState
+public class Player_GrabState : PlayerState
 {
     private Vector2 grabPosition;
     private float originalGravityScale;

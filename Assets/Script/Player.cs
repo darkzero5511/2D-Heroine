@@ -1,13 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Enity
 {
-    public Animator anim;
-    public Rigidbody2D rb { get; private set; }
-
     public PlayerInputSet input { get; private set; }
-    private StateMachine stateMachine;
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
@@ -22,20 +18,25 @@ public class Player : MonoBehaviour
     public Player_GrabState grabState { get; private set; }
     public Player_DoubleJumpState doubleJumpState { get; private set; }
 
+    ///Attack
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
 
     public float attackVelocityDuration = .1f;
     public float comboResetTime = 1;
     private Coroutine queuedAttackCo;
+    ///Attack
 
+    ///Movement
     [Header("Movement Detail")]
     public float moveSpeed;
 
     public float jumpForce = 5;
     [Range(0, 1)] public float doubleJumpMultiplier = 0.6f;
+    ///Movement
 
-    [Space] // Jump
+    /// Jump
+    [Space]
     public Vector2 wallJumpForce;
 
     public Vector2 wallBoundForce;
@@ -44,44 +45,26 @@ public class Player : MonoBehaviour
 
     [Range(0, 1)] public float inAirMoveMultiplier = .7f;
     [Range(0, 1)] public float wallSlideSlowMultiplier = 0.9f;
+    /// Jump
 
-    [Space] // Dash
+    /// Dash
+    [Space]
     public float dashDuration = .25f;
-    public float dashBackDuration = .9f;
 
+    public float dashBackDuration = .9f;
 
     public float dashSpeed = 20;
     public float dashBackSpeed = -20;
 
     public float dashCooldown = 2;
+    /// Dash
 
-    private bool facingRight = true;
-    public int facingDir { get; private set; } = 1;
     public Vector2 moveInput { get; private set; }
 
-    [Header("Collision Detection")]
-    [SerializeField] private float groundCheckDistance;
-
-    [SerializeField] private float wallCheckDistance;
-    [SerializeField] private float grabCheckDistance;
-
-    [SerializeField] private LayerMask whatIsGround;
-
-    [SerializeField] private Transform primaryWallCheck;
-    [SerializeField] private Transform secondaryWallCheck;
-    [SerializeField] private Transform primaryGrabCheck;
-    [SerializeField] private Transform secondaryGrabCheck;
-
-    public bool groundDetected { get; private set; }
-    public bool wallDetected { get; private set; }
-    public bool GrabDetected { get; private set; }
-
-    private void Awake()
+    protected override void Awake()
     {
-        anim = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
 
-        stateMachine = new StateMachine();
         input = new PlayerInputSet();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
@@ -98,28 +81,11 @@ public class Player : MonoBehaviour
         doubleJumpState = new Player_DoubleJumpState(this, stateMachine, "doubleJump");
     }
 
-    private void OnEnable()
+    protected override void Start()
     {
-        input.Enable();
+        base.Start();
 
-        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
-    }
-
-    private void Start()
-    {
         stateMachine.Initialize(idleState);
-    }
-
-    private void Update()
-    {
-        HandleCollisionDetected();
-        stateMachine.UpdateActiveState();
     }
 
     //Attack
@@ -137,62 +103,21 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(basicAttackState);
     }
 
-    public void CallAnimationTrigger()
+    private void OnEnable()
     {
-        stateMachine.currentState.CallAnimationTrigger();
+        input.Enable();
+
+        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
     }
 
-    public void SetVelocity(float xVelocity, float yVelocity)
+    private void OnDisable()
     {
-        rb.linearVelocity = new Vector2(xVelocity, yVelocity);
-        HandleFlip(xVelocity);
+        input.Disable();
     }
 
     public bool IsMovingAgainstFacingDir()
     {
         return moveInput.x != 0 && Mathf.Sign(moveInput.x) != facingDir;
-    }
-
-    private void HandleFlip(float xVelocity)
-    {
-        if (xVelocity > 0 && facingRight == false)
-            Flip();
-        else if (xVelocity < 0 && facingRight == true)
-            Flip();
-    }
-
-    public void Flip()
-    {
-        transform.Rotate(0, 180, 0);
-        facingRight = !facingRight;
-        facingDir = facingDir * -1;
-    }
-
-    private void HandleCollisionDetected()
-    {
-        // Ground Detected
-        groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-
-        // Wall Detected
-        wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround)
-                    && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
-
-        // Grab Detected
-        GrabDetected = Physics2D.Raycast(primaryGrabCheck.position, Vector2.right * facingDir, grabCheckDistance, whatIsGround)
-                        && !Physics2D.Raycast(secondaryGrabCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Ground
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
-
-        // Wall
-        Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
-        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
-
-        // Grab
-        Gizmos.DrawLine(primaryGrabCheck.position, primaryGrabCheck.position + new Vector3(grabCheckDistance * facingDir, 0));
-        Gizmos.DrawLine(secondaryGrabCheck.position, secondaryGrabCheck.position + new Vector3(grabCheckDistance * facingDir, 0));
     }
 }

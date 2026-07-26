@@ -36144,8 +36144,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.07456863, y: -0.22285771}
-  m_Size: {x: 0.4775169, y: 1.9657154}
+  m_Offset: {x: -0.0034009218, y: -0.22285771}
+  m_Size: {x: 0.48289418, y: 1.9657154}
   m_Direction: 0
 --- !u!50 &298968884
 Rigidbody2D:
@@ -36207,9 +36207,9 @@ MonoBehaviour:
   dashSpeed: 30
   dashBackSpeed: -25
   dashCooldown: 0
-  groundCheckDistance: 1.4
-  wallCheckDistance: 0.43
-  grabCheckDistance: 0.43
+  groundCheckDistance: 1.23
+  wallCheckDistance: 0.28
+  grabCheckDistance: 0.28
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -36385,7 +36385,7 @@ Transform:
   m_GameObject: {fileID: 402644798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.662, z: 0}
+  m_LocalPosition: {x: 0, y: 0.527, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36416,7 +36416,7 @@ Transform:
   m_GameObject: {fileID: 402846274}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.747, z: 0}
+  m_LocalPosition: {x: 0, y: 0.658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
