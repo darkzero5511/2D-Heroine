@@ -62,28 +62,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
+    <Compile Include="Assets\Script\StateMachine\EnityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\EnityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DashState.cs" />
-    <Compile Include="Assets\Script\PlayerStates\Player_AnimationTriggers.cs" />
-    <Compile Include="Assets\Script\StateMachine.cs" />
+    <Compile Include="Assets\Script\Enemy_IdleState.cs" />
+    <Compile Include="Assets\Script\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_FallState.cs" />
+    <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_JumpAttackState.cs" />
-    <Compile Include="Assets\Script\PlayerState.cs" />
+    <Compile Include="Assets\Script\Enemy_AttackState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_WallJumpState.cs" />
+    <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DashBackwardState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
+    <Compile Include="Assets\Script\Enity_AnimationTriggers.cs" />
+    <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Script\Enity.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
+    <Compile Include="Assets\Script\Enemy_Skeleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />

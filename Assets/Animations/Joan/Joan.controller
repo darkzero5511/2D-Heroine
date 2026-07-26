@@ -304,7 +304,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8040914107587151747}
-    m_Position: {x: 310, y: -180, z: 0}
+    m_Position: {x: 310, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3345097052967861206}
     m_Position: {x: 310, y: 200, z: 0}
@@ -314,7 +314,7 @@ AnimatorStateMachine:
     m_Position: {x: -120, y: 110, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -5926472740511049290}
-    m_Position: {x: 300, y: -40, z: 0}
+    m_Position: {x: 300, y: -50, z: 0}
   m_AnyStateTransitions: []
   m_EntryTransitions:
   - {fileID: -3646073970675700434}
@@ -1001,7 +1001,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Joan_Idle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
