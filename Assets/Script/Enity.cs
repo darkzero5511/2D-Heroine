@@ -16,7 +16,7 @@ public class Enity : MonoBehaviour
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private float grabCheckDistance;
 
-    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsGround;
 
     //Ground
     [Space]
@@ -51,15 +51,15 @@ public class Enity : MonoBehaviour
         //Empty
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         HandleCollisionDetected();
         stateMachine.UpdateActiveState();
     }
 
-    public void CallAnimationTrigger()
+    public void CurrentStateAnimationTrigger()
     {
-        stateMachine.currentState.CallAnimationTrigger();
+        stateMachine.currentState.AnimationTrigger();
     }
 
     public void SetVelocity(float xVelocity, float yVelocity)
@@ -68,7 +68,7 @@ public class Enity : MonoBehaviour
         HandleFlip(xVelocity);
     }
 
-    private void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && facingRight == false)
             Flip();
@@ -103,18 +103,21 @@ public class Enity : MonoBehaviour
                             && !Physics2D.Raycast(secondaryGrabCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         // Ground
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
 
         // Wall
+        Gizmos.color = Color.green;
         Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
 
         if (secondaryWallCheck != null)
             Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * facingDir, 0));
 
         // Grab
+        Gizmos.color = Color.red;
         if (primaryGrabCheck != null && secondaryGrabCheck != null)
         {
             Gizmos.DrawLine(primaryGrabCheck.position, primaryGrabCheck.position + new Vector3(grabCheckDistance * facingDir, 0));

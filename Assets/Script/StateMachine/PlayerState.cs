@@ -18,8 +18,6 @@ public abstract class PlayerState : EnityState
     {
         base.Update();
 
-        anim.SetFloat("yVelocity", rb.linearVelocity.y);
-
         if (input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
             if (player.moveInput.x == 0 && player.groundDetected)
@@ -33,6 +31,12 @@ public abstract class PlayerState : EnityState
             player.doubleJump = 1;
         else if (!player.groundDetected && player.wallDetected)
             player.doubleJump = 0;
+    }
+
+    public override void UpdateAnimationParameters()
+    {
+        base.UpdateAnimationParameters();
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     public bool CanDash()

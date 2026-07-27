@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Script\StateMachine\EnityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DoubleJumpState.cs" />
+    <Compile Include="Assets\Script\Enemy_BattleState.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_MoveState.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Enity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\Script\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Script\Enity.cs" />

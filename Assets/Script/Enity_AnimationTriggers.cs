@@ -6,11 +6,11 @@ public class Enity_AnimationTriggers : MonoBehaviour
 
     private void Awake()
     {
-        enity = GetComponentInParent<Player>();
+        enity = GetComponentInParent<Enity>();
     }
 
     public void CurrentStateTrigger()
     {
-        enity.CallAnimationTrigger();
+        enity.CurrentStateAnimationTrigger();
     }
 }
