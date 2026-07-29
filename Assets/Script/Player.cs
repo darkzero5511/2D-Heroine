@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : Enity
+public class Player : Entity
 {
     public PlayerInputSet input { get; private set; }
 

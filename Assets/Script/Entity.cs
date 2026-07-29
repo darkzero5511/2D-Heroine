@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enity : MonoBehaviour
+public class Entity : MonoBehaviour
 {
     public Animator anim;
     public Rigidbody2D rb { get; private set; }
