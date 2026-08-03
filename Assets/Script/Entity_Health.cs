@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Entity_Health : MonoBehaviour
@@ -6,7 +5,7 @@ public class Entity_Health : MonoBehaviour
     [SerializeField] protected float maxHp = 1000;
     [SerializeField] protected bool isDeath;
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, Transform damageDealer)
     {
         if (isDeath)
             return;

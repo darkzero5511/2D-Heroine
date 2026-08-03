@@ -61,8 +61,9 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\StateMachine\EntityState.cs" />
+    <Compile Include="Assets\Script\Enemy_Health.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
-    <Compile Include="Assets\Script\StateMachine\EnityState.cs" />
     <Compile Include="Assets\Script\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\Entity.cs" />
     <Compile Include="Assets\Script\Enemy_BattleState.cs" />

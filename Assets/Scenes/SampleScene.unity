@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65810782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65810783}
+  m_Layer: 8
+  m_Name: PlayerAboveCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65810783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65810782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2054412536}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79089224
 GameObject:
   m_ObjectHideFlags: 0
@@ -36660,7 +36691,7 @@ GameObject:
   - component: {fileID: 298968888}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36760,7 +36791,7 @@ MonoBehaviour:
   attackVelocityDuration: 0.1
   comboResetTime: 0.5
   moveSpeed: 8
-  jumpForce: 15
+  jumpForce: 20
   doubleJumpMultiplier: 0.6
   wallJumpForce: {x: 10, y: 15}
   wallBoundForce: {x: 3, y: 10}
@@ -36806,7 +36837,7 @@ MonoBehaviour:
   damage: 10
   targetCheck: {fileID: 1455439773}
   targetCheck3: {fileID: 271920085}
-  targetCheckRadius: 0.8
+  targetCheckRadius: 1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
@@ -37586,7 +37617,7 @@ Transform:
   m_GameObject: {fileID: 680664372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.17, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48416,17 +48447,18 @@ MonoBehaviour:
   secondaryWallCheck: {fileID: 0}
   primaryGrabCheck: {fileID: 0}
   secondaryGrabCheck: {fileID: 0}
-  battleMoveSpeed: 5
+  battleMoveSpeed: 4
   attackDistance: 2.7
   battleTimeDuration: 5
   minRetreatDistance: 1
   retreatVelocity: {x: 4, y: 3}
-  idleTime: 2
+  idleTime: 1
   movespeed: 3
   moveAnimSpeedMultiplier: 2
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  playerAboveCheck: {fileID: 65810783}
   playerCheck: {fileID: 2054412536}
   playerCheckDistance: 10
 --- !u!4 &2054412536
@@ -48438,7 +48470,7 @@ Transform:
   m_GameObject: {fileID: 2054412532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1080208, y: -0.6, z: 0.010408899}
+  m_LocalPosition: {x: 14.12, y: -0.6, z: 0.010408899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48446,6 +48478,7 @@ Transform:
   - {fileID: 79089225}
   - {fileID: 1954646433}
   - {fileID: 344145865}
+  - {fileID: 65810783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2054412537
@@ -48476,10 +48509,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054412532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a3e4e0ffa10d849b29781311287511, type: 3}
+  m_Script: {fileID: 11500000, guid: 407db421d8a2dba47946b9b6ebd926f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
+  maxHp: 1000
   isDeath: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

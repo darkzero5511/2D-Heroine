@@ -29,9 +29,31 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10;
 
+    public Transform player { get; private set; }
+
+    public void TryEnterBattleState(Transform player)
+    {
+        if (stateMachine.currentState == battleState || stateMachine.currentState == attackState)
+            return;
+
+        this.player = player;
+        stateMachine.ChangeState(battleState);
+    }
+
+    public Transform GetPlayerReference()
+    {
+        if (player == null)
+            player = PlayerDetected().transform;
+        return player;
+    }
+
     public RaycastHit2D PlayerDetected()
     {
-        RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround);
+        RaycastHit2D hit = Physics2D.Raycast(
+            playerCheck.position,
+            Vector2.right * facingDir,
+            playerCheckDistance,
+            whatIsPlayer | whatIsGround);
 
         if (hit.collider == null || hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
             return default;

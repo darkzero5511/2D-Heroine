@@ -1,9 +1,13 @@
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_BattleState : EnemyState
 {
     private Transform player;
     private float lastTimeWasInBattle;
+    private float investigateStartTime;
+
+    private Vector2 lastKnownPlayerPosition;
 
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
@@ -13,9 +17,16 @@ public class Enemy_BattleState : EnemyState
     {
         base.Enter();
 
-        if (player == null)
-            player = enemy.PlayerDetected().transform;
+        UpdateBattleTimer();
 
+        if (player == null)
+            player = enemy.GetPlayerReference();
+
+        if (enemy.PlayerDetected())
+        {
+            UpdateBattleTimer();
+            lastKnownPlayerPosition = player.position;
+        }
         if (ShouldRetreat())
         {
             rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
@@ -26,9 +37,27 @@ public class Enemy_BattleState : EnemyState
     public override void Update()
     {
         base.Update();
-
         if (enemy.PlayerDetected())
+        {
             UpdateBattleTimer();
+            lastKnownPlayerPosition = player.position;
+        }
+
+        if (!enemy.PlayerDetected() && enemy.wallDetected)
+            StayAlert();
+
+        if (!enemy.PlayerDetected() && PlayerIsAbove())
+        {
+            if (!IsUnderPlayer())
+            {
+                enemy.SetVelocity(enemy.battleMoveSpeed * 1.2f * DirectionToPlayer(), rb.linearVelocity.y);
+                if (DistanceToPlayer() < .2f)
+                    StayAlert();
+            }
+            else
+                StayAlert();
+            return;
+        }
 
         if (BattleTimeIsOver())
             stateMachine.ChangeState(enemy.idleState);
@@ -39,13 +68,17 @@ public class Enemy_BattleState : EnemyState
             enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
     }
 
-    private void UpdateBattleTimer() => lastTimeWasInBattle = Time.time;
+    private void UpdateBattleTimer()
+        => lastTimeWasInBattle = Time.time;
 
-    private bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+    protected bool BattleTimeIsOver()
+        => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
 
-    private bool WithinAttackRange() => DistanceToPlayer() < enemy.attackDistance;
+    private bool WithinAttackRange()
+        => DistanceToPlayer() < enemy.attackDistance;
 
-    private bool ShouldRetreat() => DistanceToPlayer() < enemy.minRetreatDistance;
+    private bool ShouldRetreat()
+        => DistanceToPlayer() < enemy.minRetreatDistance;
 
     private float DistanceToPlayer()
     {
@@ -61,5 +94,29 @@ public class Enemy_BattleState : EnemyState
             return 0;
 
         return player.position.x > enemy.transform.position.x ? 1 : -1;
+    }
+
+    private bool PlayerIsAbove()
+    {
+        if (player == null)
+            return false;
+
+        return player.position.y > enemy.transform.position.y + 0.5f;
+    }
+
+    private bool IsUnderPlayer()
+    {
+        //if (player == null)
+        //    return false;
+
+        return Mathf.Abs(lastKnownPlayerPosition.x - enemy.transform.position.x) < 2f;
+    }
+
+    private void StayAlert()
+    {
+        enemy.SetVelocity(0, rb.linearVelocity.y);
+        Debug.Log("Stay Alert");
+        if (BattleTimeIsOver())
+            stateMachine.ChangeState(enemy.idleState);
     }
 }

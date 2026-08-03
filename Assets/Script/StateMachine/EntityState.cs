@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EnityState
+public abstract class EntityState
 {
     protected StateMachine stateMachine;
     protected string animBoolName;
@@ -11,7 +11,7 @@ public abstract class EnityState
     protected float stateTimer;
     protected bool triggerCalled;
 
-    public EnityState(StateMachine stateMachine, string animBoolName)
+    public EntityState(StateMachine stateMachine, string animBoolName)
     {
         this.stateMachine = stateMachine;
         this.animBoolName = animBoolName;

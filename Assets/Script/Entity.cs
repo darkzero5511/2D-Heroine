@@ -35,6 +35,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform secondaryGrabCheck;
 
     public bool groundDetected { get; private set; }
+    public bool groundAboveDetected { get; private set; }
     public bool wallDetected { get; private set; }
     public bool GrabDetected { get; private set; }
 
