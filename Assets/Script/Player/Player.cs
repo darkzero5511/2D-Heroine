@@ -1,11 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
 {
+    public static event Action OnPlayerDeath;
+
     public PlayerInputSet input { get; private set; }
 
+    //
+    //Player State
+    //
     public Player_IdleState idleState { get; private set; }
+
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
@@ -17,6 +24,7 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_GrabState grabState { get; private set; }
     public Player_DoubleJumpState doubleJumpState { get; private set; }
+    public Player_DeathState deathState { get; private set; }
 
     ///Attack
     [Header("Attack Details")]
@@ -79,6 +87,7 @@ public class Player : Entity
         grabState = new Player_GrabState(this, stateMachine, "grab");
         dashBackwardState = new Player_DashBackwardState(this, stateMachine, "dashBackward");
         doubleJumpState = new Player_DoubleJumpState(this, stateMachine, "doubleJump");
+        deathState = new Player_DeathState(this, stateMachine, "death");
     }
 
     protected override void Start()
@@ -101,6 +110,15 @@ public class Player : Entity
     {
         yield return new WaitForEndOfFrame();
         stateMachine.ChangeState(basicAttackState);
+    }
+
+    //Death
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+
+        OnPlayerDeath?.Invoke();
+        stateMachine.ChangeState(deathState);
     }
 
     private void OnEnable()

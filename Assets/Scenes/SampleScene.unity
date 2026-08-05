@@ -38074,8 +38074,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0034009218, y: -0.22285771}
-  m_Size: {x: 0.48289418, y: 1.9657154}
+  m_Offset: {x: -0.0034009218, y: -0.197828}
+  m_Size: {x: 0.48289418, y: 1.9337692}
   m_Direction: 0
 --- !u!50 &298968884
 Rigidbody2D:
@@ -38157,7 +38157,7 @@ Transform:
   m_GameObject: {fileID: 298968882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.26, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0.92, y: -0.825, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -38213,7 +38213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 100
+  maxHp: 20
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -38804,7 +38804,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.962152, y: -0.87349176, z: -9.989875}
+  m_LocalPosition: {x: -1.3778491, y: -1.2184918, z: -9.989875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49405,7 +49405,7 @@ Transform:
   m_GameObject: {fileID: 1766623843}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.962152, y: -0.87349176, z: -9.989875}
+  m_LocalPosition: {x: -1.3778491, y: -1.2184918, z: -9.989875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49759,8 +49759,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0047804713, y: -0.312684}
-  m_Size: {x: 0.70644796, y: 1.9950207}
+  m_Offset: {x: -0.0047804713, y: -0.30522686}
+  m_Size: {x: 0.70644796, y: 1.9801065}
   m_Direction: 0
 --- !u!50 &2054412534
 Rigidbody2D:
@@ -49858,7 +49858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c6c1126024337419476eb2aeee7534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   targetCheck: {fileID: 79089225}
   targetCheck3: {fileID: 0}
   targetCheckRadius: 1.2

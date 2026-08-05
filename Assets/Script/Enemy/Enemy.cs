@@ -36,6 +36,11 @@ public class Enemy : Entity
 
     public Transform player { get; private set; }
 
+    private void HandlePlayerDeath()
+    {
+        stateMachine.ChangeState(idleState);
+    }
+
     public override void EntityDeath()
     {
         base.EntityDeath();
@@ -87,5 +92,15 @@ public class Enemy : Entity
         //Retreat Distance
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (facingDir * minRetreatDistance), playerCheck.position.y));
+    }
+
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
     }
 }

@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_BattleState.cs" />
+    <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Script\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GroundedState.cs" />

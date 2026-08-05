@@ -8,9 +8,8 @@ public class Entity_Health : MonoBehaviour
     private Entity entity;
 
     [SerializeField] protected float currentHp;
-
     [SerializeField] protected float maxHp = 100;
-    [SerializeField] protected bool isDead = false;
+    [SerializeField] protected bool isDead;
 
     [Header("On Damage Knockback")]
     [SerializeField] private Vector2 knockbackPower = new Vector2(1.5f, 2.5f);
@@ -20,8 +19,7 @@ public class Entity_Health : MonoBehaviour
     [SerializeField] private float heavyKnockbackDuration = .5f;
 
     [Header("On Heavy Damage ")]
-    // Percentage of health you should lose to consider damage as heavy
-    [SerializeField] private float heavyDamageThreshold = .1f;
+    [SerializeField] private float heavyDamageThreshold = .3f; // Percentage of health you should lose to consider damage as heavy
 
     protected virtual void Awake()
     {
@@ -58,7 +56,7 @@ public class Entity_Health : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
-        entity.EntityDeath();
+        entity?.EntityDeath();
     }
 
     private void UpdateHealthBar()
@@ -79,9 +77,7 @@ public class Entity_Health : MonoBehaviour
         return knockback;
     }
 
-    private float CalculateDuration(float damage)
-        => IsHeavyDamage(damage) ? heavyKnockbackDuration : knockbackDuration;
+    private float CalculateDuration(float damage) => IsHeavyDamage(damage) ? heavyKnockbackDuration : knockbackDuration;
 
-    private bool IsHeavyDamage(float damage)
-        => damage / maxHp > heavyDamageThreshold;
+    private bool IsHeavyDamage(float damage) => damage / maxHp > heavyDamageThreshold;
 }
