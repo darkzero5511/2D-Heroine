@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -34,6 +35,9 @@ public class Entity : MonoBehaviour
 
     [SerializeField] private Transform secondaryGrabCheck;
 
+    private bool isKnockBack;
+    private Coroutine knockbackCo;
+
     public bool groundDetected { get; private set; }
     public bool groundAboveDetected { get; private set; }
     public bool wallDetected { get; private set; }
@@ -63,8 +67,34 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.AnimationTrigger();
     }
 
+    public virtual void EntityDeath()
+    {
+    }
+
+    public void ReciveKnockback(Vector2 knockback, float duration)
+    {
+        if (knockbackCo != null)
+            StopCoroutine(knockbackCo);
+
+        knockbackCo = StartCoroutine(KnockBackCo(knockback, duration));
+    }
+
+    private IEnumerator KnockBackCo(Vector2 knockback, float duration)
+    {
+        isKnockBack = true;
+        rb.linearVelocity = knockback;
+
+        yield return new WaitForSeconds(duration);
+
+        rb.linearVelocity = Vector2.zero;
+        isKnockBack = false;
+    }
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnockBack)
+            return;
+
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }

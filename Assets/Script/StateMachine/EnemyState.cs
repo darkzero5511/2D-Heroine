@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyState : EntityState
 {
     protected Enemy enemy;
+    protected Entity_Health health;
 
     public EnemyState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {

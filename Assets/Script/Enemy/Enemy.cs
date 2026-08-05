@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class Enemy : Entity
 {
@@ -6,6 +8,7 @@ public class Enemy : Entity
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
+    public Enemy_DeathState deathState;
 
     [Header("Battle detail")]
     public float battleMoveSpeed = 3;
@@ -21,6 +24,8 @@ public class Enemy : Entity
     [Space]
     public float movespeed = 1.4f;
 
+    public float jumpForce = 5;
+
     [Range(0, 2)] public float moveAnimSpeedMultiplier = 1;
 
     [Header("Player Detection")]
@@ -30,6 +35,13 @@ public class Enemy : Entity
     [SerializeField] private float playerCheckDistance = 10;
 
     public Transform player { get; private set; }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+
+        stateMachine.ChangeState(deathState);
+    }
 
     public void TryEnterBattleState(Transform player)
     {

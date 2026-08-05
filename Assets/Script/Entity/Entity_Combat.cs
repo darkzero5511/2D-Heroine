@@ -8,7 +8,10 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private Transform targetCheck;
 
     [SerializeField] private Transform targetCheck3;
+
     [SerializeField] private float targetCheckRadius = 1;
+    [SerializeField] private Vector2 targetCheckBox = new Vector2(1f, 0.5f);
+
     [SerializeField] private LayerMask whatIsTarget;
 
     //Attack 1 & 2
@@ -27,9 +30,12 @@ public class Entity_Combat : MonoBehaviour
     public void PerformAttack3()
     {
         GetDetectedColider3();
+
         foreach (var target in GetDetectedColider3())
         {
-            Debug.Log("Attacking 3 " + target.name);
+            Entity_Health targetHealth = target.GetComponent<Entity_Health>();
+
+            targetHealth?.TakeDamage(damage, transform);
         }
     }
 
@@ -40,14 +46,16 @@ public class Entity_Combat : MonoBehaviour
 
     private Collider2D[] GetDetectedColider3()
     {
-        return Physics2D.OverlapCircleAll(targetCheck3.position, targetCheckRadius, whatIsTarget);
+        return Physics2D.OverlapBoxAll(targetCheck3.position, targetCheckBox, whatIsTarget);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
+
         if (targetCheck3 != null)
-            Gizmos.DrawWireSphere(targetCheck3.position, targetCheckRadius);
+            Gizmos.DrawCube(targetCheck3.position, targetCheckBox);
+        //Gizmos.DrawWireSphere(targetCheck3.position, targetCheckRadius);
     }
 }
