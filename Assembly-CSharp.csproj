@@ -81,8 +81,10 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_BasicAttackState.cs" />
+    <Compile Include="Assets\Script\Chest\Chest.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
+    <Compile Include="Assets\Script\Chest\IDamgable.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />

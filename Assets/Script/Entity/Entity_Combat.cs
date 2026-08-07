@@ -17,25 +17,25 @@ public class Entity_Combat : MonoBehaviour
     //Attack 1 & 2
     public void PerformAttack()
     {
-        GetDetectedColider();
-
         foreach (var target in GetDetectedColider())
         {
-            Entity_Health targetHealth = target.GetComponent<Entity_Health>();
+            IDamagble damagble = target.GetComponent<IDamagble>();
+            damagble?.TakeDamage(damage, transform);
 
-            targetHealth?.TakeDamage(damage, transform);
+            //Entity_Health targetHealth = target.GetComponent<Entity_Health>();
+            //targetHealth?.TakeDamage(damage, transform);
         }
     }
 
     public void PerformAttack3()
     {
-        GetDetectedColider3();
-
         foreach (var target in GetDetectedColider3())
         {
-            Entity_Health targetHealth = target.GetComponent<Entity_Health>();
+            IDamagble damagble = target.GetComponent<IDamagble>();
+            damagble?.TakeDamage(damage, transform);
 
-            targetHealth?.TakeDamage(damage, transform);
+            //Entity_Health targetHealth = target.GetComponent<Entity_Health>();
+            //targetHealth?.TakeDamage(damage, transform);
         }
     }
 

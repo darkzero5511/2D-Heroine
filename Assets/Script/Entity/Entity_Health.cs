@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Entity_Health : MonoBehaviour
+public class Entity_Health : MonoBehaviour, IDamagble
 {
     private Slider healthBar;
     private Entity_VFX entityVfx;
