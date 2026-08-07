@@ -21,9 +21,6 @@ public class Entity_Combat : MonoBehaviour
         {
             IDamagble damagble = target.GetComponent<IDamagble>();
             damagble?.TakeDamage(damage, transform);
-
-            //Entity_Health targetHealth = target.GetComponent<Entity_Health>();
-            //targetHealth?.TakeDamage(damage, transform);
         }
     }
 
@@ -33,9 +30,6 @@ public class Entity_Combat : MonoBehaviour
         {
             IDamagble damagble = target.GetComponent<IDamagble>();
             damagble?.TakeDamage(damage, transform);
-
-            //Entity_Health targetHealth = target.GetComponent<Entity_Health>();
-            //targetHealth?.TakeDamage(damage, transform);
         }
     }
 

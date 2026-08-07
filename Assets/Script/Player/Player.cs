@@ -33,6 +33,13 @@ public class Player : Entity
     public float attackVelocityDuration = .1f;
     public float comboResetTime = 1;
     private Coroutine queuedAttackCo;
+
+    //Hurt
+    [Space]
+    public float recoverTime = 1;
+
+    public bool isHurt = false;
+
     ///Attack
 
     ///Movement
@@ -119,6 +126,11 @@ public class Player : Entity
 
         OnPlayerDeath?.Invoke();
         stateMachine.ChangeState(deathState);
+    }
+
+    public void Recover()
+    {
+        isHurt = false;
     }
 
     private void OnEnable()

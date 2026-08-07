@@ -6,6 +6,7 @@ public class Entity_Health : MonoBehaviour, IDamagble
     private Slider healthBar;
     private Entity_VFX entityVfx;
     private Entity entity;
+    private Animator anim => GetComponentInChildren<Animator>();
 
     [SerializeField] protected float currentHp;
     [SerializeField] protected float maxHp = 100;
@@ -44,7 +45,7 @@ public class Entity_Health : MonoBehaviour, IDamagble
         ReduceHp(damage);
     }
 
-    protected void ReduceHp(float damage)
+    public virtual void ReduceHp(float damage)
     {
         currentHp -= damage;
         UpdateHealthBar();

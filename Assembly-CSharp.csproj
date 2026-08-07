@@ -77,6 +77,7 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_FallState.cs" />
+    <Compile Include="Assets\Script\Enemy\Enemy_VFX.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashState.cs" />
@@ -84,12 +85,14 @@
     <Compile Include="Assets\Script\Chest\Chest.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
-    <Compile Include="Assets\Script\Chest\IDamgable.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Script\Interface\ICounterable.cs" />
+    <Compile Include="Assets\Script\Interface\IDamgable.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_Health.cs" />
+    <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
   </ItemGroup>
   <ItemGroup>
