@@ -11,8 +11,8 @@ public class Player_AiredState : PlayerState
         if (player.moveInput.x != player.moveSpeed)
             player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultiplier), rb.linearVelocity.y);
 
-        if (input.Player.Attack.WasPressedThisFrame())
-            stateMachine.ChangeState(player.jumpAttackState);
-
+        //Jump Atk
+        //if (input.Player.Attack.WasPressedThisFrame())
+        //    stateMachine.ChangeState(player.jumpAttackState);
     }
 }

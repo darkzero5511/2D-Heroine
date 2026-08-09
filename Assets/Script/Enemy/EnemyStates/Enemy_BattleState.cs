@@ -4,8 +4,6 @@ using UnityEngine.InputSystem.Processors;
 
 public class Enemy_BattleState : EnemyState
 {
-    private Entity entity;
-
     private Transform player;
     private float lastTimeWasInBattle;
     private bool alertMode;

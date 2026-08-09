@@ -2,54 +2,70 @@
 
 public class Entity_Combat : MonoBehaviour
 {
+    private Entity_VFX vfx;
     public float damage = 10;
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
 
-    [SerializeField] private Transform targetCheck3;
-
     [SerializeField] private float targetCheckRadius = 1;
-    [SerializeField] private Vector2 targetCheckBox = new Vector2(1f, 0.5f);
 
-    [SerializeField] private LayerMask whatIsTarget;
+    [SerializeField] protected LayerMask whatIsTarget;
+
+    //[Header("Player")]
+    //[SerializeField] private float targetCheckRadius3 = 1;
+
+    //[SerializeField] private Transform targetCheck3;
+
+    private void Awake()
+    {
+        vfx = GetComponent<Entity_VFX>();
+    }
 
     //Attack 1 & 2
     public void PerformAttack()
     {
-        foreach (var target in GetDetectedColider())
+        foreach (var target in GetDetectedColliders())
         {
-            IDamagble damagble = target.GetComponent<IDamagble>();
-            damagble?.TakeDamage(damage, transform);
+            IDamgable damgable = target.GetComponent<IDamgable>();
+
+            if (damgable == null)
+                continue; // skip target, go to next target
+
+            damgable.TakeDamage(damage, transform);
+            vfx.CreateOnHitVFX(target.transform);
         }
     }
 
-    public void PerformAttack3()
-    {
-        foreach (var target in GetDetectedColider3())
-        {
-            IDamagble damagble = target.GetComponent<IDamagble>();
-            damagble?.TakeDamage(damage, transform);
-        }
-    }
+    //public void PerformAttack3()
+    //{
+    //    foreach (var target in GetDetectedColider3())
+    //    {
+    //        IDamgable damagble = target.GetComponent<IDamgable>();
 
-    private Collider2D[] GetDetectedColider()
+    //        if (damagble != null)
+    //            continue;
+
+    //        damagble.TakeDamage(damage, transform);
+    //        vfx.CreateOnHitVFX(target.transform);
+    //    }
+    //}
+
+    //private Collider2D[] GetDetectedColider3()
+    //{
+    //    return Physics2D.OverlapCircleAll(targetCheck3.position, targetCheckRadius3, whatIsTarget);
+    //}
+
+    protected Collider2D[] GetDetectedColliders()
     {
         return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
     }
 
-    private Collider2D[] GetDetectedColider3()
-    {
-        return Physics2D.OverlapBoxAll(targetCheck3.position, targetCheckBox, whatIsTarget);
-    }
-
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
-
-        if (targetCheck3 != null)
-            Gizmos.DrawCube(targetCheck3.position, targetCheckBox);
-        //Gizmos.DrawWireSphere(targetCheck3.position, targetCheckRadius);
+        //if (targetCheck3 != null)
+        //    Gizmos.DrawWireSphere(targetCheck3.position, targetCheckRadius3);
     }
 }

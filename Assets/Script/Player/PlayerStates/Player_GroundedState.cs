@@ -9,21 +9,15 @@ public class Player_GroundedState : PlayerState
         base.Update();
 
         if (rb.linearVelocity.y < 0 && player.groundDetected == false)
-        {
             stateMachine.ChangeState(player.fallState);
-            return;
-        }
 
-        if (input.Player.Jump.WasPerformedThisFrame())
-        {
+        if (input.Player.Jump.WasPressedThisFrame())
             stateMachine.ChangeState(player.jumpState);
-            return;
-        }
 
         if (input.Player.Attack.WasPressedThisFrame())
-        {
             stateMachine.ChangeState(player.basicAttackState);
-            return;
-        }
+
+        if (input.Player.CounterAttack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.counterAttackState);
     }
 }

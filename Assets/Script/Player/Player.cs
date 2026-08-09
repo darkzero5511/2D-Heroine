@@ -25,6 +25,7 @@ public class Player : Entity
     public Player_GrabState grabState { get; private set; }
     public Player_DoubleJumpState doubleJumpState { get; private set; }
     public Player_DeathState deathState { get; private set; }
+    public Player_CounterAttackState counterAttackState { get; private set; }
 
     ///Attack
     [Header("Attack Details")]
@@ -95,6 +96,7 @@ public class Player : Entity
         dashBackwardState = new Player_DashBackwardState(this, stateMachine, "dashBackward");
         doubleJumpState = new Player_DoubleJumpState(this, stateMachine, "doubleJump");
         deathState = new Player_DeathState(this, stateMachine, "death");
+        counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
     }
 
     protected override void Start()

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Health.cs" />
+    <Compile Include="Assets\Script\UI\VFX_AutoController.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Script\Player\PlayerStates\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_IdleState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
+    <Compile Include="Assets\Script\Player\Player_Combat.cs" />
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />

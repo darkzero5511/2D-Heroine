@@ -6,7 +6,7 @@ public class Enemy_StunnedState : EnemyState
 
     public Enemy_StunnedState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
-        enemy.GetComponent<Enemy_VFX>();
+        vfx = enemy.GetComponent<Enemy_VFX>();
     }
 
     public override void Enter()
