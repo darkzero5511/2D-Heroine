@@ -38122,6 +38122,7 @@ GameObject:
   - component: {fileID: 298968889}
   - component: {fileID: 298968891}
   - component: {fileID: 298968892}
+  - component: {fileID: 298968893}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -38247,7 +38248,7 @@ Transform:
   m_GameObject: {fileID: 298968882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.066, y: -0.01, z: 0}
+  m_LocalPosition: {x: 2.066, y: -0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -38286,7 +38287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 11111
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -38312,6 +38312,53 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   counterRecovery: 0.5
+--- !u!114 &298968893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298968882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df696d3fb202844820c8e7877fa001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 100
+  attribute:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 10
+  offense:
+    physicalDamage:
+      baseValue: 0
+    critDamage:
+      baseValue: 0
+    critChange:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightRes:
+      baseValue: 0
 --- !u!1 &344145864
 GameObject:
   m_ObjectHideFlags: 0
@@ -38557,8 +38604,8 @@ Transform:
   m_GameObject: {fileID: 408989537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.18, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0.01, y: -0.244, z: 0}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 298968886}
@@ -39046,7 +39093,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2318492, y: -0.40349174, z: -9.989875}
+  m_LocalPosition: {x: -0.2318492, y: -1.0534918, z: -9.989875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39224,7 +39271,7 @@ Transform:
   m_GameObject: {fileID: 680664372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 0, z: 0}
+  m_LocalPosition: {x: 0.353, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -49678,7 +49725,7 @@ Transform:
   m_GameObject: {fileID: 1455439772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -0.24000001, z: 0}
+  m_LocalPosition: {x: 0.85, y: -0.24000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50281,7 +50328,7 @@ Transform:
   m_GameObject: {fileID: 1766623843}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2318492, y: -0.40349174, z: -9.989875}
+  m_LocalPosition: {x: -0.2318492, y: -1.0534918, z: -9.989875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50669,6 +50716,7 @@ GameObject:
   - component: {fileID: 2054412537}
   - component: {fileID: 2054412538}
   - component: {fileID: 2054412539}
+  - component: {fileID: 2054412540}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -50769,8 +50817,8 @@ MonoBehaviour:
   battleTimeDuration: 5
   minRetreatDistance: 1
   retreatVelocity: {x: 4, y: 3}
-  stunnedDuration: 1
-  stunnedVelocity: {x: 7, y: 7}
+  stunnedDuration: 2
+  stunnedVelocity: {x: 3, y: 7}
   canBeStunned: 0
   idleTime: 1
   movespeed: 3
@@ -50833,7 +50881,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 50
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -50858,6 +50905,53 @@ MonoBehaviour:
   hitVfxColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   attackAlert: {fileID: 1222115794}
   alertMode: 0
+--- !u!114 &2054412540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054412532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df696d3fb202844820c8e7877fa001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 1
+  attribute:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 11
+  offense:
+    physicalDamage:
+      baseValue: 0
+    critDamage:
+      baseValue: 0
+    critChange:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightRes:
+      baseValue: 0
 --- !u!1001 &3851749503729886293
 PrefabInstance:
   m_ObjectHideFlags: 0
