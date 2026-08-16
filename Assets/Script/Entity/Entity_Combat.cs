@@ -12,17 +12,12 @@ public class Entity_Combat : MonoBehaviour
 
     [SerializeField] protected LayerMask whatIsTarget;
 
-    //[Header("Player")]
-    //[SerializeField] private float targetCheckRadius3 = 1;
-
-    //[SerializeField] private Transform targetCheck3;
-
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
     }
 
-    //Attack 1 & 2
+    //Attack
     public void PerformAttack()
     {
         foreach (var target in GetDetectedColliders())
@@ -32,29 +27,11 @@ public class Entity_Combat : MonoBehaviour
             if (damgable == null)
                 continue; // skip target, go to next target
 
-            damgable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            bool targetGotHit = damgable.TakeDamage(damage, transform);
+            if (targetGotHit)
+                vfx.CreateOnHitVFX(target.transform);
         }
     }
-
-    //public void PerformAttack3()
-    //{
-    //    foreach (var target in GetDetectedColider3())
-    //    {
-    //        IDamgable damagble = target.GetComponent<IDamgable>();
-
-    //        if (damagble != null)
-    //            continue;
-
-    //        damagble.TakeDamage(damage, transform);
-    //        vfx.CreateOnHitVFX(target.transform);
-    //    }
-    //}
-
-    //private Collider2D[] GetDetectedColider3()
-    //{
-    //    return Physics2D.OverlapCircleAll(targetCheck3.position, targetCheckRadius3, whatIsTarget);
-    //}
 
     protected Collider2D[] GetDetectedColliders()
     {
@@ -65,7 +42,5 @@ public class Entity_Combat : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
-        //if (targetCheck3 != null)
-        //    Gizmos.DrawWireSphere(targetCheck3.position, targetCheckRadius3);
     }
 }

@@ -1,8 +1,7 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public interface IDamgable
 {
-    public void TakeDamage(float damage, Transform damageDealer)
-    {
-    }
+    public bool TakeDamage(float damage, Transform damageDealer);
 }

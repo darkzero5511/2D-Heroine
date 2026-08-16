@@ -9,7 +9,7 @@ public class Chest : MonoBehaviour, IDamgable
     [Header("Open Detail")]
     [SerializeField] private Vector2 knockback;
 
-    public void TakeDamage(float damage, Transform damageDealer)
+    public bool TakeDamage(float damage, Transform damageDealer)
     {
         fx.PlayOnDamageVfx();
         if (ValueChest())
@@ -20,6 +20,8 @@ public class Chest : MonoBehaviour, IDamgable
         rb.linearVelocity = knockback;
 
         rb.angularVelocity = Random.Range(-200f, 200f);
+
+        return true;
     }
 
     private bool ValueChest()
