@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
@@ -15,13 +14,41 @@ public class Entity_Stats : MonoBehaviour
     [Space]
     public Stat_DefenseGroup defense;
 
-    //[Header("Attribute")]
+    //
+    //STATS
+    //
+
+    public float GetPhysicalDamage(out bool isCrit)
+    {
+        // Physical Damage
+        float baseDamage = offense.physicalDamage.GetValue();
+        float bonusDamage = attribute.strength.GetValue();
+        float totalBaseDamage = baseDamage + bonusDamage;
+
+        //Crit Change
+        float baseCritChange = offense.critChange.GetValue();
+        float bonusCritChange = attribute.agility.GetValue() * .3f;
+        float critChange = baseCritChange + bonusCritChange;
+
+        //Crit Dmg
+        float baseCritDamage = offense.critDamage.GetValue();
+        float bonusCritDamage = attribute.strength.GetValue() * .5f;
+        float critDamage = (baseCritDamage + bonusCritDamage) / 100;
+
+        // Crit Check
+        isCrit = Random.Range(0, 100) < critChange;
+        float finalDamage = isCrit ? totalBaseDamage * critDamage : totalBaseDamage;
+
+        return finalDamage;
+    }
+
     public float GetMaxHealth()
     {
         float baseHp = maxHealth.GetValue();
         float bonusHp = attribute.vitality.GetValue() * 5;
+        float finalHp = baseHp + bonusHp;
 
-        return baseHp + bonusHp;
+        return finalHp;
     }
 
     public float GetEvasion()

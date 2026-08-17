@@ -3,7 +3,7 @@
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_VFX vfx;
-    public float damage = 10;
+    private Entity_Stats stats;
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
@@ -15,6 +15,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     //Attack
@@ -27,9 +28,11 @@ public class Entity_Combat : MonoBehaviour
             if (damgable == null)
                 continue; // skip target, go to next target
 
+            float damage = stats.GetPhysicalDamage(out bool isCrit);
             bool targetGotHit = damgable.TakeDamage(damage, transform);
+
             if (targetGotHit)
-                vfx.CreateOnHitVFX(target.transform);
+                vfx.CreateOnHitVFX(target.transform, isCrit);
         }
     }
 

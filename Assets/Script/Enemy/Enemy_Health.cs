@@ -6,6 +6,8 @@ public class Enemy_Health : Entity_Health
 
     public override bool TakeDamage(float damage, Transform damageDealer)
     {
+        base.TakeDamage(damage, transform);
+
         bool wasHit = base.TakeDamage(damage, transform);
 
         if (wasHit == false)

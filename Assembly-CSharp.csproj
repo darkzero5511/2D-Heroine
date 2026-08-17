@@ -103,6 +103,7 @@
     <Compile Include="Assets\Script\Stat_MajorGroup.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
+    <Compile Include="Assets\Script\UI\UI_MiniHealthBarControl.cs" />
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_IdleState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
