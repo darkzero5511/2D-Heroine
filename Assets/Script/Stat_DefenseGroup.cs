@@ -8,8 +8,9 @@ public class Stat_DefenseGroup
     public Stat armor;
     public Stat evasion;
 
+    [Space]
     [Header("Elemental Resistance")]
     public Stat fireRes;
     public Stat iceRes;
-    public Stat lightRes;
+    public Stat lightningRes;
 }

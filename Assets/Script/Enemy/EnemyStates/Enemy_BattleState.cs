@@ -149,7 +149,6 @@ public class Enemy_BattleState : EnemyState
         enemy.SetVelocity(0, rb.linearVelocity.y);
 
         alertMode = true;
-        Debug.Log("Stay Alert");
         if (BattleTimeIsOver())
             stateMachine.ChangeState(enemy.idleState);
     }

@@ -9,9 +9,11 @@ public class Stat_OffenseGroup
     public Stat physicalDamage;
     public Stat critDamage;
     public Stat critChange;
+    public Stat armorPenetration;
 
+    [Space]
     [Header("Elemental")]
     public Stat fireDamage;
     public Stat iceDamage;
-    public Stat lightDamage;
+    public Stat lightningDamage;
 }
