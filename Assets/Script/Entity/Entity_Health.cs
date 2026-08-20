@@ -20,7 +20,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     [SerializeField] private float heavyKnockbackDuration = .5f;
 
     [Header("On Heavy Damage ")]
-    [SerializeField] private float heavyDamageThreshold = .3f; // Percentage of health you should lose to consider damage as heavy
+    [SerializeField] private float heavyDamageThreshold = .3f; // Percentage of entityHealth you should lose to consider damage as heavy
 
     protected virtual void Awake()
     {

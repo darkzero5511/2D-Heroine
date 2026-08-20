@@ -17,9 +17,16 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private GameObject hitVfx;
     [SerializeField] private GameObject critHitVfx;
 
-    [Header("Element Color")]
-    [SerializeField] private Color chillVFX = Color.cyan;
+    [Header("Element")]
     private Color originalHitVfxColors;
+
+    [Header("Ice")]
+    [SerializeField] private Color chillVfxColor = Color.cyan;
+    [SerializeField] private GameObject chillVfxEffect;
+
+    [Header("Fire")]
+    [SerializeField] private Color fireVfxColor = new Color32(255, 124, 0, 255);
+    [SerializeField] private GameObject fireVfxEffect;
 
     private void Awake()
     {
@@ -32,7 +39,10 @@ public class Entity_VFX : MonoBehaviour
     public void PlayOnStatusVfx(float duration, ElementType element)
     {
         if (element == ElementType.Ice)
-            StartCoroutine(PlayStatusVfxCo(duration, chillVFX));
+            StartCoroutine(PlayStatusVfxCo(duration, chillVfxColor));
+
+        if (element == ElementType.Fire)
+            StartCoroutine(PlayStatusVfxCo(duration, fireVfxColor));
     }
 
     private IEnumerator PlayStatusVfxCo(float duration, Color effectColor)
@@ -68,13 +78,22 @@ public class Entity_VFX : MonoBehaviour
             vfx.transform.Rotate(0, 180, 0);
     }
 
-    public void UpdateOnHitColor(ElementType elementType)
+    public void UpdateOnHitElement(Transform target, ElementType elementType)
     {
         if (elementType == ElementType.None)
             hitVfxColor = originalHitVfxColors;
 
         if (elementType == ElementType.Ice)
-            hitVfxColor = chillVFX;
+            CreateOnHitElement(target, chillVfxEffect, chillVfxColor);
+    }
+
+    private void CreateOnHitElement(Transform target, GameObject ElementVfxEffect, Color ElementColor)
+    {
+        GameObject vfx = Instantiate(ElementVfxEffect, target.position, Quaternion.identity);
+        vfx.GetComponentInChildren<SpriteRenderer>().color = ElementColor;
+
+        if (entity.facingDir == -1)
+            vfx.transform.Rotate(0, 180, 0);
     }
 
     public void PlayOnDamageVfx()

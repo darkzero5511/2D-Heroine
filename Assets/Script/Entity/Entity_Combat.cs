@@ -26,7 +26,7 @@ public class Entity_Combat : MonoBehaviour
             if (damegable == null)
                 continue; // skip target, go to next target
 
-            float elementalDamage = stats.GetElementalDamage(out ElementType element);
+            float elementalDamage = stats.GetElementalDamage(out ElementType element, .6f);
             float damage = stats.GetPhysicalDamage(out bool isCrit);
 
             bool targetGotHit = damegable.TakeDamage(damage, elementalDamage, element, transform);
@@ -36,21 +36,29 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGotHit)
             {
-                vfx.UpdateOnHitColor(element);
+                vfx.UpdateOnHitElement(target.transform, element);
                 vfx.CreateOnHitVFX(target.transform, isCrit);
             }
         }
     }
 
-    public void ApplyStatusEffect(Transform target, ElementType element)
+    public void ApplyStatusEffect(Transform target, ElementType element, float scaleFactor = 1f)
     {
         Entity_StatusHandle statusHandle = target.GetComponent<Entity_StatusHandle>();
 
         if (statusHandle == null)
             return;
 
+        //Ice
         if (element == ElementType.Ice && statusHandle.CanBeApplied(ElementType.Ice))
             statusHandle.ApplyChilledEffect(stats.statusEffect.defaultDuration, stats.statusEffect.chillSlowMultiplier);
+
+        //Fire
+        if (element == ElementType.Fire && statusHandle.CanBeApplied(ElementType.Fire))
+        {
+            float fireDamage = stats.offense.fireDamage.GetValue();
+            statusHandle.ApplyBurnEffect(stats.statusEffect.defaultDuration, stats.statusEffect.burnMultiplier * fireDamage);
+        }
     }
 
     protected Collider2D[] GetDetectedColliders()
