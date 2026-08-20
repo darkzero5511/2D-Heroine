@@ -21,12 +21,27 @@ public class Entity_VFX : MonoBehaviour
     private Color originalHitVfxColors;
 
     [Header("Ice")]
-    [SerializeField] private Color chillVfxColor = Color.cyan;
+    [SerializeField] private Color chillTarget = new Color32(182, 255, 255, 255);
+
+    [Space]
+    [SerializeField] private Color chillVfxColor = Color.white;
     [SerializeField] private GameObject chillVfxEffect;
 
+    [Space]
     [Header("Fire")]
-    [SerializeField] private Color fireVfxColor = new Color32(255, 124, 0, 255);
+    [SerializeField] private Color burnTarget = new Color32(255, 124, 0, 255);
+
+    [Space]
+    [SerializeField] private Color fireVfxColor = Color.white;
     [SerializeField] private GameObject fireVfxEffect;
+
+    [Space]
+    [Header("Lightning")]
+    [SerializeField] private Color electrifyTarget = new Color32(251, 241, 124, 255);
+
+    [Space]
+    [SerializeField] private Color electrifyVfxColor = Color.white;
+    [SerializeField] public GameObject electrifyVfxEffect;
 
     private void Awake()
     {
@@ -39,10 +54,20 @@ public class Entity_VFX : MonoBehaviour
     public void PlayOnStatusVfx(float duration, ElementType element)
     {
         if (element == ElementType.Ice)
-            StartCoroutine(PlayStatusVfxCo(duration, chillVfxColor));
+            StartCoroutine(PlayStatusVfxCo(duration, chillTarget));
 
         if (element == ElementType.Fire)
-            StartCoroutine(PlayStatusVfxCo(duration, fireVfxColor));
+            StartCoroutine(PlayStatusVfxCo(duration, burnTarget));
+
+        if (element == ElementType.Lighting)
+            StartCoroutine(PlayStatusVfxCo(duration, electrifyTarget));
+    }
+
+    public void StopAllVfx()
+    {
+        StopAllCoroutines();
+        sr.color = Color.white;
+        sr.material = originalMaterial;
     }
 
     private IEnumerator PlayStatusVfxCo(float duration, Color effectColor)
@@ -85,6 +110,9 @@ public class Entity_VFX : MonoBehaviour
 
         if (elementType == ElementType.Ice)
             CreateOnHitElement(target, chillVfxEffect, chillVfxColor);
+
+        if (elementType == ElementType.Fire)
+            CreateOnHitElement(target, fireVfxEffect, fireVfxColor);
     }
 
     private void CreateOnHitElement(Transform target, GameObject ElementVfxEffect, Color ElementColor)

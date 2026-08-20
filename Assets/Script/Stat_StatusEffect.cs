@@ -8,5 +8,9 @@ public class Stat_StatusEffect
 
     [Header("Status Effect details")]
     public float chillSlowMultiplier = .2f;
-    public float burnMultiplier = 0.7f;
+    public float electrifyChargeBuildUp = .4f;
+
+    [Space]
+    public float fireScale = .8f;
+    public float lightningScale = 2.5f;
 }

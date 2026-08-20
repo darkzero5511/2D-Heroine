@@ -36,8 +36,10 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGotHit)
             {
-                vfx.UpdateOnHitElement(target.transform, element);
-                vfx.CreateOnHitVFX(target.transform, isCrit);
+                if (element != ElementType.None)
+                    vfx.UpdateOnHitElement(target.transform, element);
+                else
+                    vfx.CreateOnHitVFX(target.transform, isCrit);
             }
         }
     }
@@ -49,15 +51,31 @@ public class Entity_Combat : MonoBehaviour
         if (statusHandle == null)
             return;
 
+        float defaultDuration = stats.statusEffect.defaultDuration;
+
         //Ice
         if (element == ElementType.Ice && statusHandle.CanBeApplied(ElementType.Ice))
-            statusHandle.ApplyChilledEffect(stats.statusEffect.defaultDuration, stats.statusEffect.chillSlowMultiplier);
+            statusHandle.ApplyChillEffect(defaultDuration, stats.statusEffect.chillSlowMultiplier);
 
         //Fire
         if (element == ElementType.Fire && statusHandle.CanBeApplied(ElementType.Fire))
         {
-            float fireDamage = stats.offense.fireDamage.GetValue();
-            statusHandle.ApplyBurnEffect(stats.statusEffect.defaultDuration, stats.statusEffect.burnMultiplier * fireDamage);
+            scaleFactor = stats.statusEffect.fireScale;
+
+            float fireDamage = stats.offense.fireDamage.GetValue() * scaleFactor;
+
+            statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
+        }
+
+        //Lightning
+        if (element == ElementType.Lighting && statusHandle.CanBeApplied(ElementType.Lighting))
+        {
+            scaleFactor = stats.statusEffect.lightningScale;
+
+            float lightningDamage = stats.offense.lightningDamage.GetValue() * scaleFactor;
+            float chargePerHit = stats.statusEffect.electrifyChargeBuildUp;
+
+            statusHandle.ApplyElectrifyEffect(defaultDuration, lightningDamage, chargePerHit);
         }
     }
 
