@@ -56,7 +56,7 @@ public class Player : Entity
     public Vector2 wallJumpForce;
 
     public Vector2 wallBoundForce;
-    public Vector2 jumpAttackForce;
+    public Vector2 jumpAttackVelocity;
     public int doubleJump = 1;
 
     [Range(0, 1)] public float inAirMoveMultiplier = .7f;
@@ -104,6 +104,49 @@ public class Player : Entity
         base.Start();
 
         stateMachine.Initialize(idleState);
+    }
+
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalJumpForce = jumpForce;
+        float originalAnimSpeed = anim.speed;
+        float originalDashSpeed = dashSpeed;
+        float originalDashBackSpeed = dashBackSpeed;
+        Vector2 originalWallJump = wallJumpForce;
+        Vector2 originalJumpAttack = jumpAttackVelocity;
+        Vector2[] originalAttackVelocity = new Vector2[attackVelocity.Length];
+        Array.Copy(attackVelocity, originalAttackVelocity, attackVelocity.Length);
+
+        float speedMultiplier = 1 - slowMultiplier;
+
+        moveSpeed *= speedMultiplier;
+        jumpForce *= speedMultiplier;
+        anim.speed *= speedMultiplier;
+        wallJumpForce *= speedMultiplier;
+        jumpAttackVelocity *= speedMultiplier;
+        dashSpeed *= speedMultiplier;
+        dashBackSpeed *= speedMultiplier;
+
+        for (int i = 0; i < attackVelocity.Length; i++)
+        {
+            attackVelocity[i] *= speedMultiplier;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        jumpForce = originalJumpForce;
+        anim.speed = originalAnimSpeed;
+        wallJumpForce = originalWallJump;
+        jumpAttackVelocity = originalJumpAttack;
+        dashSpeed = originalDashSpeed;
+        dashBackSpeed = originalDashBackSpeed;
+
+        for (int i = 0; i < attackVelocity.Length; i++)
+        {
+            attackVelocity[i] = originalAttackVelocity[i];
+        }
     }
 
     //Attack

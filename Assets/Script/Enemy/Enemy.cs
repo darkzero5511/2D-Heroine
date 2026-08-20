@@ -13,7 +13,6 @@ public class Enemy : Entity
 
     [Header("Battle detail")]
     public float battleMoveSpeed = 3;
-
     public float attackDistance = 2;
     public float battleTimeDuration = 5;
     public float minRetreatDistance = 1;
@@ -24,9 +23,7 @@ public class Enemy : Entity
 
     public Vector2 stunnedVelocity = new Vector2(7, 7);
 
-    [SerializeField
-        ]
-    protected bool canBeStunned;
+    [SerializeField] protected bool canBeStunned;
 
     [Header("Movement Details")]
     public float idleTime = 2;
@@ -43,6 +40,25 @@ public class Enemy : Entity
 
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10;
+
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        float originalMoveSpeed = movespeed;
+        float originalBattleSpeed = battleMoveSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        float speedMultiplier = 1 - slowMultiplier;
+
+        movespeed *= speedMultiplier;
+        battleMoveSpeed *= speedMultiplier;
+        anim.speed *= speedMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        movespeed = originalMoveSpeed;
+        battleMoveSpeed = originalBattleSpeed;
+        anim.speed = originalAnimSpeed;
+    }
 
     public void EnableCounterWindow(bool enable)
         => canBeStunned = enable;

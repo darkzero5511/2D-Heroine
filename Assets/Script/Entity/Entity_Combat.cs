@@ -7,9 +7,7 @@ public class Entity_Combat : MonoBehaviour
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
-
     [SerializeField] private float targetCheckRadius = 1;
-
     [SerializeField] protected LayerMask whatIsTarget;
 
     private void Awake()
@@ -33,9 +31,26 @@ public class Entity_Combat : MonoBehaviour
 
             bool targetGotHit = damegable.TakeDamage(damage, elementalDamage, element, transform);
 
+            if (element != ElementType.None)
+                ApplyStatusEffect(target.transform, element);
+
             if (targetGotHit)
+            {
+                vfx.UpdateOnHitColor(element);
                 vfx.CreateOnHitVFX(target.transform, isCrit);
+            }
         }
+    }
+
+    public void ApplyStatusEffect(Transform target, ElementType element)
+    {
+        Entity_StatusHandle statusHandle = target.GetComponent<Entity_StatusHandle>();
+
+        if (statusHandle == null)
+            return;
+
+        if (element == ElementType.Ice && statusHandle.CanBeApplied(ElementType.Ice))
+            statusHandle.ApplyChilledEffect(stats.statusEffect.defaultDuration, stats.statusEffect.chillSlowMultiplier);
     }
 
     protected Collider2D[] GetDetectedColliders()
