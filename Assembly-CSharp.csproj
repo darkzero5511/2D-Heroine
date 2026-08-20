@@ -81,7 +81,6 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_VFX.cs" />
-    <Compile Include="Assets\Script\Enemy\Enemy_Dummy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashState.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="Assets\Script\Stat.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
-    <Compile Include="Assets\Script\Stat_StatusEffect.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Script\UI\UI_MiniHealthBar.cs" />
     <Compile Include="Assets\Script\Stat_AttributeGroup.cs" />
@@ -103,7 +101,6 @@
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
     <Compile Include="Assets\Script\Interface\IDamgable.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
-    <Compile Include="Assets\Script\Entity_StatusHandle.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Script\UI\UI_MiniHealthBarControl.cs" />
@@ -121,9 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />
-    <None Include="Assets\Graphics\TrainingDummy\Contact.txt" />
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\License.txt" />
-    <None Include="Assets\Graphics\TrainingDummy\License.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

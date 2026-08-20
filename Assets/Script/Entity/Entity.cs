@@ -38,13 +38,8 @@ public class Entity : MonoBehaviour
 
     [SerializeField] private Transform secondaryGrabCheck;
 
-    //Condition variables
-    //Knockback
     private bool isKnockBack;
     private Coroutine knockbackCo;
-
-    //Slowdown
-    private Coroutine slowDownCo;
 
     public bool groundDetected { get; private set; }
     public bool groundAboveDetected { get; private set; }
@@ -61,7 +56,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        //Override
+        //Empty
     }
 
     protected virtual void Update()
@@ -77,28 +72,8 @@ public class Entity : MonoBehaviour
 
     public virtual void EntityDeath()
     {
-        //Override
+        //Empty
     }
-
-    //
-    //Chill Effect
-    //
-    public virtual void SlowDownEntity(float duration, float slowMultiplier)
-    {
-        if (slowDownCo != null)
-            StopCoroutine(slowDownCo);
-
-        slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
-    }
-
-    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
-    {
-        yield return null;
-    }
-
-    //
-    // Knockback
-    //
 
     public void ReciveKnockback(Vector2 knockback, float duration)
     {
@@ -118,10 +93,6 @@ public class Entity : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isKnockBack = false;
     }
-
-    //
-    //Flip
-    //
 
     public void SetVelocity(float xVelocity, float yVelocity)
     {
@@ -148,10 +119,6 @@ public class Entity : MonoBehaviour
 
         OnFlippped?.Invoke();
     }
-
-    //
-    //Collision
-    //
 
     private void HandleCollisionDetected()
     {

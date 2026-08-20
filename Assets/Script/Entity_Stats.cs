@@ -14,9 +14,6 @@ public class Entity_Stats : MonoBehaviour
     [Space]
     public Stat_DefenseGroup defense;
 
-    [Space]
-    public Stat_StatusEffect statusEffect;
-
     //
     //STATS
     //
