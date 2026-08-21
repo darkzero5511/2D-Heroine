@@ -55,7 +55,7 @@ public class Entity_Combat : MonoBehaviour
 
         //Ice
         if (element == ElementType.Ice && statusHandle.CanBeApplied(ElementType.Ice))
-            statusHandle.ApplyChillEffect(defaultDuration, stats.statusEffect.chillSlowMultiplier);
+            statusHandle.ApplyChillEffect(defaultDuration, stats.statusEffect.chillSlowMultiplier.GetValue());
 
         //Fire
         if (element == ElementType.Fire && statusHandle.CanBeApplied(ElementType.Fire))
@@ -64,7 +64,15 @@ public class Entity_Combat : MonoBehaviour
 
             float fireDamage = stats.offense.fireDamage.GetValue() * scaleFactor;
 
-            statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
+            if (Random.value <= .80f)
+                statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
+            else
+            {
+                float explosion = stats.statusEffect.burnExplosion.GetValue();
+                float finalExplosion = fireDamage * (scaleFactor + explosion);
+
+                statusHandle.ApplyExplosionEffect(finalExplosion);
+            }
         }
 
         //Lightning
@@ -73,7 +81,7 @@ public class Entity_Combat : MonoBehaviour
             scaleFactor = stats.statusEffect.lightningScale;
 
             float lightningDamage = stats.offense.lightningDamage.GetValue() * scaleFactor;
-            float chargePerHit = stats.statusEffect.electrifyChargeBuildUp;
+            float chargePerHit = stats.statusEffect.electrifyChargeBuildUp.GetValue();
 
             statusHandle.ApplyElectrifyEffect(defaultDuration, lightningDamage, chargePerHit);
         }

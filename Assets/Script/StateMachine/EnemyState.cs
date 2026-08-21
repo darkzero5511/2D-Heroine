@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyState : EntityState
+public class EnemyState : Entity_State
 {
     protected Enemy enemy;
     protected Entity_Health health;
@@ -11,6 +11,8 @@ public class EnemyState : EntityState
 
         rb = enemy.rb;
         anim = enemy.anim;
+
+        stats = enemy.stats;
     }
 
     public override void UpdateAnimationParameters()

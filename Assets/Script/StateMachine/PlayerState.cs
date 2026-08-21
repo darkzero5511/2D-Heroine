@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class PlayerState : EntityState
+public abstract class PlayerState : Entity_State
 {
     protected Player player;
     protected PlayerInputSet input;
@@ -13,6 +13,8 @@ public abstract class PlayerState : EntityState
         anim = player.anim;
         rb = player.rb;
         input = player.input;
+
+        stats = player.stats;
     }
 
     public override void Update()

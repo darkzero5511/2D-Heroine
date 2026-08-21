@@ -36,6 +36,10 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private GameObject fireVfxEffect;
 
     [Space]
+    [Header("Explosion")]
+    [SerializeField] public GameObject explosionVfxEffect;
+
+    [Space]
     [Header("Lightning")]
     [SerializeField] private Color electrifyTarget = new Color32(251, 241, 124, 255);
 
