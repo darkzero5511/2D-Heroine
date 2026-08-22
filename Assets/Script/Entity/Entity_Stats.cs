@@ -202,7 +202,8 @@ public class Entity_Stats : MonoBehaviour
 
             //Status
             case StatType.Chill: return statusEffect.chillSlowMultiplier;
-            case StatType.Burn: return statusEffect.burnExplosion;
+            case StatType.ExplosionDmg: return statusEffect.burnExplosion;
+            case StatType.ExplosionChance: return statusEffect.explosionChance;
             case StatType.Electrify: return statusEffect.electrifyChargeBuildUp;
 
             default:
@@ -248,7 +249,8 @@ public class Entity_Stats : MonoBehaviour
         defense.lightningRes.SetBaseValue(defaultStatSetup.lightningResistance);
 
         statusEffect.chillSlowMultiplier.SetBaseValue(defaultStatSetup.chill);
-        statusEffect.burnExplosion.SetBaseValue(defaultStatSetup.explosion);
+        statusEffect.burnExplosion.SetBaseValue(defaultStatSetup.explosionDmg);
+        statusEffect.explosionChance.SetBaseValue(defaultStatSetup.explosionChance);
         statusEffect.electrifyChargeBuildUp.SetBaseValue(defaultStatSetup.electrify);
     }
 }

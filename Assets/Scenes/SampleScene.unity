@@ -38282,7 +38282,7 @@ MonoBehaviour:
   burnTarget: {r: 1, g: 0.4862745, b: 0, a: 1}
   fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
   fireVfxEffect: {fileID: 2899292391437957077, guid: 459f8f6cde39f384882e78c8da835c47, type: 3}
-  explosionVfxEffect: {fileID: 0}
+  explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
   electrifyTarget: {r: 0.9811321, g: 0.94171363, b: 0.48593804, a: 0.8}
   electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
   electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
@@ -38399,6 +38399,9 @@ MonoBehaviour:
       modifiers: []
     burnExplosion:
       baseValue: 0.8
+      modifiers: []
+    explosionChance:
+      baseValue: 0.2
       modifiers: []
     electrifyChargeBuildUp:
       baseValue: 0.2
@@ -50987,7 +50990,7 @@ MonoBehaviour:
   burnTarget: {r: 1, g: 0.4862745, b: 0, a: 1}
   fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
   fireVfxEffect: {fileID: 2899292391437957077, guid: 459f8f6cde39f384882e78c8da835c47, type: 3}
-  explosionVfxEffect: {fileID: 0}
+  explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
   electrifyTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 0.8}
   electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
   electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
@@ -51067,6 +51070,9 @@ MonoBehaviour:
       modifiers: []
     burnExplosion:
       baseValue: 0.8
+      modifiers: []
+    explosionChance:
+      baseValue: 0.2
       modifiers: []
     electrifyChargeBuildUp:
       baseValue: 0.2

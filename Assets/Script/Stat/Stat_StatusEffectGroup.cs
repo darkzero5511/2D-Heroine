@@ -9,6 +9,7 @@ public class Stat_StatusEffectGroup
     [Header("Status Effect details")]
     public Stat chillSlowMultiplier;
     public Stat burnExplosion;
+    public Stat explosionChance;
     public Stat electrifyChargeBuildUp;
 
     [Space]

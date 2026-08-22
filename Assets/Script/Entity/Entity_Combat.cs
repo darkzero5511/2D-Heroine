@@ -64,7 +64,7 @@ public class Entity_Combat : MonoBehaviour
 
             float fireDamage = stats.offense.fireDamage.GetValue() * scaleFactor;
 
-            if (Random.value <= .80f)
+            if (Random.value <= stats.statusEffect.explosionChance.GetValue())
                 statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
             else
             {

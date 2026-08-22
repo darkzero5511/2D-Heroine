@@ -32,7 +32,8 @@ public class Stat_SetupSO : ScriptableObject
 
     [Header("Status Effect")]
     public float chill = .2f;
-    public float explosion = .8f;
+    public float explosionDmg = .8f;
+    public float explosionChance = .2f;
     public float electrify = .2f;
 
     [Header("Attribute Stats")]

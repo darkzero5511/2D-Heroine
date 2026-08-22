@@ -51,6 +51,7 @@ public enum StatType
     //Status
     //
     Chill,
-    Burn,
+    ExplosionDmg,
+    ExplosionChance,
     Electrify
 }
