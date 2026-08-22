@@ -36,10 +36,10 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGotHit)
             {
-                if (element != ElementType.None)
-                    vfx.UpdateOnHitElement(target.transform, element);
-                else
-                    vfx.CreateOnHitVFX(target.transform, isCrit);
+                //if (element != ElementType.None)
+                vfx.UpdateOnHitElement(target.transform, element);
+                //else
+                vfx.CreateOnHitVFX(target.transform, isCrit);
             }
         }
     }
@@ -64,9 +64,10 @@ public class Entity_Combat : MonoBehaviour
 
             float fireDamage = stats.offense.fireDamage.GetValue() * scaleFactor;
 
-            if (Random.value <= stats.statusEffect.explosionChance.GetValue())
-                statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
-            else
+            statusHandle.ApplyBurnEffect(defaultDuration, scaleFactor * fireDamage);
+
+            //Explosion Chance
+            if (Random.value <= 1 - stats.statusEffect.explosionChance.GetValue())
             {
                 float explosion = stats.statusEffect.burnExplosion.GetValue();
                 float finalExplosion = fireDamage * (scaleFactor + explosion);

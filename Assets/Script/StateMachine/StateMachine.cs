@@ -1,15 +1,15 @@
 public class StateMachine
 {
-    public Entity_State currentState { get; private set; }
+    public EntityState currentState { get; private set; }
     public bool canChangeState = true;
 
-    public void Initialize(Entity_State startState)
+    public void Initialize(EntityState startState)
     {
         currentState = startState;
         currentState.Enter();
     }
 
-    public void ChangeState(Entity_State newState)
+    public void ChangeState(EntityState newState)
     {
         if (canChangeState == false)
             return;

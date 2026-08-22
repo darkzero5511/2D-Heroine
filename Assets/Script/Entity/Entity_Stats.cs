@@ -51,11 +51,14 @@ public class Entity_Stats : MonoBehaviour
         }
 
         if (highestDamage <= 0)
+        {
+            element = ElementType.None;
             return 0;
+        }
 
-        float bonusFire = (fireDamage == highestDamage) ? 0 : fireDamage * .5f;
-        float bonusIce = (iceDamage == highestDamage) ? 0 : iceDamage * .5f;
-        float bonusLightning = (lightningDamage == highestDamage) ? 0 : lightningDamage * .5f;
+        float bonusFire = (element == ElementType.Fire) ? 0 : fireDamage * .5f;
+        float bonusIce = (element == ElementType.Ice) ? 0 : iceDamage * .5f;
+        float bonusLightning = (element == ElementType.Lighting) ? 0 : lightningDamage * .5f;
 
         float weakerElementDamage = bonusFire + bonusIce + bonusLightning;
 

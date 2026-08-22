@@ -21,7 +21,7 @@ public class Entity_VFX : MonoBehaviour
     private Color originalHitVfxColors;
 
     [Header("Ice")]
-    [SerializeField] private Color chillTarget = new Color32(182, 255, 255, 255);
+    [SerializeField] private Color chillTarget = new Color32(179, 234, 255, 255);
 
     [Space]
     [SerializeField] private Color chillVfxColor = Color.white;
@@ -29,7 +29,7 @@ public class Entity_VFX : MonoBehaviour
 
     [Space]
     [Header("Fire")]
-    [SerializeField] private Color burnTarget = new Color32(255, 124, 0, 255);
+    [SerializeField] private Color burnTarget = new Color32(255, 125, 126, 255);
 
     [Space]
     [SerializeField] private Color fireVfxColor = Color.white;

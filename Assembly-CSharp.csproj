@@ -61,6 +61,7 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashBackwardState.cs" />
@@ -69,13 +70,13 @@
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_AttributeGroup.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Health.cs" />
-    <Compile Include="Assets\Script\Entity\Entity_State.cs" />
-    <Compile Include="Assets\Script\UI\VFX_AutoController.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_BattleState.cs" />
+    <Compile Include="Assets\Script\Enum\StatType.cs" />
     <Compile Include="Assets\Script\Enum\ElementType.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Skeleton.cs" />
+    <Compile Include="Assets\Script\UI\UI_TreeNode.cs" />
     <Compile Include="Assets\Script\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_OffenseGroup.cs" />
-    <Compile Include="Assets\Script\StatType.cs" />
     <Compile Include="Assets\Script\Chest\Object_Chest.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
@@ -105,6 +105,7 @@
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
     <Compile Include="Assets\Script\Interface\IDamgable.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
     <Compile Include="Assets\Script\Stat\Stat.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
@@ -118,10 +119,10 @@
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_DefenseGroup.cs" />
-    <Compile Include="Assets\Script\Object_Buff.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
+    <Compile Include="Assets\Script\VFX\VFX_AutoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />

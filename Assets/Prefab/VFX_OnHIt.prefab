@@ -47,6 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoDestroy: 1
   destroyDelay: 0.5
+  randomOffset: 1
+  randomRotation: 1
+  minRotation: 0
+  maxRotation: 360
+  xMinOffset: -0.3
+  xMaxOffset: 0.3
+  yMinOffset: -0.3
+  yMaxOffset: 0.3
 --- !u!1 &8914501098101890484
 GameObject:
   m_ObjectHideFlags: 0

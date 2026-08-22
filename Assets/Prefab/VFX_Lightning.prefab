@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoDestroy: 1
-  destroyDelay: 0.5
+  destroyDelay: 2
   randomOffset: 1
   randomRotation: 0
   minRotation: 0

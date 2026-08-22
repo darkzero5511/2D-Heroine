@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class PlayerState : Entity_State
+public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
