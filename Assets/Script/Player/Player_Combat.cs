@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_Combat : Entity_Combat
 {
-    [Header("Counter attack details")]
+    [Header("Counter attack connectionDetails")]
     [SerializeField] private float counterRecovery = .1f;
 
     public bool CounterAttackPerformed()

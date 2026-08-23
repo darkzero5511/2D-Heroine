@@ -6,7 +6,7 @@ public class Stat_StatusEffectGroup
 {
     public float defaultDuration = 3;
 
-    [Header("Status Effect details")]
+    [Header("Status Effect connectionDetails")]
     public Stat chillSlowMultiplier;
     public Stat burnExplosion;
     public Stat explosionChance;

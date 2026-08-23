@@ -101,11 +101,13 @@
     <Compile Include="Assets\Script\Stat\Stat_StatusEffectGroup.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Script\UI\UI_TreeConnection.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Script\UI\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
     <Compile Include="Assets\Script\Interface\IDamgable.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />

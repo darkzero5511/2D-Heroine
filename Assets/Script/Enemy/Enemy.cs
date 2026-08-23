@@ -18,7 +18,7 @@ public class Enemy : Entity
     public float minRetreatDistance = 1;
     public Vector2 retreatVelocity;
 
-    [Header("Stunned State details")]
+    [Header("Stunned State connectionDetails")]
     public float stunnedDuration = 1;
 
     public Vector2 stunnedVelocity = new Vector2(7, 7);
