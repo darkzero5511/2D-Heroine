@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Script\UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashBackwardState.cs" />
     <Compile Include="Assets\Script\Entity\Entity.cs" />

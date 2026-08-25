@@ -6,8 +6,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     private UI ui;
     private RectTransform rect;
+    private UI_SkillTree skillTree;
+    private UI_TreeConnectHandler connectHandler;
 
-    [SerializeField] private Skill_DataSO skillData;
+    [Header("Unlock Details")]
+    public UI_TreeNode[] neededNodes;
+    public UI_TreeNode[] conflictNodes;
+    public bool isUnlocked;
+    public bool isLocked;
+
+    [SerializeField] public Skill_DataSO skillData;
 
     [Header("Skill Details")]
     [SerializeField] private string skillName;
@@ -19,21 +27,37 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private Color lastColor;
 
-    public bool isUnlocked;
-    public bool isLocked;
-
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
+        skillTree = GetComponentInParent<UI_SkillTree>();
+        connectHandler = GetComponent<UI_TreeConnectHandler>();
 
         UpdateIconColor(skillLockedColor);
+    }
+
+    public void Refund()
+    {
+        isUnlocked = false;
+        isLocked = false;
+        UpdateIconColor(GetColorByHex(lockedColorHex));
+
+        skillTree.AddSkillPoints(skillData.cost);
+        connectHandler.UnlockConnectionImage(false);
+
+        // skill manager and reset skill
     }
 
     private void Unlock()
     {
         isUnlocked = true;
         UpdateIconColor(Color.white);
+        skillTree.RemoveSkillPoint(skillData.cost);
+
+        //Connection
+        LockConflictNodes();
+        connectHandler.UnlockConnectionImage(true);
     }
 
     private bool CanbeUnlocked()
@@ -41,7 +65,28 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (isLocked || isUnlocked)
             return false;
 
+        if (skillTree.EnoughSkillPoints(skillData.cost) == false)
+            return false;
+
+        foreach (var node in neededNodes)
+        {
+            if (node.isUnlocked == false)
+                return false;
+        }
+
+        foreach (var node in conflictNodes)
+        {
+            if (node.isUnlocked)
+                return false;
+        }
+
         return true;
+    }
+
+    private void LockConflictNodes()
+    {
+        foreach (var node in conflictNodes)
+            node.isLocked = true;
     }
 
     private void UpdateIconColor(Color color)
@@ -58,23 +103,31 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (CanbeUnlocked())
             Unlock();
         else
-            Debug.Log("Cant be unlocked");
+            ui.skillToolTip.LockedSkillEffect();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowToolTip(true, rect, skillData);
+        ui.skillToolTip.ShowToolTip(true, rect, this);
 
-        if (isUnlocked == false)
-            UpdateIconColor(Color.white * 0.9f);
+        if (isUnlocked == false || isLocked == false)
+            ToggleNodeHighlight(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.ShowToolTip(false, rect);
 
-        if (isUnlocked == false)
-            UpdateIconColor(lastColor);
+        if (isUnlocked == false || isLocked == false)
+            ToggleNodeHighlight(false);
+    }
+
+    private void ToggleNodeHighlight(bool highlight)
+    {
+        Color highlightColor = Color.white * .9f; highlightColor.a = 1;
+        Color colorToApply = highlight ? highlightColor : lastColor;
+
+        UpdateIconColor(colorToApply);
     }
 
     private Color GetColorByHex(string hexNumber)
@@ -82,6 +135,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ColorUtility.TryParseHtmlString(hexNumber, out Color color);
 
         return color;
+    }
+
+    private void OnDisable()
+    {
+        if (isLocked)
+            UpdateIconColor(GetColorByHex(lockedColorHex));
+
+        if (isUnlocked)
+            UpdateIconColor(Color.white);
     }
 
     private void OnValidate()
