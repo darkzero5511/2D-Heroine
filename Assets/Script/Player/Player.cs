@@ -9,10 +9,12 @@ public class Player : Entity
     private UI ui;
 
     public PlayerInputSet input { get; private set; }
-
+    public Player_SkillManager skillManager { get; private set; }
     //
     //Player State
     //
+
+    #region Player State
     public Player_IdleState idleState { get; private set; }
 
     public Player_MoveState moveState { get; private set; }
@@ -29,7 +31,12 @@ public class Player : Entity
     public Player_DeathState deathState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
 
-    ///Attack
+    #endregion Player State
+
+    //Attack
+
+    #region Attack
+
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
 
@@ -37,23 +44,25 @@ public class Player : Entity
     public float comboResetTime = 1;
     private Coroutine queuedAttackCo;
 
+    #endregion Attack
+
     //Hurt
     [Space]
     public float recoverTime = 1;
 
     public bool isHurt = false;
 
-    ///Attack
-
-    ///Movement
+    //Movement
     [Header("Movement Detail")]
     public float moveSpeed;
 
-    public float jumpForce = 5;
-    [Range(0, 1)] public float doubleJumpMultiplier = 0.6f;
-    ///Movement
+    // Jump
 
-    /// Jump
+    #region Jump
+    public float jumpForce = 5;
+
+    [Range(0, 1)] public float doubleJumpMultiplier = 0.6f;
+
     [Space]
     public Vector2 wallJumpForce;
 
@@ -63,9 +72,13 @@ public class Player : Entity
 
     [Range(0, 1)] public float inAirMoveMultiplier = .7f;
     [Range(0, 1)] public float wallSlideSlowMultiplier = 0.9f;
-    /// Jump
 
-    /// Dash
+    #endregion Jump
+
+    // Dash
+
+    #region dash
+
     [Space]
     public float dashDuration = .25f;
 
@@ -74,8 +87,7 @@ public class Player : Entity
     public float dashSpeed = 20;
     public float dashBackSpeed = -20;
 
-    public float dashCooldown = 2;
-    /// Dash
+    #endregion dash
 
     public Vector2 moveInput { get; private set; }
 
@@ -84,6 +96,7 @@ public class Player : Entity
         base.Awake();
 
         ui = FindAnyObjectByType<UI>();
+        skillManager = GetComponent<Player_SkillManager>();
 
         input = new PlayerInputSet();
 

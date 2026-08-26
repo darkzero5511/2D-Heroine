@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
-  m_Name: Skil data - Time Echo
+  m_Name: Skill data - Temporal Trace
   m_EditorClassIdentifier: 
-  cost: 1
-  displayName: Time Echo
-  description: 'Details:
-
-    Create a time echo (clone) of yourself.
-
-    The echo
-    distracts enemies.'
-  icon: {fileID: 1255072209, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  cost: 0
+  skillType: 0
+  upgradeType: 4
+  displayName: Temporal Trace
+  description: "Details:\nLeave a time shard behind after dashing.\L(Inherits all
+    upgrades of Time Echo Skill Tree)"
+  icon: {fileID: 381152252, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}

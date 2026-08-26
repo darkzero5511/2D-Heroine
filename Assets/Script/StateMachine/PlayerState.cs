@@ -5,6 +5,7 @@ public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
+    protected Player_SkillManager skills;
 
     public PlayerState(Player player, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
@@ -15,6 +16,7 @@ public abstract class PlayerState : EntityState
         input = player.input;
 
         stats = player.stats;
+        skills = player.skillManager;
     }
 
     public override void Update()
@@ -23,6 +25,8 @@ public abstract class PlayerState : EntityState
 
         if (input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
+            skills.dash.SetSkillOnCooldonw();
+
             if (player.moveInput.x == 0 && player.groundDetected)
                 stateMachine.ChangeState(player.dashBackwardState);
             else
@@ -44,13 +48,13 @@ public abstract class PlayerState : EntityState
 
     public bool CanDash()
     {
+        if (skills.dash.CanUseSkill() == false)
+            return false;
+
         if (player.wallDetected)
             return false;
 
         if (stateMachine.currentState == player.dashState)
-            return false;
-
-        if (Time.time < player.dashState.lastTimeDashed + player.dashCooldown)
             return false;
 
         return true;

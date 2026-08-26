@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
-  m_Name: Skil data - Empty
+  m_Name: Skil data - Time Echo
   m_EditorClassIdentifier: 
-  cost: 0
-  displayName: Empty
-  description: Empty
-  icon: {fileID: 5088316998373936774, guid: 6cc57ccc45f61e946a933ee88b253589, type: 3}
+  cost: 1
+  skillType: 1
+  upgradeType: 0
+  displayName: Time Echo
+  description: 'Details:
+
+    Create a time echo (clone) of yourself.
+
+    The echo
+    distracts enemies.'
+  icon: {fileID: 1255072209, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}

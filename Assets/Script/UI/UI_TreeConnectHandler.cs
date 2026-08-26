@@ -7,7 +7,7 @@ public class UI_TreeConnectDetails
 {
     public UI_TreeConnectHandler childNode;
     public NodeDirectionType direction;
-    [Range(150f, 300f)] public float length;
+    [Range(150f, 300f)] public float length = 250f;
     [Range(-25f, 25f)] public float rotation;
 }
 
@@ -58,7 +58,7 @@ public class UI_TreeConnectHandler : MonoBehaviour
 
             detail.childNode?.SetPosition(targetPosition);
             detail.childNode?.SetConnectionImage(connectionImage);
-            detail.childNode.transform.SetAsLastSibling();
+            //detail.childNode.transform.SetAsLastSibling();
         }
     }
 

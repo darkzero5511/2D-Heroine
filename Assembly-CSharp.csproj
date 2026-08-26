@@ -84,7 +84,9 @@
     <Compile Include="Assets\Script\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Script\Enum\SkillType.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill_DataSO.cs" />
+    <Compile Include="Assets\Script\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_VFX.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Dummy.cs" />
@@ -111,8 +113,10 @@
     <Compile Include="Assets\Script\UI\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
     <Compile Include="Assets\Script\Interface\IDamgable.cs" />
+    <Compile Include="Assets\Script\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
+    <Compile Include="Assets\Script\SkillSystem\Skill_Dash.cs" />
     <Compile Include="Assets\Script\Stat\Stat.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
     <Compile Include="Assets\Script\VFX\VFX_AutoController.cs" />
+    <Compile Include="Assets\Script\Player\Player_SkillManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\JoannaD&apos;ArcIII_v1.9.6\Sprites\Contact.txt" />
