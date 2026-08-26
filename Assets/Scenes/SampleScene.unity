@@ -898,7 +898,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: 950ed3644b09ac14a827354800f20562, type: 2}
   skillName: Temporal Trace
   skillIcon: {fileID: 969521680}
-  skillCost: 0
+  skillCost: 2
   skillLockedColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
   lockedColorHex: '#919191'
 --- !u!1 &126834194
@@ -39247,9 +39247,9 @@ GameObject:
   - component: {fileID: 298968885}
   - component: {fileID: 298968884}
   - component: {fileID: 298968883}
-  - component: {fileID: 298968889}
   - component: {fileID: 298968891}
   - component: {fileID: 298968892}
+  - component: {fileID: 298968896}
   - component: {fileID: 298968893}
   - component: {fileID: 298968894}
   - component: {fileID: 298968895}
@@ -39367,7 +39367,7 @@ MonoBehaviour:
   dashDuration: 0.25
   dashBackDuration: 0.25
   dashSpeed: 30
-  dashBackSpeed: -25
+  dashBackSpeed: -30
 --- !u!4 &298968886
 Transform:
   m_ObjectHideFlags: 0
@@ -39388,33 +39388,6 @@ Transform:
   - {fileID: 63134845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &298968889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298968882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7298640d0243a9d4391c6f271fad32c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDamageMaterial: {fileID: 2100000, guid: 9dd05bdc0beb0f740815c28372c5efaf, type: 2}
-  onDamageVfxDuration: 0.2
-  hitVfxColor: {r: 0.57924527, g: 1, b: 0.93491054, a: 1}
-  hitVfx: {fileID: 6115658263442009029, guid: 2e4fdd221cd78844494718fcc999a5d6, type: 3}
-  critHitVfx: {fileID: 6220883078325741581, guid: c52dde22a9621f14ea836eff5b43b34d, type: 3}
-  chillTarget: {r: 0.7019608, g: 0.91764706, b: 1, a: 1}
-  chillVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  chillVfxEffect: {fileID: 2899292391437957077, guid: 459f8f6cde39f384882e78c8da835c47, type: 3}
-  burnTarget: {r: 1, g: 0.49019608, b: 0.49411765, a: 1}
-  fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  fireVfxEffect: {fileID: 7649335440106568256, guid: ed7a2510bb789b44485e3ad5df8c5c6c, type: 3}
-  explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
-  electrifyTarget: {r: 0.9811321, g: 0.94171363, b: 0.48593804, a: 0.8}
-  electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
 --- !u!114 &298968891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39576,6 +39549,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c144a59b51da06c41864a9b7953ebc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &298968896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298968882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0291bb0d23de2eb4f8370b2a6135d88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: 9dd05bdc0beb0f740815c28372c5efaf, type: 2}
+  onDamageVfxDuration: 0.2
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfx: {fileID: 6115658263442009029, guid: 2e4fdd221cd78844494718fcc999a5d6, type: 3}
+  critHitVfx: {fileID: 6220883078325741581, guid: c52dde22a9621f14ea836eff5b43b34d, type: 3}
+  chillTarget: {r: 0.7019608, g: 0.91764706, b: 1, a: 1}
+  chillVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  chillVfxEffect: {fileID: 2899292391437957077, guid: 459f8f6cde39f384882e78c8da835c47, type: 3}
+  burnTarget: {r: 1, g: 0.49019608, b: 0.49411765, a: 1}
+  fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireVfxEffect: {fileID: 7649335440106568256, guid: ed7a2510bb789b44485e3ad5df8c5c6c, type: 3}
+  explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
+  electrifyTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 1}
+  electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 5985133033319753994, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
 --- !u!1 &317908844
 GameObject:
   m_ObjectHideFlags: 0
@@ -39644,7 +39646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &318019364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55137,7 +55139,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: 0394db7c816e3504dac58e0ee39bde48, type: 2}
   skillName: Echo Trail
   skillIcon: {fileID: 900560336}
-  skillCost: 0
+  skillCost: 2
   skillLockedColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
   lockedColorHex: '#919191'
 --- !u!1 &1313123465
@@ -55290,7 +55292,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: e8b7cc3a9147348439c51b659ad069b0, type: 2}
   skillName: Temporal Arrival
   skillIcon: {fileID: 1482901303}
-  skillCost: 0
+  skillCost: 2
   skillLockedColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
   lockedColorHex: '#919191'
 --- !u!1 &1325727914
@@ -56999,7 +57001,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: 2b500dab70f18c9418539b9ac61c08db, type: 2}
   skillName: Echo Arrival
   skillIcon: {fileID: 1474725394}
-  skillCost: 0
+  skillCost: 2
   skillLockedColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
   lockedColorHex: '#919191'
 --- !u!1 &1675979045
@@ -57160,7 +57162,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: 1fe8a7e82edc4a74981c5f1659b80c0d, type: 2}
   skillName: Quick Dash
   skillIcon: {fileID: 1969976211}
-  skillCost: 0
+  skillCost: 2
   skillLockedColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
   lockedColorHex: '#919191'
 --- !u!1 &1708404688
@@ -59814,6 +59816,63 @@ MonoBehaviour:
   rotationPoint: {fileID: 2124501640}
   connectionLength: {fileID: 1958232431}
   childNodeConnectionPoint: {fileID: 1839815515}
+--- !u!1001 &2333086612942078570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.8188553
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7041971
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0032987432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074889416976583707, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985133033319753994, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
+      propertyPath: m_Name
+      value: VFX_ImageEcho
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c98b0023c6b37145b96a794f27471d5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -59826,3 +59885,4 @@ SceneRoots:
   - {fileID: 1472825559}
   - {fileID: 1554533724}
   - {fileID: 1913419373}
+  - {fileID: 2333086612942078570}

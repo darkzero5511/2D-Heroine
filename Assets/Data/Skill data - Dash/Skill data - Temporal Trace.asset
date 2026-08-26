@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
   m_Name: Skill data - Temporal Trace
   m_EditorClassIdentifier: 
-  cost: 0
-  skillType: 0
-  upgradeType: 4
   displayName: Temporal Trace
   description: "Details:\nLeave a time shard behind after dashing.\L(Inherits all
     upgrades of Time Echo Skill Tree)"
   icon: {fileID: 381152252, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  cost: 2
+  unlockedByDefault: 0
+  skillType: 0
+  upgradeData:
+    upgradeType: 4
+    cooldown: 2

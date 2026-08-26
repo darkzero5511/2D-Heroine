@@ -13,33 +13,35 @@ public class Player_DashBackwardState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        
-    
-    
-        dashDir = - player.facingDir;
+
+        player.vFX.DoImageEchoEffect(player.dashBackDuration);
+
+        dashDir = -player.facingDir;
         stateTimer = player.dashBackDuration;
 
         originalGravityScale = rb.gravityScale;
         rb.gravityScale = 0;
-
     }
 
     public override void Update()
     {
         base.Update();
 
-        player.SetVelocity(- player.dashBackSpeed * dashDir, 0);
+        player.SetVelocity(-player.dashBackSpeed * dashDir, 0);
 
         if (stateTimer < 0)
         {
             if (player.groundDetected)
-            { stateMachine.ChangeState(player.idleState);
-            player.Flip();}
-            else{
+            {
+                player.Flip();
+                stateMachine.ChangeState(player.idleState);
+            }
+            else
+            {
+                player.Flip();
                 stateMachine.ChangeState(player.fallState);
-            player.Flip();
+            }
         }
-    }
     }
 
     public override void Exit()
@@ -51,6 +53,4 @@ public class Player_DashBackwardState : PlayerState
 
         lastTimeDashed = Time.time;
     }
-
-    
 }

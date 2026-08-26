@@ -10,6 +10,7 @@ public class Player : Entity
 
     public PlayerInputSet input { get; private set; }
     public Player_SkillManager skillManager { get; private set; }
+    public Player_VFX vFX { get; private set; }
     //
     //Player State
     //
@@ -97,6 +98,7 @@ public class Player : Entity
 
         ui = FindAnyObjectByType<UI>();
         skillManager = GetComponent<Player_SkillManager>();
+        vFX = GetComponent<Player_VFX>();
 
         input = new PlayerInputSet();
 

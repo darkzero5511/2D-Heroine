@@ -129,6 +129,7 @@
     <Compile Include="Assets\Script\Stat\Stat_SetupSO.cs" />
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
+    <Compile Include="Assets\Script\Player\Player_VFX.cs" />
     <Compile Include="Assets\Script\Stat\Stat_DefenseGroup.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />

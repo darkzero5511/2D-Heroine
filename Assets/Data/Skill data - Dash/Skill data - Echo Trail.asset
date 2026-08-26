@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
   m_Name: Skill data - Echo Trail
   m_EditorClassIdentifier: 
-  cost: 0
-  skillType: 0
-  upgradeType: 2
   displayName: Echo Trail
   description: 'Details:
 
@@ -23,3 +20,9 @@ MonoBehaviour:
     (Inherits
     all upgrades of Time Echo Skill Tree)'
   icon: {fileID: -878415261, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  cost: 2
+  unlockedByDefault: 0
+  skillType: 0
+  upgradeData:
+    upgradeType: 2
+    cooldown: 2
