@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 7d715b45bc7e17e4fb6e5ba3e38e48fb
+guid: 51f8d9d738386024fb81a2ab87f70f20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5293031974318352618
-    second: Crystal_0
+      213: 1265166614911258294
+    second: ShardExplosion_0
   - first:
-      213: -5474089373579334922
-    second: Crystal_1
+      213: 259970588118718324
+    second: ShardExplosion_1
   - first:
-      213: -2744189082622042838
-    second: Crystal_2
+      213: 6108322926936129131
+    second: ShardExplosion_2
   - first:
-      213: -3617950518936263543
-    second: Crystal_3
+      213: -6593634857962824033
+    second: ShardExplosion_3
   - first:
-      213: -1533135168565123671
-    second: Crystal_4
+      213: -4101167924800465396
+    second: ShardExplosion_4
   - first:
-      213: -7731279947068262272
-    second: Crystal_5
+      213: -5971635895029693947
+    second: ShardExplosion_5
+  - first:
+      213: -8831255584602658587
+    second: ShardExplosion_6
+  - first:
+      213: 2582011558868482410
+    second: ShardExplosion_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crystal_0
+      name: ShardExplosion_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 128
+        y: 128
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae8a7067980a47940800000000000000
-      internalID: 5293031974318352618
+      spriteID: 6be08774556ce8110800000000000000
+      internalID: 1265166614911258294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_1
+      name: ShardExplosion_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 0
+        y: 96
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fa201bb7b02804b0800000000000000
-      internalID: -5474089373579334922
+      spriteID: 4779ddc5fd99b9300800000000000000
+      internalID: 259970588118718324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_2
+      name: ShardExplosion_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 0
+        y: 64
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2ddec5919eaae9d0800000000000000
-      internalID: -2744189082622042838
+      spriteID: b6ef669b65f15c450800000000000000
+      internalID: 6108322926936129131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_3
+      name: ShardExplosion_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 0
+        y: 32
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,52 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9842dd7fb257acdc0800000000000000
-      internalID: -3617950518936263543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crystal_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a56405efa539bae0800000000000000
-      internalID: -1533135168565123671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crystal_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08835e7a9d9f4b490800000000000000
-      internalID: -7731279947068262272
+      spriteID: f9e1e700804be74a0800000000000000
+      internalID: -6593634857962824033
       vertices: []
       indices: 
       edges: []
@@ -250,7 +212,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 49249b0d987e20c45a9aee7d1197f13a
+    spriteID: 47f3b082c9513184ba327ea496debc2a
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +222,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Crystal_0: 5293031974318352618
-      Crystal_1: -5474089373579334922
-      Crystal_2: -2744189082622042838
-      Crystal_3: -3617950518936263543
-      Crystal_4: -1533135168565123671
-      Crystal_5: -7731279947068262272
+      ShardExplosion_0: 1265166614911258294
+      ShardExplosion_1: 259970588118718324
+      ShardExplosion_2: 6108322926936129131
+      ShardExplosion_3: -6593634857962824033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

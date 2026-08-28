@@ -109,10 +109,10 @@ TextureImporter:
       name: Effect 2 - Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 135
-        width: 21
-        height: 19
+        x: 0
+        y: 128
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: Effect 2 - Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 100
-        width: 26
-        height: 25
+        x: 0
+        y: 96
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: Effect 2 - Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 36
-        width: 34
-        height: 57
+        x: 0
+        y: 64
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,11 +171,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Effect 2 - Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe572bc58498d14e9e32104257b675e
+      internalID: -1897685642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ff078637f9cd29a4cb564f97f2856e8e
     internalID: 0
     vertices: []
     indices: 
@@ -188,6 +210,7 @@ TextureImporter:
       Effect 2 - Sprite Sheet_0: 1372538312647927422
       Effect 2 - Sprite Sheet_1: -7177089095493332209
       Effect 2 - Sprite Sheet_2: -851234473211841547
+      Effect 2 - Sprite Sheet_3: -1897685642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

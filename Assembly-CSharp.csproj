@@ -77,6 +77,7 @@
     <Compile Include="Assets\Script\Enum\StatType.cs" />
     <Compile Include="Assets\Script\Enum\ElementType.cs" />
     <Compile Include="Assets\Script\UI\UI.cs" />
+    <Compile Include="Assets\Script\SkillSystem\SkillObject_Base.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
     <Compile Include="Assets\Script\UI\UI_ToolTip.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Skeleton.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Script\Chest\Object_Chest.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
+    <Compile Include="Assets\Script\SkillSystem\Skill_Shard.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Script\UI\UI_MiniHealthBar.cs" />
     <Compile Include="Assets\Script\Entity\Entity_StatusHandle.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\Script\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
+    <Compile Include="Assets\Script\SkillSystem\SkillObject_Shard.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill_Dash.cs" />
     <Compile Include="Assets\Script\Stat\Stat.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
