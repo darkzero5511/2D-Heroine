@@ -213,6 +213,8 @@ MonoBehaviour:
   fireVfxEffect: {fileID: 7649335440106568256, guid: ed7a2510bb789b44485e3ad5df8c5c6c, type: 3}
   explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
   electrifyTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 0.8}
+  lightningVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  lightningVfxEffect: {fileID: 3586881396317820132, guid: caed822b30e294d47bc26ddc7c1af0a8, type: 3}
   electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
   electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
   attackAlert: {fileID: 4679396963343815736}

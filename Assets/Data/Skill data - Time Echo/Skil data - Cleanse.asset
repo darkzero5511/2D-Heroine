@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
   m_Name: Skil data - Cleanse
   m_EditorClassIdentifier: 
-  cost: 3
   displayName: Cleanse
   description: 'Details:
 
     The healing wisp will reduces the duration of negative
     status effectts by 1 second'
   icon: {fileID: -541962928, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  cost: 3
+  unlockedByDefault: 0
+  skillType: 1
+  upgradeData:
+    upgradeType: 0
+    cooldown: 0

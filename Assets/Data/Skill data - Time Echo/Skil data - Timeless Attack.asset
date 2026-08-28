@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
   m_Name: Skil data - Timeless Attack
   m_EditorClassIdentifier: 
-  cost: 2
   displayName: TImeless Attack
   description: 'Details:
 
     The echo can perform 1 attack.'
   icon: {fileID: -268649517, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  cost: 2
+  unlockedByDefault: 0
+  skillType: 1
+  upgradeData:
+    upgradeType: 0
+    cooldown: 0

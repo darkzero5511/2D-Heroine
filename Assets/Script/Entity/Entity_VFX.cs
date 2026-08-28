@@ -44,6 +44,10 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private Color electrifyTarget = new Color32(251, 241, 124, 255);
 
     [Space]
+    [SerializeField] private Color lightningVfxColor = Color.white;
+    [SerializeField] private GameObject lightningVfxEffect;
+
+    [Space]
     [SerializeField] private Color electrifyVfxColor = Color.white;
     [SerializeField] public GameObject electrifyVfxEffect;
 
@@ -117,6 +121,9 @@ public class Entity_VFX : MonoBehaviour
 
         if (elementType == ElementType.Fire)
             CreateOnHitElement(target, fireVfxEffect, fireVfxColor);
+
+        if (elementType == ElementType.Lighting)
+            CreateOnHitElement(target, lightningVfxEffect, lightningVfxColor);
     }
 
     private void CreateOnHitElement(Transform target, GameObject ElementVfxEffect, Color ElementColor)
