@@ -11,6 +11,9 @@ public class Player : Entity
     public PlayerInputSet input { get; private set; }
     public Player_SkillManager skillManager { get; private set; }
     public Player_VFX vFX { get; private set; }
+    public Entity_Health health { get; private set; }
+    public Entity_StatusHandler statusHandler { get; private set; }
+
     //
     //Player State
     //
@@ -31,6 +34,7 @@ public class Player : Entity
     public Player_DoubleJumpState doubleJumpState { get; private set; }
     public Player_DeathState deathState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
+    public Player_SwordThrowState swordThrowState { get; private set; }
 
     #endregion Player State
 
@@ -91,14 +95,17 @@ public class Player : Entity
     #endregion dash
 
     public Vector2 moveInput { get; private set; }
+    public Vector2 mousePosition { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
 
         ui = FindAnyObjectByType<UI>();
-        skillManager = GetComponent<Player_SkillManager>();
         vFX = GetComponent<Player_VFX>();
+        health = GetComponent<Entity_Health>();
+        skillManager = GetComponent<Player_SkillManager>();
+        statusHandler = GetComponent<Entity_StatusHandler>();
 
         input = new PlayerInputSet();
 
@@ -116,6 +123,7 @@ public class Player : Entity
         doubleJumpState = new Player_DoubleJumpState(this, stateMachine, "doubleJump");
         deathState = new Player_DeathState(this, stateMachine, "death");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
+        swordThrowState = new Player_SwordThrowState(this, stateMachine, "swordThrow");
     }
 
     protected override void Start()
@@ -124,6 +132,8 @@ public class Player : Entity
 
         stateMachine.Initialize(idleState);
     }
+
+    public void TeleportPlayer(Vector3 position) => transform.position = position;
 
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
@@ -201,11 +211,13 @@ public class Player : Entity
     {
         input.Enable();
 
+        //input.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
+
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
-        input.Player.Spell.performed += ctx => skillManager.shard.CreateShard();
+        input.Player.Spell.performed += ctx => skillManager.shard.TryUseSkill();
     }
 
     private void OnDisable()

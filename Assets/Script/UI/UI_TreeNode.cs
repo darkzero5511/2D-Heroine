@@ -45,11 +45,18 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Refund()
     {
-        isUnlocked = false;
-        isLocked = false;
+        if (isLocked)
+        {
+            isLocked = false;
+        }
+        if (isUnlocked)
+        {
+            isUnlocked = false;
+            skillTree.AddSkillPoints(skillData.cost);
+        }
+
         UpdateIconColor(GetColorByHex(lockedColorHex));
 
-        skillTree.AddSkillPoints(skillData.cost);
         connectHandler.UnlockConnectionImage(false);
 
         // skill manager and reset skill
@@ -70,7 +77,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private bool CanbeUnlocked()
     {
-        if (isLocked || isUnlocked)
+        if (isLocked)
             return false;
 
         if (skillTree.EnoughSkillPoints(skillData.cost) == false)
@@ -123,6 +130,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (CanbeUnlocked())
             Unlock();
+        if (isUnlocked)
+            return;
         else
             ui.skillToolTip.LockedSkillEffect();
     }

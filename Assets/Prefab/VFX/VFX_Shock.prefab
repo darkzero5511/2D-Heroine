@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6574916586725151845}
   - component: {fileID: 719937153957656980}
   m_Layer: 0
-  m_Name: VFX_Electrify
+  m_Name: VFX_Shock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

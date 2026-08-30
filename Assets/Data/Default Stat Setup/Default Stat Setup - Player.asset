@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Default Stat Setup - Player
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthRegen: 1
+  healthRegen: 0
   maxMana: 100
   manaRegen: 0.5
   attackSpeed: 1
@@ -30,7 +30,8 @@ MonoBehaviour:
   iceResistance: 0
   lightningResistance: 0
   chill: 0.2
-  explosion: 0.8
+  explosionDmg: 0.8
+  explosionChance: 0.2
   electrify: 0.2
   strength: 0
   agility: 0

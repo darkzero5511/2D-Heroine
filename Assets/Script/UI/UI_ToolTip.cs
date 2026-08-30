@@ -30,7 +30,6 @@ public class UI_ToolTip : MonoBehaviour
         Vector2 targetPosition = targetRect.position;
 
         targetPosition.x = targetPosition.x > screenCenterX ? targetPosition.x - offset.x : targetPosition.x + offset.x;
-        //targetPosition.y = targetPosition.y > screenTop ? targetPosition.y - offset.y : targetPosition.y + offset.y;
 
         float verticalHalf = rect.sizeDelta.y / 2f;
         float topY = targetPosition.y + verticalHalf;

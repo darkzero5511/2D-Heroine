@@ -162,6 +162,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c6c1126024337419476eb2aeee7534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    explosionChance: 0.2
+    explosionDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 1084342450440082100}
   targetCheckRadius: 1
   whatIsTarget:
@@ -212,11 +224,11 @@ MonoBehaviour:
   fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
   fireVfxEffect: {fileID: 7649335440106568256, guid: ed7a2510bb789b44485e3ad5df8c5c6c, type: 3}
   explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
-  electrifyTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 0.8}
+  shockTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 1}
   lightningVfxColor: {r: 1, g: 1, b: 1, a: 1}
   lightningVfxEffect: {fileID: 3586881396317820132, guid: caed822b30e294d47bc26ddc7c1af0a8, type: 3}
-  electrifyVfxColor: {r: 1, g: 1, b: 1, a: 1}
-  electrifyVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
+  shockVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  shockVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
   attackAlert: {fileID: 4679396963343815736}
   alertMode: 0
 --- !u!114 &546970565503802856
@@ -234,10 +246,10 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 0d58f3d70f646b64d84dd4c5b6c18600, type: 2}
   resources:
     maxHealth:
-      baseValue: 11111
+      baseValue: 100
       modifiers: []
     healthRegen:
-      baseValue: 111
+      baseValue: 1
       modifiers: []
     maxMana:
       baseValue: 100
@@ -262,7 +274,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     fireDamage:
-      baseValue: 1
+      baseValue: 0
       modifiers: []
     iceDamage:
       baseValue: 2
@@ -324,7 +336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3143491781667364804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7c795ca62279b4c91c6a5f6dced1f0, type: 3}
+  m_Script: {fileID: 11500000, guid: c2b3cfc960abca849a2ca378da3e491e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentCharge: 0

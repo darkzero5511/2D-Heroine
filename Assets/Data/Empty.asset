@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
-  cost: 0
   displayName: Empty
   description: Empty
   icon: {fileID: 5088316998373936774, guid: 6cc57ccc45f61e946a933ee88b253589, type: 3}
+  cost: 0
+  unlockedByDefault: 0
+  skillType: 0
+  upgradeData:
+    upgradeType: 0
+    cooldown: 0

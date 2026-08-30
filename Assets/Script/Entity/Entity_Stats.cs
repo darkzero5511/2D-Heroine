@@ -14,10 +14,12 @@ public class Entity_Stats : MonoBehaviour
     public Stat_DefenseGroup defense;
 
     [Space]
-    public Stat_StatusEffectGroup statusEffect;
-
-    [Space]
     public Stat_AttributeGroup attribute;
+
+    public AttackData GetAttackData(DamageScaleData scaleData)
+    {
+        return new AttackData(this, scaleData);
+    }
 
     //
     //STATS
@@ -203,12 +205,6 @@ public class Entity_Stats : MonoBehaviour
             case StatType.FireResistance: return defense.fireRes;
             case StatType.LightningResistance: return defense.lightningRes;
 
-            //Status
-            case StatType.Chill: return statusEffect.chillSlowMultiplier;
-            case StatType.ExplosionDmg: return statusEffect.burnExplosion;
-            case StatType.ExplosionChance: return statusEffect.explosionChance;
-            case StatType.Electrify: return statusEffect.electrifyChargeBuildUp;
-
             default:
                 Debug.LogWarning($"StatType {type} not implemented yet.");
                 return null;
@@ -250,10 +246,5 @@ public class Entity_Stats : MonoBehaviour
         defense.iceRes.SetBaseValue(defaultStatSetup.iceResistance);
         defense.fireRes.SetBaseValue(defaultStatSetup.fireResistance);
         defense.lightningRes.SetBaseValue(defaultStatSetup.lightningResistance);
-
-        statusEffect.chillSlowMultiplier.SetBaseValue(defaultStatSetup.chill);
-        statusEffect.burnExplosion.SetBaseValue(defaultStatSetup.explosionDmg);
-        statusEffect.explosionChance.SetBaseValue(defaultStatSetup.explosionChance);
-        statusEffect.electrifyChargeBuildUp.SetBaseValue(defaultStatSetup.electrify);
     }
 }

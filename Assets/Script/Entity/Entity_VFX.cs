@@ -41,15 +41,15 @@ public class Entity_VFX : MonoBehaviour
 
     [Space]
     [Header("Lightning")]
-    [SerializeField] private Color electrifyTarget = new Color32(251, 241, 124, 255);
+    [SerializeField] private Color shockTarget = new Color32(251, 241, 124, 255);
 
     [Space]
     [SerializeField] private Color lightningVfxColor = Color.white;
     [SerializeField] private GameObject lightningVfxEffect;
 
     [Space]
-    [SerializeField] private Color electrifyVfxColor = Color.white;
-    [SerializeField] public GameObject electrifyVfxEffect;
+    [SerializeField] private Color shockVfxColor = Color.white;
+    [SerializeField] public GameObject shockVfxEffect;
 
     private void Awake()
     {
@@ -68,7 +68,7 @@ public class Entity_VFX : MonoBehaviour
             StartCoroutine(PlayStatusVfxCo(duration, burnTarget));
 
         if (element == ElementType.Lighting)
-            StartCoroutine(PlayStatusVfxCo(duration, electrifyTarget));
+            StartCoroutine(PlayStatusVfxCo(duration, shockTarget));
     }
 
     public void StopAllVfx()
@@ -100,11 +100,12 @@ public class Entity_VFX : MonoBehaviour
         sr.color = Color.white;
     }
 
-    public void CreateOnHitVFX(Transform target, bool isCrit)
+    public void CreateOnHitVFX(Transform target, bool isCrit, ElementType element)
     {
         GameObject hitPrefab = isCrit ? critHitVfx : hitVfx;
 
         GameObject vfx = Instantiate(hitPrefab, target.position, Quaternion.identity);
+
         vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
 
         if (entity.facingDir == -1 && isCrit)
@@ -129,7 +130,6 @@ public class Entity_VFX : MonoBehaviour
     private void CreateOnHitElement(Transform target, GameObject ElementVfxEffect, Color ElementColor)
     {
         GameObject vfx = Instantiate(ElementVfxEffect, target.position, Quaternion.identity);
-        vfx.GetComponentInChildren<SpriteRenderer>().color = ElementColor;
 
         if (entity.facingDir == -1)
             vfx.transform.Rotate(0, 180, 0);

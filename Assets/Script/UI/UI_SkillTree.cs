@@ -4,6 +4,7 @@ public class UI_SkillTree : MonoBehaviour
 {
     [SerializeField] private int skillPoint;
     [SerializeField] private UI_TreeConnectHandler[] parentNodes;
+
     public Player_SkillManager skillManager { get; private set; }
 
     public bool EnoughSkillPoints(int cost) => skillPoint >= cost;
@@ -28,8 +29,7 @@ public class UI_SkillTree : MonoBehaviour
         UI_TreeNode[] skillNodes = GetComponentsInChildren<UI_TreeNode>();
 
         foreach (var node in skillNodes)
-            if (node.isUnlocked)
-                node.Refund();
+            node.Refund();
     }
 
     [ContextMenu("Update All Connections")]

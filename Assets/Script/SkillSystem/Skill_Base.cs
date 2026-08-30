@@ -2,25 +2,36 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
-    [Header("General Details")]
+    public Player_SkillManager skillManager { get; private set; }
+    public Player player { get; private set; }
+    public DamageScaleData damageScaleData { get; private set; }
+
+    [Header("General details")]
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
-
-    [SerializeField] private float coolDown;
+    [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
     protected virtual void Awake()
     {
-        lastTimeUsed = lastTimeUsed - coolDown;
+        skillManager = GetComponentInParent<Player_SkillManager>();
+        player = GetComponentInParent<Player>();
+        lastTimeUsed = lastTimeUsed - cooldown;
+        damageScaleData = new DamageScaleData();
+    }
+
+    public virtual void TryUseSkill()
+    {
     }
 
     public void SetSkillUpgrade(UpgradeData upgrade)
     {
         upgradeType = upgrade.upgradeType;
-        coolDown = upgrade.cooldown;
+        cooldown = upgrade.cooldown;
+        damageScaleData = upgrade.damageScaleData;
     }
 
-    public bool CanUseSkill()
+    public virtual bool CanUseSkill()
     {
         if (upgradeType == SkillUpgradeType.None)
             return false;
@@ -36,11 +47,11 @@ public class Skill_Base : MonoBehaviour
 
     protected bool Unlocked(SkillUpgradeType upgradeToCheck) => upgradeType == upgradeToCheck;
 
-    private bool OnCooldown() => Time.time < lastTimeUsed + coolDown;
+    protected bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
 
-    public float SetSkillOnCooldonw() => lastTimeUsed = Time.time;
+    public void SetSkillOnCooldown() => lastTimeUsed = Time.time;
 
-    public void ResetCooldownBy(float cooldownReduction) => lastTimeUsed += cooldownReduction;
+    public void ResetCooldownBy(float cooldownReduction) => lastTimeUsed = lastTimeUsed + cooldownReduction;
 
     public void ResetCooldown() => lastTimeUsed = Time.time;
 }

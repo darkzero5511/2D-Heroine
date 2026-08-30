@@ -25,7 +25,7 @@ public abstract class PlayerState : EntityState
 
         if (input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
-            skillManager.dash.SetSkillOnCooldonw();
+            skillManager.dash.SetSkillOnCooldown();
 
             if (player.moveInput.x == 0 && player.groundDetected)
                 stateMachine.ChangeState(player.dashBackwardState);

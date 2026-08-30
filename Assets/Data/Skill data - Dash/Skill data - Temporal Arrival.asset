@@ -19,7 +19,7 @@ MonoBehaviour:
 
     (Inherits all
     upgrades of Time Echo Skill Tree)'
-  icon: {fileID: 951129216, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  icon: {fileID: 381152252, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
   cost: 2
   unlockedByDefault: 0
   skillType: 0

@@ -14,6 +14,8 @@ public class Player_DashBackwardState : PlayerState
     {
         base.Enter();
 
+        skillManager.dash.OnStartEffect();
+
         player.vFX.DoImageEchoEffect(player.dashBackDuration);
 
         dashDir = -player.facingDir;
@@ -47,6 +49,8 @@ public class Player_DashBackwardState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
+        skillManager.dash.OnEndEffect();
 
         player.SetVelocity(0, 0);
         rb.gravityScale = originalGravityScale;
