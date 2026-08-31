@@ -30,7 +30,6 @@ public abstract class PlayerState : EntityState
             if (player.moveInput.x == 0 && player.groundDetected)
                 stateMachine.ChangeState(player.dashBackwardState);
             else
-
                 stateMachine.ChangeState(player.dashState);
         }
 
@@ -38,6 +37,20 @@ public abstract class PlayerState : EntityState
             player.doubleJump = 1;
         else if (!player.groundDetected && player.wallDetected)
             player.doubleJump = 0;
+
+        if (input.Player.UltimateSpell.WasPressedThisFrame() && skillManager.domainExpansion.CanUseSkill())
+        {
+            if (skillManager.domainExpansion.InstantDomain())
+            {
+                skillManager.domainExpansion.CreateDomain();
+            }
+            else
+            {
+                stateMachine.ChangeState(player.domainExpansionState);
+            }
+
+            skillManager.domainExpansion.SetSkillOnCooldown();
+        }
     }
 
     public override void UpdateAnimationParameters()
@@ -54,7 +67,8 @@ public abstract class PlayerState : EntityState
         if (player.wallDetected)
             return false;
 
-        if (stateMachine.currentState == player.dashState)
+        if (stateMachine.currentState == player.dashState
+         || stateMachine.currentState == player.domainExpansionState)
             return false;
 
         return true;

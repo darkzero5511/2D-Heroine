@@ -8,6 +8,9 @@ public class Enemy_Health : Entity_Health
     {
         base.TakeDamage(damage, elementalDamage, element, transform);
 
+        if (canTakeDamage == false)
+            return false;
+
         bool wasHit = base.TakeDamage(damage, elementalDamage, element, transform);
 
         if (wasHit == false)

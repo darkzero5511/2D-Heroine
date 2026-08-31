@@ -22,5 +22,17 @@ MonoBehaviour:
   unlockedByDefault: 0
   skillType: 1
   upgradeData:
-    upgradeType: 0
-    cooldown: 0
+    upgradeType: 20
+    cooldown: 5
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      explosionChance: 0.2
+      explosionDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

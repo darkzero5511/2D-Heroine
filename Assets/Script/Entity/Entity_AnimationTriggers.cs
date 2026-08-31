@@ -21,8 +21,8 @@ public class Entity_AnimationTriggers : MonoBehaviour
         entityCombat.PerformAttack();
     }
 
-    //private void AttackTrigger3()
-    //{
-    //    entityCombat.PerformAttack3();
-    //}
+    private void FarAttackTrigger()
+    {
+        entityCombat.PerformFarAttack();
+    }
 }

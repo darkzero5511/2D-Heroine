@@ -21,7 +21,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private float grabCheckDistance;
 
-    [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] public LayerMask whatIsGround;
 
     //Ground
     [Space]
@@ -77,6 +77,14 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.AnimationTrigger();
     }
 
+    //
+    //Death
+    //
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
     public virtual void EntityDeath()
     {
         //Override
@@ -85,10 +93,15 @@ public class Entity : MonoBehaviour
     //
     //Chill Effect
     //
-    public virtual void SlowDownEntity(float duration, float slowMultiplier)
+    public virtual void SlowDownEntity(float duration, float slowMultiplier, bool canOverrideSlowEffect = false)
     {
         if (slowDownCo != null)
-            StopCoroutine(slowDownCo);
+        {
+            if (canOverrideSlowEffect)
+                StopCoroutine(slowDownCo);
+            else
+                return;
+        }
 
         slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
     }
@@ -96,6 +109,11 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
         yield return null;
+    }
+
+    public virtual void StopSlowDown()
+    {
+        slowDownCo = null;
     }
 
     //

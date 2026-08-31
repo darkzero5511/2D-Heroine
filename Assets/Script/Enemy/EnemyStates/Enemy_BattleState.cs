@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.Processors;
 public class Enemy_BattleState : EnemyState
 {
     private Transform player;
+    private Transform lastTarget;
     private float lastTimeWasInBattle;
     private bool alertMode;
 
@@ -32,7 +33,7 @@ public class Enemy_BattleState : EnemyState
         }
         if (ShouldRetreat())
         {
-            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * enemy.activeSlowMultiplier * -DirectionToPlayer(), enemy.retreatVelocity.y);
             enemy.HandleFlip(DirectionToPlayer());
         }
     }
@@ -43,6 +44,7 @@ public class Enemy_BattleState : EnemyState
 
         if (enemy.PlayerDetected())
         {
+            UpdateTargetIfNeeded();
             UpdateBattleTimer();
 
             alertMode = false;
@@ -65,7 +67,7 @@ public class Enemy_BattleState : EnemyState
 
             if (!IsUnderPlayer() && !alertMode)
             {
-                enemy.SetVelocity(enemy.battleMoveSpeed * 1.2f * DirectionToLastLocation(), rb.linearVelocity.y);
+                enemy.SetVelocity(enemy.GetBattleMoveSpeed() * 1.2f * DirectionToLastLocation(), rb.linearVelocity.y);
                 if (DistanceToPlayer() < .2f)
                 {
                     StayAlert();
@@ -88,6 +90,20 @@ public class Enemy_BattleState : EnemyState
         {
             enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
             return;
+        }
+    }
+
+    private void UpdateTargetIfNeeded()
+    {
+        if (enemy.PlayerDetected() == false)
+            return;
+
+        Transform newTarget = enemy.PlayerDetected().transform;
+
+        if (newTarget != lastTarget)
+        {
+            lastTarget = newTarget;
+            player = newTarget;
         }
     }
 

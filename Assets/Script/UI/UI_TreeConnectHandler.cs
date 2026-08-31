@@ -18,6 +18,7 @@ public class UI_TreeConnectHandler : MonoBehaviour
     private RectTransform rect => GetComponent<RectTransform>();
     [SerializeField] private UI_TreeConnectDetails[] connectionDetails;
     [SerializeField] private UI_TreeConnection[] connections;
+    private Color connectionColorUnlock = Color.green;
 
     private Image connectionImage;
     private Color originalColor;
@@ -60,7 +61,7 @@ public class UI_TreeConnectHandler : MonoBehaviour
 
             detail.childNode?.SetPosition(targetPosition);
             detail.childNode?.SetConnectionImage(connectionImage);
-            //detail.childNode.transform.SetAsLastSibling();
+            detail.childNode.transform.SetAsLastSibling();
         }
     }
 
@@ -80,7 +81,7 @@ public class UI_TreeConnectHandler : MonoBehaviour
         if (connectionImage == null)
             return;
 
-        connectionImage.color = unlocked ? Color.white : originalColor;
+        connectionImage.color = unlocked ? connectionColorUnlock : originalColor;
     }
 
     public void SetConnectionImage(Image image) => connectionImage = image;
@@ -91,7 +92,6 @@ public class UI_TreeConnectHandler : MonoBehaviour
     {
         if (connectionDetails.Length <= 0)
             return;
-
         if (connectionDetails.Length != connections.Length)
         {
             Debug.LogWarning("Amount of Details should be same as amount of connections. -" + gameObject.name);

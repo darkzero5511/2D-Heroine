@@ -8,8 +8,12 @@ public class Entity_Combat : MonoBehaviour
     public DamageScaleData damageScale;
 
     [Header("Target Detection")]
-    [SerializeField] private Transform targetCheck;
-    [SerializeField] private float targetCheckRadius = 1;
+    [SerializeField] protected Transform targetCheck;
+    [SerializeField] protected Transform farTargetCheck;
+
+    [SerializeField] protected float targetCheckRadius = 1;
+    [SerializeField] protected float farTargetCheckRadius = 1f;
+
     [SerializeField] protected LayerMask whatIsTarget;
 
     private void Awake()
@@ -23,45 +27,73 @@ public class Entity_Combat : MonoBehaviour
     {
         foreach (var target in GetDetectedColliders())
         {
-            IDamgable damegable = target.GetComponent<IDamgable>();
+            AttackTarget(target);
+        }
+    }
 
-            if (damegable == null)
-                continue; // skip target, go to next target
+    public virtual void PerformFarAttack()
+    {
+        foreach (var target in GetFarDetectedColliders())
+        {
+            AttackTarget(target);
+        }
+    }
 
-            Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+    private void AttackTarget(Collider2D target)
+    {
+        IDamgable damegable = target.GetComponent<IDamgable>();
 
-            AttackData attackData = stats.GetAttackData(damageScale);
+        if (damegable == null)
+            return; // skip target, go to next target
 
-            //Attack Data
-            float elementalDamage = attackData.elementalDamage;
-            float damage = attackData.phyiscalDamage;
-            ElementType element = attackData.element;
-            bool isCrit = attackData.isCrit;
-            //
+        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
-            bool targetGotHit = damegable.TakeDamage(damage, elementalDamage, element, transform);
+        AttackData attackData = stats.GetAttackData(damageScale);
 
+        //Attack Data
+        float elementalDamage = attackData.elementalDamage;
+        float damage = attackData.phyiscalDamage;
+        ElementType element = attackData.element;
+        bool isCrit = attackData.isCrit;
+        //
+
+        bool targetGotHit = damegable.TakeDamage(damage, elementalDamage, element, transform);
+
+        if (element != ElementType.None)
+            statusHandler?.ApplyStatusEffect(element, attackData.effectData);
+
+        if (targetGotHit)
+        {
             if (element != ElementType.None)
-                statusHandler?.ApplyStatusEffect(element, attackData.effectData);
+                vfx.UpdateOnHitElement(target.transform, element);
 
-            if (targetGotHit)
-            {
-                if (element != ElementType.None)
-                    vfx.UpdateOnHitElement(target.transform, element);
-
-                vfx.CreateOnHitVFX(target.transform, isCrit, element);
-            }
+            vfx.CreateOnHitVFX(target.transform, isCrit, element);
         }
     }
 
     protected Collider2D[] GetDetectedColliders()
     {
-        return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
+        return Physics2D.OverlapCircleAll(
+            targetCheck.position,
+            targetCheckRadius,
+            whatIsTarget
+        );
+    }
+
+    protected Collider2D[] GetFarDetectedColliders()
+    {
+        return Physics2D.OverlapCircleAll(
+            farTargetCheck.position,
+            farTargetCheckRadius,
+            whatIsTarget
+        );
     }
 
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
+        if (farTargetCheck != null)
+            Gizmos.DrawWireSphere(farTargetCheck.position, farTargetCheckRadius);
     }
 }

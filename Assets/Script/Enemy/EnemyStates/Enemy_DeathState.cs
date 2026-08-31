@@ -20,6 +20,8 @@ public class Enemy_DeathState : EnemyState
         vfx.EnableAttackAlert(false);
         enemy.EnableCounterWindow(false);
 
+        enemy.Invoke(nameof(enemy.DestroyEnemy), 5f);
+
         //anim.enabled = false;
         //col.enabled = false;
 

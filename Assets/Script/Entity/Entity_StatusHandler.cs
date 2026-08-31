@@ -10,9 +10,6 @@ public class Entity_StatusHandler : MonoBehaviour
     private Entity_Health entityHealth;
     private ElementType currentEffect = ElementType.None;
 
-    //ICE
-    private Coroutine freezingCo;
-
     [Header("Electrify Effect Details")]
     [SerializeField] private float currentCharge;
     [SerializeField] private float maximumCharge = 1;
@@ -24,6 +21,13 @@ public class Entity_StatusHandler : MonoBehaviour
         entityVfx = GetComponent<Entity_VFX>();
         entityStats = GetComponent<Entity_Stats>();
         entityHealth = GetComponent<Entity_Health>();
+    }
+
+    public void RemoveAllNegativeEffects()
+    {
+        StopAllCoroutines();
+        currentEffect = ElementType.None;
+        entityVfx.StopAllVfx();
     }
 
     public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
@@ -53,7 +57,7 @@ public class Entity_StatusHandler : MonoBehaviour
     //DoLightningStrike
     //
 
-    public void ApplyShockEffect(float duration, float lightningDamage, float charge)
+    private void ApplyShockEffect(float duration, float lightningDamage, float charge)
     {
         float lightningResistance = entityStats.GetElementalResistance(ElementType.Lighting);
         float finalCharge = charge * (1 - lightningResistance);
@@ -100,7 +104,7 @@ public class Entity_StatusHandler : MonoBehaviour
     // FIRE
     //
 
-    public void ApplyBurnEffect(float duration, float fireDamage)
+    private void ApplyBurnEffect(float duration, float fireDamage)
     {
         float fireResistance = entityStats.GetElementalResistance(ElementType.Fire);
         float finalDamage = fireDamage * (1 - fireResistance);
@@ -132,7 +136,7 @@ public class Entity_StatusHandler : MonoBehaviour
     //
     // Explosion
     //
-    public void ApplyExplosionEffect(float fireDamage)
+    private void ApplyExplosionEffect(float fireDamage)
     {
         Instantiate(entityVfx.explosionVfxEffect, transform.position, Quaternion.identity);
         entityHealth.ReduceHealth(fireDamage);
@@ -143,7 +147,7 @@ public class Entity_StatusHandler : MonoBehaviour
     //Ice
     //
 
-    public void ApplyChillEffect(float duration, float slowMultiplier)
+    private void ApplyChillEffect(float duration, float slowMultiplier)
     {
         float iceResistance = entityStats.GetElementalResistance(ElementType.Ice);
         float finalDuration = duration * (1 - iceResistance);

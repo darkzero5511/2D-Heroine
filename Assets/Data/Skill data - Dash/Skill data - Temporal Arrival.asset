@@ -19,10 +19,22 @@ MonoBehaviour:
 
     (Inherits all
     upgrades of Time Echo Skill Tree)'
-  icon: {fileID: 381152252, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
+  icon: {fileID: -1023160043, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
   cost: 2
   unlockedByDefault: 0
   skillType: 0
   upgradeData:
     upgradeType: 5
     cooldown: 2
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      explosionChance: 0.2
+      explosionDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

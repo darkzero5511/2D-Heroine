@@ -115,10 +115,10 @@ TextureImporter:
       name: projetilNew_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 411
-        width: 110
-        height: 8
+        x: 0
+        y: 384
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: projetilNew_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 345
-        width: 180
-        height: 14
+        x: 0
+        y: 320
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: projetilNew_2
       rect:
         serializedVersion: 2
-        x: 31
-        y: 277
-        width: 216
-        height: 24
+        x: 0
+        y: 256
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: projetilNew_3
       rect:
         serializedVersion: 2
-        x: 35
-        y: 217
-        width: 218
-        height: 12
+        x: 0
+        y: 192
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: projetilNew_4
       rect:
         serializedVersion: 2
-        x: 43
-        y: 93
-        width: 212
-        height: 72
+        x: 0
+        y: 128
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,11 +221,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: projetilNew_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 256
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6113c45ba9f944da3eb3340a3aecda
+      internalID: -319847387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8d102dbda20154b46b8d822cd5ed18c1
     internalID: 0
     vertices: []
     indices: 
@@ -240,6 +262,7 @@ TextureImporter:
       projetilNew_2: 3695492288912404985
       projetilNew_3: 4833036727539891820
       projetilNew_4: -5558526262876272675
+      projetilNew_5: -319847387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

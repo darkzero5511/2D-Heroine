@@ -23,6 +23,8 @@ public class Player_DashBackwardState : PlayerState
 
         originalGravityScale = rb.gravityScale;
         rb.gravityScale = 0;
+
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Update()
@@ -56,5 +58,7 @@ public class Player_DashBackwardState : PlayerState
         rb.gravityScale = originalGravityScale;
 
         lastTimeDashed = Time.time;
+
+        player.health.SetCanTakeDamage(true);
     }
 }
