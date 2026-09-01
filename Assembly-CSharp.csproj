@@ -64,123 +64,181 @@
     <Compile Include="Assets\Script\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_TimeEcho.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Script\UI\UI_ItemToolTip.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_DataSO.cs" />
+=======
+    <Compile Include="Assets\Script\UI\UI_SkillTree.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Parallax\ParallaxBackground.cs" />
-    <Compile Include="Assets\Script\UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashBackwardState.cs" />
+    <Compile Include="Assets\Script\UI\Tooltip\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Script\Entity\Entity.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpState.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\UI\StorageUI\UI_StorageSlot.cs" />
+=======
+    <Compile Include="Assets\Script\UI\UI_SkillToolTip.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_AttackState.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftSlot.cs" />
     <Compile Include="Assets\Script\Data\DamageScaleData.cs" />
     <Compile Include="Assets\Script\Enum\ItemType.cs" />
     <Compile Include="Assets\Script\Stat\Stat_AttributeGroup.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordSpin.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Health.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Script\Data\Skill_DataSO.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Dash.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_DomainExpansion.cs" />
     <Compile Include="Assets\Script\Enum\StatType.cs" />
+    <Compile Include="Assets\Script\UI\MerchantUI\UI_Merchant.cs" />
     <Compile Include="Assets\Script\Enum\ElementType.cs" />
     <Compile Include="Assets\Script\UI\UI.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
-    <Compile Include="Assets\Script\UI\UI_EquipSlot.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Script\UI\UI_ToolTip.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Enemy\Enemy_Skeleton.cs" />
-    <Compile Include="Assets\Script\Data\ConsumableItemDataSO.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Base.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_ItemSlotParent.cs" />
+=======
+    <Compile Include="Assets\Script\UI\UI_TreeNode.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Script\Data\ElementalEffectData.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_SwordThrowState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Item.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_RefundAllSkills.cs" />
     <Compile Include="Assets\Script\Data\EquipmentDataSO.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Sword.cs" />
     <Compile Include="Assets\Script\Enum\SkillType.cs" />
+    <Compile Include="Assets\Script\UI\Tooltip\UI_ToolTip.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Base.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DomainExpansionState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_VFX.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Dummy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_GroundedState.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_ToolTip.cs" />
-    <Compile Include="Assets\Script\UI\UI_PlayerStats.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\UI\Mini Health\UI_MiniHealthBar.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_AiredState.cs" />
+    <Compile Include="Assets\Script\UI\Tooltip\UI_StatToolTip.cs" />
     <Compile Include="Assets\Script\UI\SkillTree\UI_SkillTree.cs" />
+=======
+    <Compile Include="Assets\Script\Player\PlayerStates\Player_AiredState.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DashState.cs" />
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_EquipSlot.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_OffenseGroup.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Heal.cs" />
+    <Compile Include="Assets\Script\UI\MerchantUI\UI_MerchantSlot.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviwSlot.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Data\Stat_SetupSO.cs" />
-    <Compile Include="Assets\Script\InventorySystem\Inventory_EquipmentSlots.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Health.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_NPC.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftListButton.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Base.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_TimeEcho.cs" />
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_EquipSlotParent.cs" />
     <Compile Include="Assets\Script\Interface\IDamageable.cs" />
+=======
+    <Compile Include="Assets\Script\UI\UI_MiniHealthBar.cs" />
+    <Compile Include="Assets\Script\Data\ItemData.cs" />
+    <Compile Include="Assets\Script\SkillSystem\Skill\Skill_TimeEcho.cs" />
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordPierce.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_TreeNode.cs" />
-    <Compile Include="Assets\Script\InventorySystem\Inventory_Player.cs" />
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Script\UI\UI_TreeConnection.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Stats.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_SkillToolTip.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\InteractiveObjects\Object_Merchant.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_SwordThrow.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Chest.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Script\Data\ItemListDataSO.cs" />
     <Compile Include="Assets\Script\Player\Player_AnimationTriggers.cs" />
+    <Compile Include="Assets\Script\UI\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Shard.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_Craft.cs" />
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
+    <Compile Include="Assets\Script\Interface\IDamgable.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Health.cs" />
     <Compile Include="Assets\Script\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\UI\SkillTree\UI_TreeConnection.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Buff.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviw.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
+    <Compile Include="Assets\Script\UI\Tooltip\UI_ItemToolTip.cs" />
     <Compile Include="Assets\Script\Entity\Entity_StatusHandler.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_IceBlastOnTakingDamage.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Stats.cs" />
-    <Compile Include="Assets\Script\UI\UI_StatSlot.cs" />
+    <Compile Include="Assets\Script\Interface\IInteractable.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Stat\Stat.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
+    <Compile Include="Assets\Script\UI\UI_MiniHealthBarControl.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_DomainExpansion.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_SkillPoint.cs" />
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_IdleState.cs" />
-    <Compile Include="Assets\Script\Data\ItemDataSO.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Stat\Stat_ResourceGroup.cs" />
-    <Compile Include="Assets\Script\UI\Mini Health\UI_MiniHealthBarControl.cs" />
-    <Compile Include="Assets\Script\InteractiveObjects\Object_ItemPickup.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Shard.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_PlayerStats.cs" />
     <Compile Include="Assets\Script\Data\BuffEffectData.cs" />
-    <Compile Include="Assets\Script\UI\UI_Inventory.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_Blacksmith.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_Inventory.cs" />
     <Compile Include="Assets\Script\Data\AttackData.cs" />
+    <Compile Include="Assets\Script\InventorySystem\Inventory_Merchant.cs" />
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_HealOnDoingDamage.cs" />
+    <Compile Include="Assets\Script\UI\StorageUI\UI_Storage.cs" />
+    <Compile Include="Assets\Script\InventorySystem\Inventory_Storage.cs" />
+    <Compile Include="Assets\Script\UI\CharaterUI\UI_StatSlot.cs" />
+=======
+>>>>>>> parent of 86ecdad (Update Inventory, Equipment & Item System)
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\Player\Player_VFX.cs" />
     <Compile Include="Assets\Script\Stat\Stat_DefenseGroup.cs" />
-    <Compile Include="Assets\Script\Player\Player_Stats.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />
-    <Compile Include="Assets\Script\UI\UI_StatToolTip.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordBounce.cs" />
     <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
     <Compile Include="Assets\Script\VFX\VFX_AutoController.cs" />
-    <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_GrantSkillPoint.cs" />
     <Compile Include="Assets\Script\Player\Player_SkillManager.cs" />
   </ItemGroup>
   <ItemGroup>
