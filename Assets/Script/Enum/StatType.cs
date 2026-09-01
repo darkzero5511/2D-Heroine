@@ -53,5 +53,6 @@ public enum StatType
     Chill,
     ExplosionDmg,
     ExplosionChance,
-    Electrify
+    Electrify,
+    ElementalDamage,
 }

@@ -49,7 +49,7 @@ public class Entity_StatusHandler : MonoBehaviour
         }
 
         //    //Lightning
-        if (element == ElementType.Lighting && CanBeApplied(ElementType.Lighting))
+        if (element == ElementType.Lightning && CanBeApplied(ElementType.Lightning))
             ApplyShockEffect(effectData.shockDuration, effectData.shockDamage, effectData.shockCharge);
     }
 
@@ -59,7 +59,7 @@ public class Entity_StatusHandler : MonoBehaviour
 
     private void ApplyShockEffect(float duration, float lightningDamage, float charge)
     {
-        float lightningResistance = entityStats.GetElementalResistance(ElementType.Lighting);
+        float lightningResistance = entityStats.GetElementalResistance(ElementType.Lightning);
         float finalCharge = charge * (1 - lightningResistance);
 
         currentCharge += finalCharge;
@@ -92,8 +92,8 @@ public class Entity_StatusHandler : MonoBehaviour
 
     private IEnumerator ShockEffectCo(float duration)
     {
-        currentEffect = ElementType.Lighting;
-        entityVfx.PlayOnStatusVfx(duration, ElementType.Lighting);
+        currentEffect = ElementType.Lightning;
+        entityVfx.PlayOnStatusVfx(duration, ElementType.Lightning);
 
         yield return new WaitForSeconds(duration);
 
@@ -170,7 +170,7 @@ public class Entity_StatusHandler : MonoBehaviour
 
     public bool CanBeApplied(ElementType element)
     {
-        if (element == ElementType.Lighting && currentEffect == ElementType.Lighting)
+        if (element == ElementType.Lightning && currentEffect == ElementType.Lightning)
             return true;
 
         return currentEffect == ElementType.None;

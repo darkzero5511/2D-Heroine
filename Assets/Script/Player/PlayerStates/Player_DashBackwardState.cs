@@ -16,7 +16,7 @@ public class Player_DashBackwardState : PlayerState
 
         skillManager.dash.OnStartEffect();
 
-        player.vFX.DoImageEchoEffect(player.dashBackDuration);
+        player.vFx.DoImageEchoEffect(player.dashBackDuration);
 
         dashDir = -player.facingDir;
         stateTimer = player.dashBackDuration;

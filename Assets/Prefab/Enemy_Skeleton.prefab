@@ -432,8 +432,8 @@ GameObject:
   - component: {fileID: 4414645589078739145}
   - component: {fileID: 7657431692646144943}
   - component: {fileID: 1826915393077402876}
-  - component: {fileID: 1177003363772931924}
   - component: {fileID: 592542620706765336}
+  - component: {fileID: 7906948559538561535}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -650,7 +650,7 @@ MonoBehaviour:
   shockVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
   attackAlert: {fileID: 9087130403540464012}
   alertMode: 0
---- !u!114 &1177003363772931924
+--- !u!114 &592542620706765336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -659,32 +659,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 8567443759231543548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2df696d3fb202844820c8e7877fa001, type: 3}
+  m_Script: {fileID: 11500000, guid: c2b3cfc960abca849a2ca378da3e491e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharge: 0
+  maximumCharge: 1
+--- !u!114 &7906948559538561535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567443759231543548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66d6c9fa1db8d24891c4d5f49f9dea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultStatSetup: {fileID: 11400000, guid: 0d58f3d70f646b64d84dd4c5b6c18600, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 0
       modifiers: []
     healthRegen:
-      baseValue: 1
+      baseValue: 0
       modifiers: []
     maxMana:
-      baseValue: 100
+      baseValue: 0
       modifiers: []
     manaRegen:
-      baseValue: 0.5
+      baseValue: 0
       modifiers: []
   offense:
     attackSpeed:
-      baseValue: 1
+      baseValue: 0
       modifiers: []
     physicalDamage:
-      baseValue: 10
+      baseValue: 0
       modifiers: []
     critPower:
-      baseValue: 150
+      baseValue: 0
       modifiers: []
     critChance:
       baseValue: 0
@@ -730,20 +744,6 @@ MonoBehaviour:
     vitality:
       baseValue: 0
       modifiers: []
---- !u!114 &592542620706765336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8567443759231543548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b3cfc960abca849a2ca378da3e491e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCharge: 0
-  maximumCharge: 1
 --- !u!1 &8628385841266164501
 GameObject:
   m_ObjectHideFlags: 0

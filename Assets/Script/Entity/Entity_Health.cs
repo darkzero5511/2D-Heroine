@@ -1,9 +1,13 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
-public class Entity_Health : MonoBehaviour, IDamgable
+public class Entity_Health : MonoBehaviour, IDamageable
 {
+    public event Action OnTakingDamage;
+
     private Slider healthBar;
     private Entity_VFX entityVfx;
     private Entity entity;
@@ -82,6 +86,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
         ReduceHealth(finalDamage);
 
+        OnTakingDamage?.Invoke();
         return true;
     }
 

@@ -26,7 +26,7 @@ public class SkillObject_Base : MonoBehaviour
     {
         foreach (var target in GetEnemiesAround(t, radius))
         {
-            IDamgable damgable = target.GetComponent<IDamgable>();
+            IDamageable damgable = target.GetComponent<IDamageable>();
 
             if (damgable == null)
                 continue;

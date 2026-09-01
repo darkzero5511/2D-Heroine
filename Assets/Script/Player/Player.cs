@@ -10,9 +10,10 @@ public class Player : Entity
 
     public PlayerInputSet input { get; private set; }
     public Player_SkillManager skillManager { get; private set; }
-    public Player_VFX vFX { get; private set; }
+    public Player_VFX vFx { get; private set; }
     public Entity_Health health { get; private set; }
     public Entity_StatusHandler statusHandler { get; private set; }
+    public Player_Combat combat { get; private set; }
 
     //
     //Player State
@@ -111,10 +112,11 @@ public class Player : Entity
         base.Awake();
 
         ui = FindAnyObjectByType<UI>();
-        vFX = GetComponent<Player_VFX>();
+        vFx = GetComponent<Player_VFX>();
         health = GetComponent<Entity_Health>();
         skillManager = GetComponent<Player_SkillManager>();
         statusHandler = GetComponent<Entity_StatusHandler>();
+        combat = GetComponent<Player_Combat>();
 
         input = new PlayerInputSet();
 
@@ -227,6 +229,8 @@ public class Player : Entity
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
+        input.Player.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();
+
         input.Player.Spell.performed += ctx => skillManager.shard.TryUseSkill();
         input.Player.Spell2.performed += ctx => skillManager.timeEcho.TryUseSkill();
     }

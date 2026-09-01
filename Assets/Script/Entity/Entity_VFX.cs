@@ -67,7 +67,7 @@ public class Entity_VFX : MonoBehaviour
         if (element == ElementType.Fire)
             StartCoroutine(PlayStatusVfxCo(duration, burnTarget));
 
-        if (element == ElementType.Lighting)
+        if (element == ElementType.Lightning)
             StartCoroutine(PlayStatusVfxCo(duration, shockTarget));
     }
 
@@ -123,7 +123,7 @@ public class Entity_VFX : MonoBehaviour
         if (elementType == ElementType.Fire)
             CreateOnHitElement(target, fireVfxEffect, fireVfxColor);
 
-        if (elementType == ElementType.Lighting)
+        if (elementType == ElementType.Lightning)
             CreateOnHitElement(target, lightningVfxEffect, lightningVfxColor);
     }
 

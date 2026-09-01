@@ -14,7 +14,7 @@ public class Player_DashState : PlayerState
         base.Enter();
 
         skillManager.dash.OnStartEffect();
-        player.vFX.DoImageEchoEffect(player.dashDuration);
+        player.vFx.DoImageEchoEffect(player.dashDuration);
 
         dashDir = player.facingDir;
         stateTimer = player.dashDuration;

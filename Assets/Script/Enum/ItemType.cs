@@ -6,4 +6,6 @@ public enum ItemType
     Weapon,
     Armor,
     Trinket, // Ring, Amulet, Belt
+
+    Consumable,
 }

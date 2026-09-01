@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    public event Action<float> OnDoingPhysicalDamage;
+
     private Entity_VFX vfx;
     private Entity_Stats stats;
 
@@ -41,7 +44,7 @@ public class Entity_Combat : MonoBehaviour
 
     private void AttackTarget(Collider2D target)
     {
-        IDamgable damegable = target.GetComponent<IDamgable>();
+        IDamageable damegable = target.GetComponent<IDamageable>();
 
         if (damegable == null)
             return; // skip target, go to next target
@@ -52,18 +55,20 @@ public class Entity_Combat : MonoBehaviour
 
         //Attack Data
         float elementalDamage = attackData.elementalDamage;
-        float damage = attackData.phyiscalDamage;
+        float physicalDamage = attackData.phyiscalDamage;
         ElementType element = attackData.element;
         bool isCrit = attackData.isCrit;
         //
 
-        bool targetGotHit = damegable.TakeDamage(damage, elementalDamage, element, transform);
+        bool targetGotHit = damegable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
         if (element != ElementType.None)
             statusHandler?.ApplyStatusEffect(element, attackData.effectData);
 
         if (targetGotHit)
         {
+            OnDoingPhysicalDamage?.Invoke(physicalDamage);
+
             if (element != ElementType.None)
                 vfx.UpdateOnHitElement(target.transform, element);
 

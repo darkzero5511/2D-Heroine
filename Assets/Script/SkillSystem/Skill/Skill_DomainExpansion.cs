@@ -34,7 +34,7 @@ public class Skill_DomainExpansion : Skill_Base
         spellsPerSecond = GetSpellsToCast() / GetDomainDuration();
 
         if (upgradeType == SkillUpgradeType.Domain_SlowingDown)
-            player.vFX.DoImageEchoEffect(skillManager.domainExpansion.GetDomainDuration());
+            player.vFx.DoImageEchoEffect(skillManager.domainExpansion.GetDomainDuration());
 
         GameObject domain = Instantiate(domainPrefab, transform.position, Quaternion.identity);
         domain.GetComponent<SkillObject_DomainExpansion>().SetupDomain(this);

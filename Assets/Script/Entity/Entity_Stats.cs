@@ -25,14 +25,18 @@ public class Entity_Stats : MonoBehaviour
     //STATS
     //
 
+    protected virtual void Awake()
+    {
+    }
+
     public float GetElementalDamage(out ElementType element, float scaleFactor = 1f)
     {
         float fireDamage = offense.fireDamage.GetValue();
         float iceDamage = offense.iceDamage.GetValue();
         float lightningDamage = offense.lightningDamage.GetValue();
 
-        float fireBonusDamage = attribute.intelligence.GetValue() * 1.2f;
-        float iceBonusDamage = attribute.intelligence.GetValue() * 0.8f;
+        float fireBonusDamage = attribute.intelligence.GetValue() * 1f;
+        float iceBonusDamage = attribute.intelligence.GetValue() * 1f;
         float lightningBonusDamage = attribute.intelligence.GetValue() * 1f;
 
         float bonusElementalDamage = fireBonusDamage + iceBonusDamage + lightningBonusDamage;
@@ -48,7 +52,7 @@ public class Entity_Stats : MonoBehaviour
 
         if (lightningDamage > highestDamage)
         {
-            element = ElementType.Lighting;
+            element = ElementType.Lightning;
             highestDamage = lightningDamage;
         }
 
@@ -60,7 +64,7 @@ public class Entity_Stats : MonoBehaviour
 
         float bonusFire = (element == ElementType.Fire) ? 0 : fireDamage * .5f;
         float bonusIce = (element == ElementType.Ice) ? 0 : iceDamage * .5f;
-        float bonusLightning = (element == ElementType.Lighting) ? 0 : lightningDamage * .5f;
+        float bonusLightning = (element == ElementType.Lightning) ? 0 : lightningDamage * .5f;
 
         float weakerElementDamage = bonusFire + bonusIce + bonusLightning;
 
@@ -84,7 +88,7 @@ public class Entity_Stats : MonoBehaviour
                 baseResitance += defense.iceRes.GetValue();
                 break;
 
-            case ElementType.Lighting:
+            case ElementType.Lightning:
                 baseResitance = defense.lightningRes.GetValue();
                 break;
         }
@@ -100,33 +104,34 @@ public class Entity_Stats : MonoBehaviour
     public float GetPhysicalDamage(out bool isCrit, float scaleFactor = 1f)
     {
         // Physical Damage
-        float baseDamage = offense.physicalDamage.GetValue();
-        float bonusDamage = attribute.strength.GetValue();
-        float totalBaseDamage = baseDamage + bonusDamage;
+        float baseDamage = GetBaseDamage();
 
         //Crit Change
-        float baseCritChange = offense.critChance.GetValue();
-        float bonusCritChange = attribute.agility.GetValue() * .3f;
-        float critChange = baseCritChange + bonusCritChange;
+        float critChange = GetCritChance();
 
         //Crit Dmg
-        float baseCritDamage = offense.critPower.GetValue();
-        float bonusCritDamage = attribute.strength.GetValue() * .5f;
-        float critDamage = (baseCritDamage + bonusCritDamage) / 100;
+        float critDamage = GetCritPower() / 100;
 
         // Crit Check
         isCrit = Random.Range(0, 100) < critChange;
-        float finalDamage = isCrit ? totalBaseDamage * critDamage : totalBaseDamage;
+        float finalDamage = isCrit ? baseDamage * critDamage : baseDamage;
 
         return finalDamage * scaleFactor;
     }
 
+    // Bonus damage from Strength: +1 per STR
+    public float GetBaseDamage() => offense.physicalDamage.GetValue() + attribute.strength.GetValue();
+
+    //  Bonus crit chance from Agility: +0.3% per AGI
+    public float GetCritChance() => offense.critChance.GetValue() + (attribute.agility.GetValue() * .3f);
+
+    // Bonus crit chance from Strength: +0.5% per STR
+    public float GetCritPower() => offense.critPower.GetValue() + (attribute.strength.GetValue() * .5f);
+
     public float GetArmorMitigation(float armorReduction)
     {
         // Stat armor
-        float baseArmor = defense.armor.GetValue();
-        float bonusArmor = attribute.vitality.GetValue();
-        float totalArmor = baseArmor + bonusArmor;
+        float totalArmor = GetBaseArmor();
 
         float reductionMutliper = Mathf.Clamp01(1 - armorReduction);
         float effectiveArmor = totalArmor * reductionMutliper;
@@ -137,6 +142,8 @@ public class Entity_Stats : MonoBehaviour
 
         return finalMitigation;
     }
+
+    public float GetBaseArmor() => defense.armor.GetValue() + attribute.vitality.GetValue();
 
     public float GetArmorPenetration()
     {
@@ -151,7 +158,7 @@ public class Entity_Stats : MonoBehaviour
         float bonusEvasion = attribute.agility.GetValue() * .5f;
         float totalEvasion = baseEvasion + bonusEvasion;
 
-        float evasionCap = 20f; //Evasion will be capped at 20%
+        float evasionCap = 50f; //Evasion will be capped at 50%
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
 
         return finalEvasion;

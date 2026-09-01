@@ -41,6 +41,8 @@ public class Enemy_BattleState : EnemyState
     public override void Update()
     {
         base.Update();
+        if (stateMachine.currentState == enemy.deathState)
+            return;
 
         if (enemy.PlayerDetected())
         {
