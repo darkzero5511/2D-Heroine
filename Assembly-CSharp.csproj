@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\Stat\Stat_AttributeGroup.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordSpin.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Health.cs" />
+    <Compile Include="Assets\Script\UI\UI_EquipSlotParent.cs" />
     <Compile Include="Assets\Script\UI\SkillTree\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Script\Data\Skill_DataSO.cs" />
     <Compile Include="Assets\Script\Parallax\ParallaxLayer.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Dash.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_DomainExpansion.cs" />
     <Compile Include="Assets\Script\Enum\StatType.cs" />
+    <Compile Include="Assets\Script\UI\MerchantUI\UI_Merchant.cs" />
     <Compile Include="Assets\Script\Enum\ElementType.cs" />
     <Compile Include="Assets\Script\UI\UI.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DeathState.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_OffenseGroup.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Heal.cs" />
+    <Compile Include="Assets\Script\UI\MerchantUI\UI_MerchantSlot.cs" />
     <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviwSlot.cs" />
     <Compile Include="Assets\Script\Data\Stat_SetupSO.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_EquipmentSlots.cs" />
@@ -181,6 +184,7 @@
     <Compile Include="Assets\Script\Player\Player_Combat.cs" />
     <Compile Include="Assets\Script\UI\UI_StorageSlot.cs" />
     <Compile Include="Assets\Script\Data\AttackData.cs" />
+    <Compile Include="Assets\Script\InventorySystem\Inventory_Merchant.cs" />
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_HealOnDoingDamage.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Storage.cs" />

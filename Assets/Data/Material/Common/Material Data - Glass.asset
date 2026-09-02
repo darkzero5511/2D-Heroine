@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6fa19b3dd2f2da4da2389eaaaf2b5a9, type: 3}
-  m_Name: Material Data - Ruby
+  m_Name: Material Data - Glass
   m_EditorClassIdentifier: 
-  itemName: Ruby
-  itemIcon: {fileID: 6553418477402450293, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
+  itemPrice: 125
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 5
+  itemRarity: 100
+  dropChance: 65
+  maxDropChance: 65
+  craftRecipe: []
+  itemName: Glass
+  itemIcon: {fileID: 8999329588363508368, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
   itemType: 0
   maxStackSize: 20
   itemEffect: {fileID: 0}
-  Item: []

@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6fa19b3dd2f2da4da2389eaaaf2b5a9, type: 3}
-  m_Name: Material Data - Bone
+  m_Name: Material Data - Feather
   m_EditorClassIdentifier: 
-  itemName: Bone
-  itemIcon: {fileID: 5690984252577737782, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
+  itemPrice: 1000
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 700
+  dropChance: 30.1
+  maxDropChance: 65
+  craftRecipe: []
+  itemName: Feather
+  itemIcon: {fileID: 415927729924886353, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
   itemType: 0
   maxStackSize: 99
   itemEffect: {fileID: 0}
-  Item: []
