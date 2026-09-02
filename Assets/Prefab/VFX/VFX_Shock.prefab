@@ -49,6 +49,8 @@ MonoBehaviour:
   destroyDelay: 2
   randomOffset: 1
   randomRotation: 0
+  canFade: 0
+  fadeSpeed: 1
   minRotation: 0
   maxRotation: 360
   xMinOffset: -0.2
@@ -132,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: -249588557
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6074101342684331356, guid: 7fb0207533cb68b45a4b9f4af8897890, type: 3}
+  m_Sprite: {fileID: 8617676329251612265, guid: d7839b932ea9a174fb4ecceca05572a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

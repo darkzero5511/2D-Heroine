@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3761671517633045164}
   - component: {fileID: 1550685540749522420}
   - component: {fileID: 1960779798132734622}
+  - component: {fileID: -8791532600969150524}
   m_Layer: 8
   m_Name: Chest
   m_TagString: Untagged
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: {x: 1, y: 4}
+  canDropItems: 1
 --- !u!114 &1960779798132734622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +137,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: 9dd05bdc0beb0f740815c28372c5efaf, type: 2}
-  onDamageVfxDuration: 0.1
+  onDamageVfxDuration: 0.2
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfx: {fileID: 6115658263442009029, guid: 2e4fdd221cd78844494718fcc999a5d6, type: 3}
+  critHitVfx: {fileID: 6220883078325741581, guid: c52dde22a9621f14ea836eff5b43b34d, type: 3}
+  chillTarget: {r: 0.7019608, g: 0.91764706, b: 1, a: 1}
+  chillVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  chillVfxEffect: {fileID: 2899292391437957077, guid: 459f8f6cde39f384882e78c8da835c47, type: 3}
+  burnTarget: {r: 1, g: 0.49019608, b: 0.49411765, a: 1}
+  fireVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  fireVfxEffect: {fileID: 7649335440106568256, guid: ed7a2510bb789b44485e3ad5df8c5c6c, type: 3}
+  explosionVfxEffect: {fileID: 7649335440106568256, guid: 824541931df61d249964245f33aa0cbd, type: 3}
+  shockTarget: {r: 0.9843137, g: 0.94509804, b: 0.4862745, a: 1}
+  lightningVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  lightningVfxEffect: {fileID: 3586881396317820132, guid: caed822b30e294d47bc26ddc7c1af0a8, type: 3}
+  shockVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  shockVfxEffect: {fileID: 3764094602809431480, guid: 75fb944fbdc0fb143bed6f4d43cc532c, type: 3}
+--- !u!114 &-8791532600969150524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291255896319350521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc227f80cba250c4596d52217e86505a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropPrefab: {fileID: 4996817606096856501, guid: 4ff2cab8fdaa30948a01449c5ee2e8a4, type: 3}
+  dropData:
+  - {fileID: 11400000, guid: c2bef43d4cdc6424c9f24a2275e53531, type: 2}
+  - {fileID: 11400000, guid: 6191075410fd387438c60cdb0c01097c, type: 2}
+  - {fileID: 11400000, guid: d42d793de6c57854eb8265aea9832f36, type: 2}
+  maxRarityAmount: 1200
+  maxItemsToDrop: 4
 --- !u!1 &5363074109642400208
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +248,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 738645137
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1628140885, guid: 820470d7432d9d94b8f64a56147f1e9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

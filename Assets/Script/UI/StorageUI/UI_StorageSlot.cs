@@ -6,7 +6,7 @@ public class UI_StorageSlot : UI_ItemSlot
     private Inventory_Storage storage;
 
     public enum StorageSlotType
-    { StorageSlot, PlayerInventorySlot }
+    { StorageSlot, PlayerInventorySlot, StashSlot }
 
     public StorageSlotType slotType;
 
@@ -18,6 +18,9 @@ public class UI_StorageSlot : UI_ItemSlot
             return;
 
         bool transferFullStack = Input.GetKey(KeyCode.LeftControl);
+
+        if (slotType == StorageSlotType.StashSlot)
+            return;
 
         if (slotType == StorageSlotType.StorageSlot)
             storage.FromStorageToPlayer(itemInSlot, transferFullStack);

@@ -10,20 +10,20 @@ public class UI_ItemToolTip : UI_ToolTip
 
     [SerializeField] private TextMeshProUGUI itemPrice;
     [SerializeField] private Transform merchnatInfo;
-    //[SerializeField] private Transform inventoryInfo;
+    [SerializeField] private Transform inventoryInfo;
 
     public void ShowToolTip(bool show, RectTransform targetRect, Inventory_Item itemToShow, bool buyPrice = false, bool showMerchantInfo = false)
     {
         base.ShowToolTip(show, targetRect);
 
         merchnatInfo.gameObject.SetActive(showMerchantInfo);
-        //inventoryInfo.gameObject.SetActive(!showMerchantInfo);
+        inventoryInfo.gameObject.SetActive(!showMerchantInfo);
 
         int price = buyPrice ? itemToShow.buyPrice : Mathf.FloorToInt(itemToShow.sellPrice);
         int totalPrice = price * itemToShow.stackSize;
 
-        string fullStackPrice = ($"Price:{price}x{itemToShow.stackSize} - {totalPrice}G.");
-        string singleStackPrice = ($"Price:{price}G.");
+        string fullStackPrice = ($"Price:{price}x{itemToShow.stackSize}={totalPrice}G.");
+        string singleStackPrice = ($"Price:{price} G.");
 
         itemPrice.text = itemToShow.stackSize > 1 ? fullStackPrice : singleStackPrice;
         itemType.text = itemToShow.itemData.itemType.ToString();

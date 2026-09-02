@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 1826915393077402876}
   - component: {fileID: 592542620706765336}
   - component: {fileID: 7906948559538561535}
+  - component: {fileID: 5222754211921166485}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -487,9 +488,9 @@ MonoBehaviour:
   primaryGrabCheck: {fileID: 0}
   secondaryGrabCheck: {fileID: 0}
   battleMoveSpeed: 4
-  attackDistance: 3
+  attackDistance: 2.25
   battleTimeDuration: 5
-  minRetreatDistance: 1
+  minRetreatDistance: 2
   retreatVelocity: {x: 1, y: 2}
   stunnedDuration: 0
   stunnedVelocity: {x: 0, y: 0}
@@ -679,26 +680,26 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 0d58f3d70f646b64d84dd4c5b6c18600, type: 2}
   resources:
     maxHealth:
-      baseValue: 0
+      baseValue: 100
       modifiers: []
     healthRegen:
-      baseValue: 0
+      baseValue: 1
       modifiers: []
     maxMana:
-      baseValue: 0
+      baseValue: 100
       modifiers: []
     manaRegen:
-      baseValue: 0
+      baseValue: 0.5
       modifiers: []
   offense:
     attackSpeed:
-      baseValue: 0
+      baseValue: 1
       modifiers: []
     physicalDamage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifiers: []
     critChance:
       baseValue: 0
@@ -744,6 +745,24 @@ MonoBehaviour:
     vitality:
       baseValue: 0
       modifiers: []
+--- !u!114 &5222754211921166485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567443759231543548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc227f80cba250c4596d52217e86505a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropPrefab: {fileID: 4996817606096856501, guid: 4ff2cab8fdaa30948a01449c5ee2e8a4, type: 3}
+  dropData:
+  - {fileID: 11400000, guid: c2bef43d4cdc6424c9f24a2275e53531, type: 2}
+  - {fileID: 11400000, guid: a5aa9dd420dfd6f458f94add24d15fc4, type: 2}
+  maxRarityAmount: 600
+  maxItemsToDrop: 3
 --- !u!1 &8628385841266164501
 GameObject:
   m_ObjectHideFlags: 0

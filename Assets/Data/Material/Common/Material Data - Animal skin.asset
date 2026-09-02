@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fa19b3dd2f2da4da2389eaaaf2b5a9, type: 3}
   m_Name: Material Data - Animal skin
   m_EditorClassIdentifier: 
-  itemPrice: 125
+  itemPrice: 200
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 5
   itemRarity: 100

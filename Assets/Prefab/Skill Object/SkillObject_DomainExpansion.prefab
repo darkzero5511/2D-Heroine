@@ -87,7 +87,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   targetCheck: {fileID: 1304165776012934044}
-  checkRadius: 1
+  checkRadius: 3.67
 --- !u!1 &6495646317801969878
 GameObject:
   m_ObjectHideFlags: 0

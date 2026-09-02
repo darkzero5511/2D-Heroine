@@ -20,8 +20,8 @@ public class Inventory_Item
     {
         this.itemData = itemData;
         itemEffect = itemData.itemEffect;
-        //buyPrice = itemData.itemPrice;
-        //sellPrice = itemData.itemPrice * .35f;
+        buyPrice = itemData.itemPrice;
+        sellPrice = itemData.itemPrice * .35f;
 
         modifiers = EquipmentData()?.modifiers;
         itemId = itemData.itemName + " - " + Guid.NewGuid();

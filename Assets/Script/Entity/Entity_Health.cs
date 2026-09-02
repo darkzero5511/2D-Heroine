@@ -8,9 +8,12 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     public event Action OnTakingDamage;
 
+    public event Action OnHealthUpdate;
+
     private Slider healthBar;
     private Entity_VFX entityVfx;
     private Entity entity;
+    private Entity_DropManager dropManager;
 
     private Entity_Stats entityStats;
 
@@ -38,6 +41,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entityVfx = GetComponent<Entity_VFX>();
         entity = GetComponent<Entity>();
         entityStats = GetComponent<Entity_Stats>();
+        dropManager = GetComponent<Entity_DropManager>();
 
         healthBar = GetComponentInChildren<Slider>();
 
@@ -48,6 +52,8 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         if (entityStats == null)
             return;
+
+        OnHealthUpdate += UpdateHealthBar;
 
         currentHealth = entityStats.GetMaxHealth();
         UpdateHealthBar();
@@ -119,14 +125,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         currentHealth = Mathf.Min(newHealth, maxHealth);
 
-        UpdateHealthBar();
+        OnHealthUpdate?.Invoke();
     }
 
     public virtual void ReduceHealth(float damage)
     {
         entityVfx?.PlayOnDamageVfx();
         currentHealth -= damage;
-        UpdateHealthBar();
+
+        OnHealthUpdate?.Invoke();
 
         if (currentHealth <= 0)
             Die();
@@ -136,14 +143,17 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         isDead = true;
         entity?.EntityDeath();
+        dropManager?.DropItems();
     }
+
+    public float GetCurrentHealth() => currentHealth;
 
     public float GetHealthPercent() => currentHealth / entityStats.GetMaxHealth();
 
     public void SetHealthToPercent(float percent)
     {
         currentHealth = entityStats.GetMaxHealth() * Mathf.Clamp01(percent);
-        UpdateHealthBar();
+        OnHealthUpdate?.Invoke();
     }
 
     private void UpdateHealthBar()
