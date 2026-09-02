@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Heal effect", fileName = "Item effect data - Heal")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Heal effect", fileName = "craftRecipe effect data - Heal")]
 
 public class ItemEffect_Heal : ItemEffect_DataSO
 {

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Heal on doing damage", fileName = "Item effect data - Heal on doing phys damage")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Heal on doing damage", fileName = "craftRecipe effect data - Heal on doing phys damage")]
 
 public class ItemEffect_HealOnDoingDamage : ItemEffect_DataSO
 {

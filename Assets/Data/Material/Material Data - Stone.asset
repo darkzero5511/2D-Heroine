@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebfcfc3eedcf4c6449b33cddeb0ccf1b, type: 3}
-  m_Name: Equipment Data - Stormreaver
+  m_Script: {fileID: 11500000, guid: f6fa19b3dd2f2da4da2389eaaaf2b5a9, type: 3}
+  m_Name: Material Data - Stone
   m_EditorClassIdentifier: 
-  itemName: Stormreaver
-  itemIcon: {fileID: 4694007364678901417, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
-  itemType: 1
-  maxStackSize: 1
+  itemName: Stone
+  itemIcon: {fileID: -5855690042751787076, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
+  itemType: 0
+  maxStackSize: 20
   itemEffect: {fileID: 0}
-  modifiers: []
+  Item: []

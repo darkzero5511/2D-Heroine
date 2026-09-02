@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Ice blast", fileName = "Item effect data - Ice blast on taking damage")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Ice blast", fileName = "craftRecipe effect data - Ice blast on taking damage")]
 public class ItemEffect_IceBlastOnTakingDamage : ItemEffect_DataSO
 {
     [SerializeField] private ElementalEffectData effectData;

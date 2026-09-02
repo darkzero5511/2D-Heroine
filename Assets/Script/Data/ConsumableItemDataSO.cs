@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Consumable item", fileName = "Consumable data - ")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/Consumable item", fileName = "Consumable data - ")]
 
 public class ConsumableItemDataSO : ItemDataSO
 {

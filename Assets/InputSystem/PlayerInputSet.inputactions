@@ -6,9 +6,27 @@
             "id": "10327c09-c288-4325-b9d8-e5f0d98702fe",
             "actions": [
                 {
+                    "name": "ToggleInventoryUI",
+                    "type": "Button",
+                    "id": "55322619-0ff4-465a-b125-a6dfe486153d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ToggleSkillTreeUI",
                     "type": "Button",
                     "id": "79f6f0a6-fad7-4ba4-b427-313126d7a8cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "d97b02cd-c923-4f5a-8b4d-cf6b4faedaf8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -103,15 +121,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "ToggleInventoryUI",
-                    "type": "Button",
-                    "id": "55322619-0ff4-465a-b125-a6dfe486153d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -288,6 +297,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleInventoryUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46d36006-fb07-46db-a9cd-de220cbfde7a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

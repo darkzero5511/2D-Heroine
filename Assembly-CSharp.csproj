@@ -61,6 +61,7 @@
     <Analyzer Include="D:\Unity\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\UI\UI_Storage.cs" />
     <Compile Include="Assets\Script\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_TimeEcho.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Script\Entity\Entity.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_AttackState.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftSlot.cs" />
     <Compile Include="Assets\Script\Data\DamageScaleData.cs" />
     <Compile Include="Assets\Script\Enum\ItemType.cs" />
     <Compile Include="Assets\Script\Stat\Stat_AttributeGroup.cs" />
@@ -99,7 +101,6 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Item.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_RefundAllSkills.cs" />
-    <Compile Include="Assets\Script\Data\EquipmentDataSO.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Sword.cs" />
     <Compile Include="Assets\Script\Enum\SkillType.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Base.cs" />
@@ -117,15 +118,20 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Script\Stat\Stat_OffenseGroup.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Heal.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviwSlot.cs" />
     <Compile Include="Assets\Script\Data\Stat_SetupSO.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_EquipmentSlots.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Health.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_NPC.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_DeathState.cs" />
+    <Compile Include="Assets\Script\Data\Item Data\ItemDataSO.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Combat.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftListButton.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Base.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_TimeEcho.cs" />
     <Compile Include="Assets\Script\Interface\IDamageable.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordPierce.cs" />
+    <Compile Include="Assets\Script\UI\UI_ItemSlotParent.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_DoubleJumpState.cs" />
     <Compile Include="Assets\Script\UI\SkillTree\UI_TreeNode.cs" />
     <Compile Include="Assets\Script\InventorySystem\Inventory_Player.cs" />
@@ -133,6 +139,8 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Stats.cs" />
+    <Compile Include="Assets\Script\Data\Item Data\ItemListDataSO.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_Merchant.cs" />
     <Compile Include="Assets\Script\UI\SkillTree\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_SwordThrow.cs" />
@@ -140,16 +148,19 @@
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
     <Compile Include="Assets\Script\Player\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Shard.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_Craft.cs" />
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Health.cs" />
     <Compile Include="Assets\Script\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Script\UI\SkillTree\UI_TreeConnection.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Buff.cs" />
+    <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviw.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
     <Compile Include="Assets\Script\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_IceBlastOnTakingDamage.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_Stats.cs" />
+    <Compile Include="Assets\Script\Interface\IInteractable.cs" />
     <Compile Include="Assets\Script\UI\UI_StatSlot.cs" />
     <Compile Include="Assets\Script\Stat\Stat.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
@@ -158,7 +169,6 @@
     <Compile Include="Assets\Script\UI\SkillTree\UI_SkillPoint.cs" />
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_IdleState.cs" />
-    <Compile Include="Assets\Script\Data\ItemDataSO.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Script\UI\Mini Health\UI_MiniHealthBarControl.cs" />
@@ -166,10 +176,14 @@
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_Shard.cs" />
     <Compile Include="Assets\Script\Data\BuffEffectData.cs" />
     <Compile Include="Assets\Script\UI\UI_Inventory.cs" />
+    <Compile Include="Assets\Script\InteractiveObjects\Object_Blacksmith.cs" />
+    <Compile Include="Assets\Script\Data\Item Data\EquipmentDataSO.cs" />
     <Compile Include="Assets\Script\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Script\UI\UI_StorageSlot.cs" />
     <Compile Include="Assets\Script\Data\AttackData.cs" />
     <Compile Include="Assets\Script\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_HealOnDoingDamage.cs" />
+    <Compile Include="Assets\Script\InventorySystem\Inventory_Storage.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_GrabState.cs" />
     <Compile Include="Assets\Script\Player\Player_VFX.cs" />
     <Compile Include="Assets\Script\Stat\Stat_DefenseGroup.cs" />

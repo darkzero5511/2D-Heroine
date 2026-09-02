@@ -92,9 +92,27 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             ""id"": ""10327c09-c288-4325-b9d8-e5f0d98702fe"",
             ""actions"": [
                 {
+                    ""name"": ""ToggleInventoryUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""55322619-0ff4-465a-b125-a6dfe486153d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ToggleSkillTreeUI"",
                     ""type"": ""Button"",
                     ""id"": ""79f6f0a6-fad7-4ba4-b427-313126d7a8cb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""d97b02cd-c923-4f5a-8b4d-cf6b4faedaf8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -189,15 +207,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Toggle Inventory UI"",
-                    ""type"": ""Button"",
-                    ""id"": ""55322619-0ff4-465a-b125-a6dfe486153d"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -373,7 +382,18 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Toggle Inventory UI"",
+                    ""action"": ""ToggleInventoryUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46d36006-fb07-46db-a9cd-de220cbfde7a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -401,7 +421,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_ToggleInventoryUI = m_Player.FindAction("ToggleInventoryUI", throwIfNotFound: true);
         m_Player_ToggleSkillTreeUI = m_Player.FindAction("ToggleSkillTreeUI", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
@@ -412,7 +434,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Spell2 = m_Player.FindAction("Spell 2", throwIfNotFound: true);
         m_Player_UltimateSpell = m_Player.FindAction("UltimateSpell", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
-        m_Player_ToggleInventoryUI = m_Player.FindAction("Toggle Inventory UI", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -493,7 +514,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_ToggleInventoryUI;
     private readonly InputAction m_Player_ToggleSkillTreeUI;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
@@ -504,7 +527,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Spell2;
     private readonly InputAction m_Player_UltimateSpell;
     private readonly InputAction m_Player_Mouse;
-    private readonly InputAction m_Player_ToggleInventoryUI;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -517,9 +539,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@PlayerInputSet wrapper) { m_Wrapper = wrapper; }
         /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleInventoryUI".
+        /// </summary>
+        public InputAction @ToggleInventoryUI => m_Wrapper.m_Player_ToggleInventoryUI;
+        /// <summary>
         /// Provides access to the underlying input action "Player/ToggleSkillTreeUI".
         /// </summary>
         public InputAction @ToggleSkillTreeUI => m_Wrapper.m_Player_ToggleSkillTreeUI;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
         /// Provides access to the underlying input action "Player/Movement".
         /// </summary>
@@ -561,10 +591,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         /// <summary>
-        /// Provides access to the underlying input action "Player/ToggleInventoryUI".
-        /// </summary>
-        public InputAction @ToggleInventoryUI => m_Wrapper.m_Player_ToggleInventoryUI;
-        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -590,9 +616,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            @ToggleInventoryUI.started += instance.OnToggleInventoryUI;
+            @ToggleInventoryUI.performed += instance.OnToggleInventoryUI;
+            @ToggleInventoryUI.canceled += instance.OnToggleInventoryUI;
             @ToggleSkillTreeUI.started += instance.OnToggleSkillTreeUI;
             @ToggleSkillTreeUI.performed += instance.OnToggleSkillTreeUI;
             @ToggleSkillTreeUI.canceled += instance.OnToggleSkillTreeUI;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -623,9 +655,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Mouse.started += instance.OnMouse;
             @Mouse.performed += instance.OnMouse;
             @Mouse.canceled += instance.OnMouse;
-            @ToggleInventoryUI.started += instance.OnToggleInventoryUI;
-            @ToggleInventoryUI.performed += instance.OnToggleInventoryUI;
-            @ToggleInventoryUI.canceled += instance.OnToggleInventoryUI;
         }
 
         /// <summary>
@@ -637,9 +666,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
+            @ToggleInventoryUI.started -= instance.OnToggleInventoryUI;
+            @ToggleInventoryUI.performed -= instance.OnToggleInventoryUI;
+            @ToggleInventoryUI.canceled -= instance.OnToggleInventoryUI;
             @ToggleSkillTreeUI.started -= instance.OnToggleSkillTreeUI;
             @ToggleSkillTreeUI.performed -= instance.OnToggleSkillTreeUI;
             @ToggleSkillTreeUI.canceled -= instance.OnToggleSkillTreeUI;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
@@ -670,9 +705,6 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Mouse.started -= instance.OnMouse;
             @Mouse.performed -= instance.OnMouse;
             @Mouse.canceled -= instance.OnMouse;
-            @ToggleInventoryUI.started -= instance.OnToggleInventoryUI;
-            @ToggleInventoryUI.performed -= instance.OnToggleInventoryUI;
-            @ToggleInventoryUI.canceled -= instance.OnToggleInventoryUI;
         }
 
         /// <summary>
@@ -727,12 +759,26 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
+        /// Method invoked when associated input action "ToggleInventoryUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleInventoryUI(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "ToggleSkillTreeUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleSkillTreeUI(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -803,12 +849,5 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMouse(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Toggle Inventory UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleInventoryUI(InputAction.CallbackContext context);
     }
 }

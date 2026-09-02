@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Refund all skills", fileName = "Item effect data - Refund all skills")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Refund all skills", fileName = "craftRecipe effect data - Refund all skills")]
 public class ItemEffect_RefundAllSkills : ItemEffect_DataSO
 {
     public override void ExecuteEffect()

@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebfcfc3eedcf4c6449b33cddeb0ccf1b, type: 3}
-  m_Name: Equipment Data - Bloodreaver
+  m_Name: Equipment Data - Curse of Flame
   m_EditorClassIdentifier: 
-  itemName: Bloodreaver
-  itemIcon: {fileID: -6763620941933801878, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
+  itemName: Curse of Flame
+  itemIcon: {fileID: -1299688068531442217, guid: dda996a0d82076748b9cb8f6154fc482, type: 3}
   itemType: 1
   maxStackSize: 1
-  itemEffect: {fileID: 11400000, guid: 03979e02ac6a59141b4f1bd74ea654fd, type: 2}
+  itemEffect: {fileID: 0}
+  craftRecipe: []
   modifiers:
-  - statType: 4
+  - statType: 13
     value: 10
   - statType: 10
-    value: 10
-  - statType: 11
     value: 20
-  - statType: 6
-    value: -20
+  - statType: 11
+    value: 10

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Grand skill point", fileName = "Item effect data - Grant Skill Point")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Grand skill point", fileName = "craftRecipe effect data - Grant Skill Point")]
 
 public class ItemEffect_GrantSkillPoint : ItemEffect_DataSO
 {

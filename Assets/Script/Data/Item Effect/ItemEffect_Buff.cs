@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item effect/Buff effect", fileName = "Item effect data - Buff")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/craftRecipe effect/Buff effect", fileName = "craftRecipe effect data - Buff")]
 public class ItemEffect_Buff : ItemEffect_DataSO
 {
     [SerializeField] private BuffEffectData[] buffsToApply;

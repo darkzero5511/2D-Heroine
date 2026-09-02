@@ -5,19 +5,21 @@ public class Inventory_Player : Inventory_Base
 {
     private Player player;
     public List<Inventory_EquipmentSlots> equipList;
+    public Inventory_Storage storage { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
         player = GetComponent<Player>();
+        storage = FindFirstObjectByType<Inventory_Storage>();
     }
 
     public void TryEquipItem(Inventory_Item item)
     {
-        var inventoryItem = FindItem(item.itemData);
+        var inventoryItem = FindItem(item);
         var matchingSlots = equipList.FindAll(slot => slot.slotType == item.itemData.itemType);
 
-        //Step 1 Try to find empty slot and equip
+        // STEP 1 : Try to find empty slot and equip item
         foreach (var slot in matchingSlots)
         {
             if (slot.HasItem() == false)
@@ -27,11 +29,11 @@ public class Inventory_Player : Inventory_Base
             }
         }
 
-        //Step 2: No Empty slot? Relapce first one
+        // STEP 2: No empty slots ? Replace first one
         var slotToReplace = matchingSlots[0];
-        var itemToUnequip = slotToReplace.equipedItem;
+        var itemToUneqip = slotToReplace.equipedItem;
 
-        UnequipItem(itemToUnequip, slotToReplace != null);
+        UnequipItem(itemToUneqip, slotToReplace != null);
         EquipItem(inventoryItem, slotToReplace);
     }
 
@@ -45,12 +47,12 @@ public class Inventory_Player : Inventory_Base
 
         player.health.SetHealthToPercent(savedHealthPercent);
 
-        RemoveItem(itemToEquip);
+        RemoveOneItem(itemToEquip);
     }
 
     public void UnequipItem(Inventory_Item itemToUnequip, bool replacingItem = false)
     {
-        if (CanAddItem() == false && replacingItem == false)
+        if (CanAddItem(itemToUnequip) == false && replacingItem == false)
         {
             Debug.Log("No Space");
             return;

@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Equipment Item", fileName = "Equipment Data - ")]
+[CreateAssetMenu(menuName = "RPG Setup/craftRecipe Data/Equipment craftRecipe", fileName = "Equipment Data - ")]
 public class EquipmentDataSO : ItemDataSO
 {
-    [Header("Item Modifiers")]
+    [Header("craftRecipe Modifiers")]
     public ItemModifier[] modifiers;
 }
 
