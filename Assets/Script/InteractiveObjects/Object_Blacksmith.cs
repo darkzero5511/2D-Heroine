@@ -19,7 +19,7 @@ public class Object_Blacksmith : Object_NPC, IInteractable
         ui.storageUI.SetupStorageUI(storage);
         ui.storageUI.gameObject.SetActive(true);
 
-        //ui.craftUI.SetupCraftUI(storage);
+        ui.craftUI.SetupCraftUI(storage);
         //ui.craftUI.gameObject.SetActive(true);
     }
 

@@ -13,17 +13,21 @@ public class Inventory_Item
     public ItemModifier[] modifiers { get; private set; }
     public ItemEffect_DataSO itemEffect;
 
+    public int buyPrice { get; private set; }
+    public float sellPrice { get; private set; }
+
     public Inventory_Item(ItemDataSO itemData)
     {
         this.itemData = itemData;
-
         itemEffect = itemData.itemEffect;
-        modifiers = EquipmentData()?.modifiers;
+        //buyPrice = itemData.itemPrice;
+        //sellPrice = itemData.itemPrice * .35f;
 
-        itemId = itemData.itemName + Guid.NewGuid();
+        modifiers = EquipmentData()?.modifiers;
+        itemId = itemData.itemName + " - " + Guid.NewGuid();
     }
 
-    public void AddModifier(Entity_Stats playerStats)
+    public void AddModifiers(Entity_Stats playerStats)
     {
         foreach (var mod in modifiers)
         {
@@ -61,23 +65,27 @@ public class Inventory_Item
 
     public string GetItemInfo()
     {
-        if (itemData.itemType == ItemType.Material)
-            return "Used for Crafting and Upgrade.";
-
-        if (itemData.itemType == ItemType.Consumable)
-            return itemData.itemEffect.effectDescription;
-
         StringBuilder sb = new StringBuilder();
 
-        sb.AppendLine("");
-
-        if (itemEffect != null)
+        if (itemData.itemType == ItemType.Material)
         {
             sb.AppendLine("");
-            sb.AppendLine("Unique Effect: ");
-            sb.AppendLine(itemEffect.effectDescription);
-            ;
+            sb.AppendLine("Used for crafting");
+            sb.AppendLine("");
+            sb.AppendLine("");
+            return sb.ToString();
         }
+
+        if (itemData.itemType == ItemType.Consumable)
+        {
+            sb.AppendLine("");
+            sb.AppendLine(itemEffect.effectDescription);
+            sb.AppendLine("");
+            sb.AppendLine("");
+            return sb.ToString();
+        }
+
+        sb.AppendLine("");
 
         foreach (var mod in modifiers)
         {
@@ -85,6 +93,16 @@ public class Inventory_Item
             string modValue = IsPercentageStat(mod.statType) ? mod.value.ToString() + "%" : mod.value.ToString();
             sb.AppendLine("+ " + modValue + " " + modType);
         }
+
+        if (itemEffect != null)
+        {
+            sb.AppendLine("");
+            sb.AppendLine("Unique effect:");
+            sb.AppendLine(itemEffect.effectDescription);
+        }
+
+        sb.AppendLine("");
+        sb.AppendLine("");
 
         return sb.ToString();
     }
