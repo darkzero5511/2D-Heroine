@@ -13,6 +13,8 @@ public class Player : Entity
     public Entity_Health health { get; private set; }
     public Entity_StatusHandler statusHandler { get; private set; }
     public Player_Combat combat { get; private set; }
+    public Inventory_Player inventory { get; private set; }
+    public Player_Stats stats { get; private set; }
 
     //
     //Player State
@@ -116,8 +118,11 @@ public class Player : Entity
         skillManager = GetComponent<Player_SkillManager>();
         statusHandler = GetComponent<Entity_StatusHandler>();
         combat = GetComponent<Player_Combat>();
+        inventory = GetComponent<Inventory_Player>();
+        stats = GetComponent<Player_Stats>();
 
         input = new PlayerInputSet();
+        ui.SetupControlsUI(input);
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -253,9 +258,10 @@ public class Player : Entity
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
-        input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
-        input.Player.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();
         input.Player.Interact.performed += ctx => TryInteract();
+
+        input.Player.QuickSlot_1.performed += ctx => inventory.TryUseQuickItemInSlot(1);
+        input.Player.QuickSlot_2.performed += ctx => inventory.TryUseQuickItemInSlot(2);
 
         input.Player.Spell.performed += ctx => skillManager.shard.TryUseSkill();
         input.Player.Spell2.performed += ctx => skillManager.timeEcho.TryUseSkill();

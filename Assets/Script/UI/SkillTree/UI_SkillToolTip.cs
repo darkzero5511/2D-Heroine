@@ -68,18 +68,21 @@ public class UI_SkillToolTip : UI_ToolTip
 
     public void NotEnoughRequirementEffect()
     {
-        if (textEffectCo != null)
-            StopCoroutine(textEffectCo);
+        StopLockedSkillEffect();
 
         textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, notEnoughRequirement, .15f, 3));
     }
 
     public void LockedSkillEffect()
     {
+        StopLockedSkillEffect();
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, lockedSkillText, .15f, 3));
+    }
+
+    public void StopLockedSkillEffect()
+    {
         if (textEffectCo != null)
             StopCoroutine(textEffectCo);
-
-        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, lockedSkillText, .15f, 3));
     }
 
     private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, string displayText, float blinkInterval, int blinkCount)

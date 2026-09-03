@@ -6,14 +6,13 @@ public class ItemEffect_DataSO : ScriptableObject
     public string effectDescription;
     protected Player player;
 
-    public virtual bool CanBeUsed()
+    public virtual bool CanBeUsed(Player player)
     {
         return true;
     }
 
     public virtual void ExecuteEffect()
     {
-
     }
 
     public virtual void Subscribe(Player player)
@@ -23,7 +22,5 @@ public class ItemEffect_DataSO : ScriptableObject
 
     public virtual void Unsubscribe()
     {
-
     }
-
 }

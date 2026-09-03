@@ -10,7 +10,6 @@ public class Entity : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
 
     protected StateMachine stateMachine;
-    public Entity_Stats stats { get; private set; }
 
     private bool facingRight = true;
     public int facingDir { get; private set; } = 1;
@@ -56,7 +55,6 @@ public class Entity : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        stats = GetComponent<Entity_Stats>();
 
         stateMachine = new StateMachine();
     }

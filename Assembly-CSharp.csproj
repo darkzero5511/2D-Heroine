@@ -94,7 +94,6 @@
     <Compile Include="Assets\Script\Data\ConsumableItemDataSO.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Base.cs" />
     <Compile Include="Assets\Script\UI\CharaterUI\UI_ItemSlotParent.cs" />
-    <Compile Include="Assets\Script\UI\UI_SkillSlot.cs" />
     <Compile Include="Assets\Script\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Script\Data\ElementalEffectData.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_SwordThrowState.cs" />
@@ -142,6 +141,7 @@
     <Compile Include="Assets\Script\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_IdleState.cs" />
+    <Compile Include="Assets\Script\UI\InGameUI\UI_SkillSlot.cs" />
     <Compile Include="Assets\Script\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Script\Data\Item Data\ItemListDataSO.cs" />
     <Compile Include="Assets\Script\Player\Player_DropManager.cs" />
@@ -152,6 +152,7 @@
     <Compile Include="Assets\Script\InteractiveObjects\Object_Chest.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallSlideState.cs" />
     <Compile Include="Assets\Script\Player\Player_AnimationTriggers.cs" />
+    <Compile Include="Assets\Script\UI\InGameUI\UI_InGame.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_Shard.cs" />
     <Compile Include="Assets\Script\UI\CraftUI\UI_Craft.cs" />
     <Compile Include="Assets\Script\Interface\ICounterable.cs" />
@@ -162,7 +163,6 @@
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_Buff.cs" />
     <Compile Include="Assets\Script\UI\CraftUI\UI_CraftPreviw.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Buff.cs" />
-    <Compile Include="Assets\Script\UI\UI_InGame.cs" />
     <Compile Include="Assets\Script\UI\Tooltip\UI_ItemToolTip.cs" />
     <Compile Include="Assets\Script\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_IceBlastOnTakingDamage.cs" />
@@ -172,7 +172,6 @@
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Script\SkillSystem\Skill\Skill_DomainExpansion.cs" />
-    <Compile Include="Assets\Script\UI\SkillTree\UI_SkillPoint.cs" />
     <Compile Include="Assets\Script\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyStates\Enemy_IdleState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
@@ -184,6 +183,7 @@
     <Compile Include="Assets\Script\Data\BuffEffectData.cs" />
     <Compile Include="Assets\Script\InteractiveObjects\Object_Blacksmith.cs" />
     <Compile Include="Assets\Script\Data\Item Data\EquipmentDataSO.cs" />
+    <Compile Include="Assets\Script\UI\InGameUI\UI_QuickItemInSlot.cs" />
     <Compile Include="Assets\Script\Player\Player_Combat.cs" />
     <Compile Include="Assets\Script\UI\CharaterUI\UI_Inventory.cs" />
     <Compile Include="Assets\Script\Data\AttackData.cs" />
@@ -198,10 +198,12 @@
     <Compile Include="Assets\Script\Stat\Stat_DefenseGroup.cs" />
     <Compile Include="Assets\Script\Player\Player_Stats.cs" />
     <Compile Include="Assets\Script\Player\PlayerStates\Player_WallJumpState.cs" />
+    <Compile Include="Assets\Script\UI\UI_Options.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy_AnimationTriggers.cs" />
     <Compile Include="Assets\Script\SkillSystem\SkillObject\SkillObject_SwordBounce.cs" />
     <Compile Include="Assets\Script\StateMachine\EnemyState.cs" />
     <Compile Include="Assets\Script\VFX\VFX_AutoController.cs" />
+    <Compile Include="Assets\Script\UI\InGameUI\UI_QuickItemInSlotOption.cs" />
     <Compile Include="Assets\Script\Data\Item Effect\ItemEffect_GrantSkillPoint.cs" />
     <Compile Include="Assets\Script\Player\Player_SkillManager.cs" />
   </ItemGroup>

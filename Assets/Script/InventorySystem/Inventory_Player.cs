@@ -1,19 +1,72 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
-    public int gold = 10000;
+    public event Action<int> OnQuickSlotUsed;
 
-    private Player player;
+    public int gold = 1000;
+
     public List<Inventory_EquipmentSlots> equipList;
     public Inventory_Storage storage { get; private set; }
+
+    [Header("Quick Item Slots")]
+    public Inventory_Item[] quickItems = new Inventory_Item[2];
 
     protected override void Awake()
     {
         base.Awake();
-        player = GetComponent<Player>();
         storage = FindFirstObjectByType<Inventory_Storage>();
+    }
+
+    public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSet)
+    {
+        if (slotNumber < 0 || slotNumber >= quickItems.Length)
+        {
+            Debug.LogError($"Invalid inventory quick slot: {slotNumber}");
+            return;
+        }
+        quickItems[slotNumber - 1] = itemToSet;
+        TriggerUpdateUI();
+    }
+
+    //public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSet)
+    //{
+    //    int index = slotNumber - 1;
+
+    //    if (index < 0 || index >= quickItems.Length)
+    //    {
+    //        Debug.LogError($"Invalid inventory quick slot: {slotNumber}");
+    //        return;
+    //    }
+
+    //    quickItems[index] = itemToSet;
+    //    OnQuickSlotUsed?.Invoke(index, itemToSet);
+    //}
+
+    public void TryUseQuickItemInSlot(int passedSlotNumber)
+    {
+        int slotNumber = passedSlotNumber - 1;
+
+        if (slotNumber < 0 || slotNumber >= quickItems.Length)
+        {
+            Debug.LogError($"Invalid inventory quick slot: {passedSlotNumber}");
+            return;
+        }
+
+        var itemToUse = quickItems[slotNumber];
+
+        if (itemToUse == null)
+            return;
+
+        TryUseItem(itemToUse);
+
+        if (FindItem(itemToUse) == null)
+            quickItems[slotNumber] = FindSameItem(itemToUse);
+
+        TriggerUpdateUI();
+        OnQuickSlotUsed?.Invoke(slotNumber);
     }
 
     public void TryEquipItem(Inventory_Item item)

@@ -167,9 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDropPrefab: {fileID: 4996817606096856501, guid: 4ff2cab8fdaa30948a01449c5ee2e8a4, type: 3}
   dropData:
-  - {fileID: 11400000, guid: c2bef43d4cdc6424c9f24a2275e53531, type: 2}
-  - {fileID: 11400000, guid: 6191075410fd387438c60cdb0c01097c, type: 2}
-  - {fileID: 11400000, guid: d42d793de6c57854eb8265aea9832f36, type: 2}
+  - {fileID: 11400000, guid: 4c2d65c55b213d643867cc9821a50bef, type: 2}
+  - {fileID: 11400000, guid: c960e23243754cd4cbbc15fbd0ce7cdb, type: 2}
   maxRarityAmount: 1200
   maxItemsToDrop: 4
 --- !u!1 &5363074109642400208

@@ -7,11 +7,13 @@ public class Inventory_Base : MonoBehaviour
 {
     public event Action OnInventoryChange;
 
+    protected Player player;
     public int maxInventorySize = 10;
     public List<Inventory_Item> itemList = new List<Inventory_Item>();
 
     protected virtual void Awake()
     {
+        player = GetComponent<Player>();
     }
 
     public void TryUseItem(Inventory_Item itemToUse)
@@ -19,6 +21,9 @@ public class Inventory_Base : MonoBehaviour
         Inventory_Item consumable = itemList.Find(item => item == itemToUse);
 
         if (consumable == null)
+            return;
+
+        if (consumable.itemEffect.CanBeUsed(player) == false)
             return;
 
         consumable.itemEffect.ExecuteEffect();
@@ -39,15 +44,7 @@ public class Inventory_Base : MonoBehaviour
 
     public Inventory_Item FindStackable(Inventory_Item itemToAdd)
     {
-        List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
-
-        foreach (var stackableItem in stackableItems)
-        {
-            if (stackableItem.CanAddStack())
-                return stackableItem;
-        }
-
-        return null;
+        return itemList.Find(item => item.itemData == itemToAdd.itemData && item.CanAddStack());
     }
 
     public void AddItem(Inventory_Item itemToAdd)
@@ -85,6 +82,11 @@ public class Inventory_Base : MonoBehaviour
     public Inventory_Item FindItem(Inventory_Item itemToFind)
     {
         return itemList.Find(item => item == itemToFind);
+    }
+
+    public Inventory_Item FindSameItem(Inventory_Item itemToFind)
+    {
+        return itemList.Find(item => item.itemData == itemToFind.itemData);
     }
 
     public void TriggerUpdateUI() => OnInventoryChange?.Invoke();

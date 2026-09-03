@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 7906948559538561535}
   - component: {fileID: 5222754211921166485}
   m_Layer: 8
-  m_Name: Enemy_Skeleton
+  m_Name: Enemy_Skeleton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 0d58f3d70f646b64d84dd4c5b6c18600, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 1e+10
       modifiers: []
     healthRegen:
       baseValue: 1
@@ -808,7 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6250346441168902585}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TargetCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8302958799772862737}
   - component: {fileID: 3771728509632047631}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AttackAlert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
