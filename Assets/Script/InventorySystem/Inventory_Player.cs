@@ -22,7 +22,7 @@ public class Inventory_Player : Inventory_Base
 
     public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSet)
     {
-        if (slotNumber < 0 || slotNumber >= quickItems.Length)
+        if (slotNumber < 0 || slotNumber > quickItems.Length)
         {
             Debug.LogError($"Invalid inventory quick slot: {slotNumber}");
             return;

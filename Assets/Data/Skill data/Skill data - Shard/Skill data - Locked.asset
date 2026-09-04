@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 679c9a34dc4694f4f9dfc166ffccb92a, type: 3}
-  m_Name: Skill data - Echo Convergence
+  m_Name: Skill data - Locked
   m_EditorClassIdentifier: 
-  displayName: Echo Convergence
-  description: "Details:\nEach enemy trapped in time warp will be targeted by Time
-    Echo.\r\n*Time Echo's effect is determined by the Time Echo skill tree.*\r"
-  icon: {fileID: -572911345, guid: ac36885335c44c946838bc11ea05a7a4, type: 3}
-  cost: 15
+  displayName: Locked
+  description: 'Locked '
+  icon: {fileID: 21300000, guid: 2ac43e9003e488943b1c7b5899142adf, type: 2}
+  cost: 0
   unlockedByDefault: 0
-  skillType: 4
+  skillType: 2
   upgradeData:
-    upgradeType: 23
-    cooldown: 90
+    upgradeType: 0
+    cooldown: 0
     damageScaleData:
       physical: 1
       elemental: 1

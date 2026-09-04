@@ -15,10 +15,15 @@ public class Player_VFX : Entity_VFX
         Instantiate(effect, target.position, Quaternion.identity);
     }
 
-    public void DoImageEchoEffect(float duration)
+    public void DoImageEchoEffect(float duration, bool canOverrideEffect = false)
     {
         if (imageEchoCo != null)
-            StopCoroutine(imageEchoCo);
+        {
+            if (canOverrideEffect)
+                StopCoroutine(imageEchoCo);
+            else
+                return;
+        }
 
         imageEchoCo = StartCoroutine(ImageEchoEffectCo(duration));
     }

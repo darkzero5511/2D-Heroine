@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 [Serializable]
 public class Stat_OffenseGroup

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class SkillObject_Shard : SkillObject_Base
 {

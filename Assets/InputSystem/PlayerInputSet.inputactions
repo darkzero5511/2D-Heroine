@@ -307,27 +307,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SkillTreeUI",
-                    "type": "Button",
-                    "id": "0374570b-4e76-473a-ae6d-bc8c1dab8811",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "InventoryUI",
-                    "type": "Button",
-                    "id": "bf404778-672e-409a-8fe0-b0f8d991b221",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "AlternativeInput",
                     "type": "Button",
                     "id": "496cdd98-e8ad-42d7-8bc4-0a366b91da8b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CharacterUI",
+                    "type": "Button",
+                    "id": "1c50ced5-d88f-4e0c-b16d-20f86351f830",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -348,34 +339,23 @@
                 },
                 {
                     "name": "",
-                    "id": "a6d2d1e3-6012-4398-9f6a-a3388ec0232d",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard & Mouse",
-                    "action": "SkillTreeUI",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "87ca35c4-e290-4dbf-b67a-5a6e0601ab9a",
-                    "path": "<Keyboard>/backquote",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "InventoryUI",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ba94268f-92cc-4e52-aced-cd4afef20b20",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "AlternativeInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5484f3a-1ed1-4539-ae6e-aac0e038ef3f",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "CharacterUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

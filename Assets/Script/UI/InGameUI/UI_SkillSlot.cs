@@ -14,6 +14,8 @@ public class UI_SkillSlot : MonoBehaviour //IPointerEnterHandler, IPointerExitHa
     private Skill_DataSO skillData;
 
     public SkillType skillType;
+
+    [SerializeField] private Sprite defaultSkillIcon;
     [SerializeField] private Image cooldownImage;
     [SerializeField] private string inputKeyName;
     [SerializeField] private TextMeshProUGUI inputKeyText;
@@ -66,6 +68,17 @@ public class UI_SkillSlot : MonoBehaviour //IPointerEnterHandler, IPointerExitHa
         }
 
         cooldownImage.fillAmount = 0;
+    }
+
+    public void ClearSkillSlot()
+    {
+        skillData = null;
+
+        inputKeyText.text = "Locked";
+
+        skillIcon.sprite = defaultSkillIcon;
+
+        ResetCooldown();
     }
 
     //public void OnPointerExit(PointerEventData eventData)

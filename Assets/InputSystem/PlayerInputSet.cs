@@ -393,27 +393,18 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SkillTreeUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""0374570b-4e76-473a-ae6d-bc8c1dab8811"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""InventoryUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""bf404778-672e-409a-8fe0-b0f8d991b221"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""AlternativeInput"",
                     ""type"": ""Button"",
                     ""id"": ""496cdd98-e8ad-42d7-8bc4-0a366b91da8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c50ced5-d88f-4e0c-b16d-20f86351f830"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -434,34 +425,23 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a6d2d1e3-6012-4398-9f6a-a3388ec0232d"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard & Mouse"",
-                    ""action"": ""SkillTreeUI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""87ca35c4-e290-4dbf-b67a-5a6e0601ab9a"",
-                    ""path"": ""<Keyboard>/backquote"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""InventoryUI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ba94268f-92cc-4e52-aced-cd4afef20b20"",
                     ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard & Mouse"",
                     ""action"": ""AlternativeInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5484f3a-1ed1-4539-ae6e-aac0e038ef3f"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""CharacterUI"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -504,9 +484,8 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OptionsUI = m_UI.FindAction("OptionsUI", throwIfNotFound: true);
-        m_UI_SkillTreeUI = m_UI.FindAction("SkillTreeUI", throwIfNotFound: true);
-        m_UI_InventoryUI = m_UI.FindAction("InventoryUI", throwIfNotFound: true);
         m_UI_AlternativeInput = m_UI.FindAction("AlternativeInput", throwIfNotFound: true);
+        m_UI_CharacterUI = m_UI.FindAction("CharacterUI", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -806,9 +785,8 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_OptionsUI;
-    private readonly InputAction m_UI_SkillTreeUI;
-    private readonly InputAction m_UI_InventoryUI;
     private readonly InputAction m_UI_AlternativeInput;
+    private readonly InputAction m_UI_CharacterUI;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -825,17 +803,13 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @OptionsUI => m_Wrapper.m_UI_OptionsUI;
         /// <summary>
-        /// Provides access to the underlying input action "UI/SkillTreeUI".
-        /// </summary>
-        public InputAction @SkillTreeUI => m_Wrapper.m_UI_SkillTreeUI;
-        /// <summary>
-        /// Provides access to the underlying input action "UI/InventoryUI".
-        /// </summary>
-        public InputAction @InventoryUI => m_Wrapper.m_UI_InventoryUI;
-        /// <summary>
         /// Provides access to the underlying input action "UI/AlternativeInput".
         /// </summary>
         public InputAction @AlternativeInput => m_Wrapper.m_UI_AlternativeInput;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CharacterUI".
+        /// </summary>
+        public InputAction @CharacterUI => m_Wrapper.m_UI_CharacterUI;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -865,15 +839,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @OptionsUI.started += instance.OnOptionsUI;
             @OptionsUI.performed += instance.OnOptionsUI;
             @OptionsUI.canceled += instance.OnOptionsUI;
-            @SkillTreeUI.started += instance.OnSkillTreeUI;
-            @SkillTreeUI.performed += instance.OnSkillTreeUI;
-            @SkillTreeUI.canceled += instance.OnSkillTreeUI;
-            @InventoryUI.started += instance.OnInventoryUI;
-            @InventoryUI.performed += instance.OnInventoryUI;
-            @InventoryUI.canceled += instance.OnInventoryUI;
             @AlternativeInput.started += instance.OnAlternativeInput;
             @AlternativeInput.performed += instance.OnAlternativeInput;
             @AlternativeInput.canceled += instance.OnAlternativeInput;
+            @CharacterUI.started += instance.OnCharacterUI;
+            @CharacterUI.performed += instance.OnCharacterUI;
+            @CharacterUI.canceled += instance.OnCharacterUI;
         }
 
         /// <summary>
@@ -888,15 +859,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @OptionsUI.started -= instance.OnOptionsUI;
             @OptionsUI.performed -= instance.OnOptionsUI;
             @OptionsUI.canceled -= instance.OnOptionsUI;
-            @SkillTreeUI.started -= instance.OnSkillTreeUI;
-            @SkillTreeUI.performed -= instance.OnSkillTreeUI;
-            @SkillTreeUI.canceled -= instance.OnSkillTreeUI;
-            @InventoryUI.started -= instance.OnInventoryUI;
-            @InventoryUI.performed -= instance.OnInventoryUI;
-            @InventoryUI.canceled -= instance.OnInventoryUI;
             @AlternativeInput.started -= instance.OnAlternativeInput;
             @AlternativeInput.performed -= instance.OnAlternativeInput;
             @AlternativeInput.canceled -= instance.OnAlternativeInput;
+            @CharacterUI.started -= instance.OnCharacterUI;
+            @CharacterUI.performed -= instance.OnCharacterUI;
+            @CharacterUI.canceled -= instance.OnCharacterUI;
         }
 
         /// <summary>
@@ -1050,25 +1018,18 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOptionsUI(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "SkillTreeUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSkillTreeUI(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "InventoryUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInventoryUI(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "AlternativeInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAlternativeInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CharacterUI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCharacterUI(InputAction.CallbackContext context);
     }
 }

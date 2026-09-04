@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UI : MonoBehaviour
 {
@@ -51,8 +51,7 @@ public class UI : MonoBehaviour
     {
         input = inputSet;
 
-        input.UI.SkillTreeUI.performed += ctx => ToggleSkillTreeUI();
-        input.UI.InventoryUI.performed += ctx => ToggleInventoryUI();
+        input.UI.CharacterUI.performed += ctx => ToggleInventoryUI();
 
         input.UI.AlternativeInput.performed += ctx => alternativeInput = true;
         input.UI.AlternativeInput.canceled += ctx => alternativeInput = false;

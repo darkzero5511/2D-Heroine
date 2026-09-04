@@ -36,6 +36,19 @@ public class Skill_Base : MonoBehaviour
         ResetCooldown();
     }
 
+    public void ResetSkillUpgrade(Skill_DataSO skillData)
+    {
+        UpgradeData upgrade = skillData.upgradeData;
+
+        upgradeType = SkillUpgradeType.None;
+        cooldown = 0;
+        damageScaleData = null;
+
+        player.ui.inGameUI.GetSkillSlot(skillType).ClearSkillSlot();
+
+        ResetCooldown();
+    }
+
     public virtual bool CanUseSkill()
     {
         if (upgradeType == SkillUpgradeType.None)
